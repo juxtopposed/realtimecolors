@@ -271,6 +271,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 6em;
+    gap: 3em;
 }
 
 .color-effect {
@@ -290,6 +291,7 @@ nav {
     display: flex;
     flex-direction: row;
     gap: 1em;
+    flex-wrap: wrap;
 }
 
 .hero-scroll {
@@ -300,7 +302,9 @@ nav {
     font-size: 16px;
 }
 
-
+.mondrian {
+    max-width: 100%;
+}
 
 
 /* part 1 */
@@ -670,3 +674,74 @@ nav {
     50% {transform: translate(0, -10px) scale(1.02); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
 }
 
+
+
+@media screen and (max-width: 1200px) {
+    body {
+        margin: 0 5%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .hero {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .part1-cards {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .part1-card {
+        width: 100%;
+    }
+
+    .part2 {
+        flex-direction: column;
+
+    }
+
+    .part3-cards {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .part3-card {
+        width: 100%;
+    }
+
+    .toolbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .sub {
+        font-size: 14px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

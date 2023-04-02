@@ -32,7 +32,6 @@ accentColor.addEventListener('input', () => {
 
 
 
-// Export button click event listener
 const exportButton = document.getElementById('export');
 exportButton.addEventListener('click', () => {
   // Create array of color values
@@ -138,7 +137,7 @@ primbuttnColor.addEventListener('change', debounce(() => {
       primbuttnColorClass.style.color = 'var(--secondary)';
     }
   });
-}, 200)); // set the debounce wait time to 200 milliseconds
+}, 200));
 
 
 secbuttnColor.addEventListener('change', debounce(() => {
@@ -157,7 +156,7 @@ secbuttnColor.addEventListener('change', debounce(() => {
       secbuttnColorClass.style.color = 'var(--secondary)';
     }
   });
-}, 200)); // set the debounce wait time to 200 milliseconds
+}, 200));
 
 
 accentColor.addEventListener('change', debounce(() => {
@@ -176,8 +175,26 @@ accentColor.addEventListener('change', debounce(() => {
       accentColorClass.style.color = 'var(--secondary)';
     }
   });
-}, 200)); // set the debounce wait time to 200 milliseconds
+}, 200));
 
+
+secbuttnColor.addEventListener('change', debounce(() => {
+  const secbuttnColorValue = secbuttnColor.value;
+
+  faqQuestions.forEach(faqQuestion => {
+    const textColor = getComputedStyle(faqQuestion).color;
+    const contrastRatio = getContrastRatio(secbuttnColorValue, textColor);
+
+    if (contrastRatio < 4.5) {
+      faqQuestion.style.color = 'var(--primary)';
+      secbuttnColorClass.style.color = 'var(--primary)';
+    }
+    else {
+      faqQuestion.style.color = 'var(--secondary)';
+      secbuttnColorClass.style.color = 'var(--secondary)';
+    }
+  });
+}, 200));
 
 
 function getContrastRatio(background, foreground) {
