@@ -6,4 +6,3 @@ Color palettes are too generic and often make it harder for designers or clients
 
 ## The Solution
 A tool that uses simple UI elements to visualize color palettes on a real website. The websites works instantaneously and offers users the ability to export their color palettes to use them anywhere. 
-
