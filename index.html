@@ -7,11 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Cache-control" content="max-age=31536000">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/styles.css">
         <link rel="preconnect" href="https://rsms.me/">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     </head>
 
@@ -25,9 +24,9 @@
 
             <div class="menu">
                 <a href="#" class="menu-item">About</a>
-                <a href="#" class="menu-item">Blog</a>
+                <!-- <a href="#" class="menu-item">Blog</a> -->
                 <a href="#" class="menu-item">Contact</a>
-                <a href="#" class="primary-button">Subscribe</a>
+                <a href="#sub" class="primary-button">Subscribe</a>
             </div>
         </nav>
 
@@ -36,8 +35,8 @@
                 <h1>Visualize Your <span class="color-effect">Colors</span><br>On a Real Website</h1>
                 <p class="subtitle">Choosing a color palette for your website?<br>Use the Toolbar below to realize your choices.</p>
                 <div class="hero-cta">
-                    <a href="#" class="primary-button">Get Started</a>
-                    <a href="#" class="secondary-button">How does it work?</a>
+                    <a href="#toolbar" onclick="highlightToolbar()" class="primary-button">Get Started</a>
+                    <a href="#how" class="secondary-button">How does it work?</a>
                 </div>
                 <div class="hero-scroll">
                     <svg width="23" height="33" viewBox="0 0 23 33" fill="none">
@@ -74,79 +73,312 @@
             </div>
         </div>
 
-        <div class="part1">
-            <h2>Why Real-time Colors?</h2>
-            <div class="part1-cards">
-                <div class="part1-card">
-                    <!-- <svg width="117" height="117" viewBox="0 0 117 117" fill="none">
-                        <circle cx="58.5" cy="58.5" r="54.8721" fill="white" stroke="transparent" stroke-width="7.25581"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M89.4669 8.85912L58.0465 63.9419L2.44746 41.7023C9.66585 17.5806 32.0298 0 58.5 0C69.872 0 80.4861 3.24483 89.4669 8.85912Z" fill="var(--accent)"/>
-                        <path d="M81.5 22.5L57.1395 64.8489L32 53.5" stroke="var(--primary)" stroke-width="7.25581"/>
-                        <circle cx="58.5" cy="58.5" r="54.8721" stroke="transparent" stroke-width="7.25581"/>
-                    </svg> -->
-                    <p class="subtitle highlight">Saves time</p>
-                    <p>No need to ask a designer to implement different variations.</p>
-                    <!-- <div class="part1-card-bg"></div> -->
+        <main>
+            <div class="part1" id="why">
+                <h2>Why Real-time Colors?</h2>
+                <div class="part1-cards">
+                    <div class="part1-card">
+                        <svg width="117" height="117" viewBox="0 0 117 117" fill="none" style="z-index: 5;" class="part1-card-img">
+                            <circle cx="58.5" cy="58.5" r="58.5" fill="var(--secondary)"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M89.4669 8.85912L58.0465 63.9419L2.44746 41.7023C9.66585 17.5806 32.0298 0 58.5 0C69.872 0 80.4861 3.24483 89.4669 8.85912Z" fill="var(--primbuttn)"/>
+                            <path d="M81.5 22.5L57.1395 64.8489L32 53.5" stroke="var(--primary)" stroke-width="7.25581"/>
+                        </svg>
+                        <p class="subtitle highlight">Saves time</p>
+                        <p>No need to spend hours implementing different variations of colors. Decide right away!</p>
+                        <div class="part1-card-bg"></div>
+                    </div>
+    
+                    <div class="part1-card">
+                        <svg width="112" height="114" viewBox="0 0 112 114" fill="none" style="z-index: 5;" class="part1-card-img">
+                            <rect width="58" height="58" fill="var(--secondary)"/>
+                            <rect x="69" y="25" width="33" height="33" fill="var(--primbuttn)"/>
+                            <rect x="69" y="71" width="43" height="43" fill="var(--primary)" fill-opacity="0.1"/>
+                            <rect x="20" y="70" width="38" height="39" fill="var(--primary)"/>
+                        </svg>
+                        <p class="subtitle highlight">It’s Realistic</p>
+                        <p>Color Palettes make it hard to pick. This tool distributes the colors on a real website.</p>
+                        <div class="part1-card-bg"></div>
+                    </div>
+    
+                    <div class="part1-card">
+                        <svg width="179" height="89" viewBox="0 0 179 89" fill="none" style="z-index: 5;" class="part1-card-img">
+                            <rect y="26" width="154" height="63" fill="var(--primbuttn)"/>
+                            <path d="M142 15.5V0" stroke="var(--primary)" stroke-width="8"/>
+                            <path d="M163 34L178.5 34" stroke="var(--primary)" stroke-width="8"/>
+                            <path d="M158 19.5L170.5 7" stroke="var(--primary)" stroke-width="8"/>
+                            <path d="M63 54L74.5 65L95.5 44" stroke="var(--primary)" stroke-width="8"/>
+                        </svg>
+                        <p class="subtitle highlight">It’s simple</p>
+                        <p>Push a few buttons, and there you have it! Your very own branding colors, ready to export.</p>
+                        <div class="part1-card-bg"></div>
+                    </div>
                 </div>
-
-                <div class="part1-card">
-                    <!-- <svg width="112" height="114" viewBox="0 0 112 114" fill="none">
-                        <rect x="4" y="4" width="50" height="50" fill="var(--secondary)" stroke="var(--primary)" stroke-width="8"/>
-                        <rect x="73" y="29" width="25" height="25" fill="var(--accent)" stroke="var(--primary)" stroke-width="8"/>
-                        <rect x="73" y="75" width="35" height="35" fill="var(--primary)" fill-opacity="0.1" stroke="var(--primary)" stroke-width="8"/>
-                        <rect x="24" y="74" width="30" height="31" fill="var(--primary)" stroke="var(--primary)" stroke-width="8"/>
-                        </svg> -->
-                    <p class="subtitle highlight">It’s Realistic</p>
-                    <p>Color Palettes make it hard to pick. This tool puts it on a real website.</p>
-                    <!-- <div class="part1-card-bg"></div> -->
+            </div>
+    
+            <div class="part2" id="how">
+                <div class="part2-left">
+                    <h2>How Does it Work?</h2>
+                    <p>You’ll get your finalized color palette in 4 simple steps.</p>
                 </div>
-
-                <div class="part1-card">
-                    <!-- <svg width="179" height="89" viewBox="0 0 179 89" fill="none">
-                        <rect x="4" y="30" width="146" height="55" fill="var(--accent)" stroke="var(--primary)" stroke-width="8"/>
-                        <path d="M142 15.5V0" stroke="var(--primary)" stroke-width="8"/>
-                        <path d="M163 34L178.5 34" stroke="var(--primary)" stroke-width="8"/>
-                        <path d="M158 19.5L170.5 7" stroke="var(--primary)" stroke-width="8"/>
-                        <path d="M63 54L74.5 65L95.5 44" stroke="var(--primary)" stroke-width="8"/>
-                        </svg> -->
-                    <p class="subtitle highlight">It’s simple</p>
-                    <p>Push a few buttons, and there you have it! Your very own branding colors, ready to export.</p>
-                    <!-- <div class="part1-card-bg"></div> -->
+                <div class="part2-right">
+                    <p class="one step">Start with two neutral colors for the text and the background.</p>
+                    <p class="two step">Choose your buttons. Primary is for main CTAs, and Secondary is for less important buttons and info cards.</p>
+                    <p class="three step">Accent color is an additional color. It appears in images, highlights, hyperlinks, boxes, cards, etc. It can be the same as your third color (primary button) or another color.</p>
+                    <p class="four step">Happy with the results? Press on “Export” and receive a .zip file with your color palette in .png and your color codes in .txt files.</p>
                 </div>
             </div>
-        </div>
+    
+            <div class="part3" id="sub">
+                <div class="part3-heading">
+                    <h2>Plans & Pricing</h2>
+                    <p>The tool is 100% free! This is just a generic section.</p>
+                </div>
+                
+                <div class="part3-cards">
+                    <div class="part3-card">
+                        <div class="part3-card-text">
+                            <div class="promo" style="visibility: hidden;">
+                                <p class="sub promo-text">None</p>
+                            </div>
+                            <h2>Basic</h2>
+                            <p>Free</p>
+                            <div class="part3-list">
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Choose any color</p>
+                                </div>
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Export all you want</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#toolbar" onclick="highlightToolbar()" class="secondary-button">Get Started</a>
+                        <div class="part3-bg"></div>
+                    </div>
+    
+                    <div class="part3-card">
+                        <div class="part3-card-text">
+                            <div class="promo">
+                                <svg width="27" height="28" viewBox="0 0 27 28" fill="none">
+                                    <path d="M13.5412 0.494507L14.6922 8.99311L19.4165 1.83551L16.7661 9.99186L24.1282 5.59291L18.2013 11.7915L26.7429 11.0225L18.7135 14.0357L26.7429 17.0489L18.2013 16.2799L24.1282 22.4785L16.7661 18.0796L19.4165 26.2359L14.6922 19.0783L13.5412 27.5769L12.3903 19.0783L7.6659 26.2359L10.3163 18.0796L2.95427 22.4785L8.88114 16.2799L0.339506 17.0489L8.36893 14.0357L0.339506 11.0225L8.88114 11.7915L2.95427 5.59291L10.3163 9.99186L7.6659 1.83551L12.3903 8.99311L13.5412 0.494507Z" fill="var(--primbuttn)"/>
+                                </svg>
+                                <p class="sub promo-text">Most Popular</p>
+                            </div>
+                            <h2>Pro</h2>
+                            <p>$0.00 / month</p>
+                            <div class="part3-list">
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Choose any color</p>
+                                </div>
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Export all you want</p>
+                                </div>
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Get a big thank you for checking this site out</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#toolbar" onclick="highlightToolbar()" class="primary-button">Get Started</a>
+                        <div class="part3-bg best"></div>
+                    </div>
+    
+                    <div class="part3-card">
+                        <div class="part3-card-text">
+                            <div class="promo" style="visibility: hidden;">
+                                <p class="sub promo-text">None</p>
+                            </div>
+                            <h2>Enterprise</h2>
+                            <p>$0.00 / month</p>
+                            <div class="part3-list">
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Choose any color</p>
+                                </div>
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Export all you want</p>
+                                </div>
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Get a big thank you for checking this site out</p>
+                                </div>
+                                <div class="list">
+                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
+                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--primary)" stroke-width="5.66154"/>
+                                    </svg>
+                                    <p class="list-item">Super duper exclusive chat via email</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="mailto:juxtopposed.me@gmail.com" class="secondary-button">Contact</a>
+                        <div class="part3-bg"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="part4" id="faq">
+                <div class="part4-heading">
+                    <h2>FAQ</h2>
+                    <p>Answers to some questions you might have.</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>How many colors should I choose?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>Normally, 3 colors are absolutely fine (meaning background, text, and one accent color).<br>However, if you want, you can have more. Usually, we don’t add more than 6 colors across a platform. It would just make things too... complicated. Plus, it makes it hard to keep the colors consistent throughout the design.</p>
+                        </div>
+                    </div> 
 
-        <div class="toolbar">
-            <div class="option prim">
-                <input type="color" id="prim" name="prim" class="colorpicker" value="#000000">
-                <label for="prim">Text</label>
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>Why does the text color change sometimes?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>The tool is supposed to show you a realistic image of your colors of choice. However, sometimes, there might be too little contrast between the background color and the text color of some elements. In that case, the text color swaps accordingly to prevent the text from being unreadable. This is activated when the AA and AAA color contrast check doesn’t pass. Keep in mind: The text color will only swap between the background and text colors you’ve chosen to try and pass the contrast check. It won’t select any color outside of your choices.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>What will I receive after exporting my colors?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>After exporting, you will receive a .zip file. This file is compressed, so you will have to extract it.<br>After extracting it, you will see a .png file and a .txt file. The .png image shows your color palette in squares next to each other. The .txt file includes the color codes in HEX and RGB. You can send these files to designers or developers, or just use them in your project.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>Why do some colors have some transparency?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>This website allows you to choose only opaque colors. However, to make the design more appealing, I’ve make some parts more transparent by adding a bit of opacity to them. Of course, you can use these colors however you want in your own projects.</p>
+                        </div>
+                    </div> 
+
+                    <!-- <div class="faq">
+                        <div class="faq-q">
+                            <h3>How can I learn more about this tool?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>You can email me any questions you might have. Find out how to contact me from HERE.<br>You can also read more about the color theory and other cool things on the blog (coming soon)!</p>
+                        </div>
+                    </div>  -->
+                </div>
             </div>
 
-            <div class="option sec">
-                <input type="color" id="sec" name="sec" class="colorpicker" value="#ffffff">
-                <label for="sec">Background</label>
+            <div class="part5" id="end">
+                <h1>Your <span class="color-effect">Journey</span> Shouldn't End Here.</h1>
+                <p class="subtitle">Follow me on social media to stay tuned on more projects.</p>
+                <a href="https://twitter.com/juxtopposed" target="_blank" class="primary-button">Stay Tuned</a>
             </div>
 
-            <div class="option primbuttn">
-                <input type="color" id="primbuttn" name="primbuttn" class="colorpicker" value="#4685FF">
-                <label for="primbuttn">Primary Button</label>
-            </div>
+            <div class="footer" id="footer">
+                <div class="logo">
+                    <img src="images/favicon.png" alt="logoface" class="logoface">
+                    <a href="#"><h2 class="sitename reversed">Real-time Colors</h2></a>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <p style="margin: 0;">Visualize your color choices.</p>
+                    </div>
 
-            <div class="option secbuttn">
-                <input type="color" id="secbuttn" name="secbuttn" class="colorpicker" value="#F2F2F2">
-                <label for="secbuttn">Secondary Button</label>
-            </div>
+                    <div class="footer-col">
+                        <a href="#" class="menu-item reversed">About</a>
+                        <!-- <a href="#" class="menu-item reversed">Blog</a> -->
+                        <a href="#" class="menu-item reversed">Contact</a>
+                    </div>
 
-            <div class="option accent">
-                <input type="color" id="accent" name="accent" class="colorpicker" value="#FFB084">
-                <label for="accent">Accent</label>
+                    <div class="footer-col">
+                        <a href="https://twitter.com/juxtopposed" class="menu-item reversed" target="_blank">Twitter</a>
+                        <a href="https://codepen.io/Juxtopposed" target="_blank" class="menu-item reversed">CodePen</a>
+                        <a href="https://www.youtube.com/@juxtopposed" target="_blank" class="menu-item reversed">YouTube</a>
+                        <a href="https://dribbble.com/nararjb" target="_blank" class="menu-item reversed">Dribbble</a>
+                        <a href="https://github.com/juxtopposed" target="_blank" class="menu-item reversed">GitHub</a>
+                    </div>
+                </div>
+                <p class="sub">Made with <3 by @Juxtopposed</p>
             </div>
+    
+            <div class="toolbar" id="toolbar">
+                <div class="option prim">
+                    <input type="color" id="prim" name="prim" class="colorpicker" value="#000000">
+                    <label for="prim">Text</label>
+                </div>
+    
+                <div class="option sec">
+                    <input type="color" id="sec" name="sec" class="colorpicker" value="#ffffff">
+                    <label for="sec">Background</label>
+                </div>
+    
+                <div class="option primbuttn">
+                    <input type="color" id="primbuttn" name="primbuttn" class="colorpicker" value="#4685FF">
+                    <label for="primbuttn">Primary Button</label>
+                </div>
+    
+                <div class="option secbuttn">
+                    <input type="color" id="secbuttn" name="secbuttn" class="colorpicker" value="#F2F2F2">
+                    <label for="secbuttn">Secondary Button</label>
+                </div>
+    
+                <div class="option accent">
+                    <input type="color" id="accent" name="accent" class="colorpicker" value="#FFB084">
+                    <label for="accent">Accent</label>
+                </div>
+    
+                <div class="option export">
+                    <div id="export">Export</div>
+                    <i class="fa fa-solid fa-download"></i>
+                </div>
+            </div>
+        </main>
 
-            <div class="option export">
-                <div id="export">Export</div>
-                <i class="fa fa-solid fa-download"></i>
-            </div>
-        </div>
 
 
 
