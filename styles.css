@@ -1,5 +1,7 @@
 :root {
     --static: rgba(225, 225, 225, 0.5);
+    --static3: #ffffff;
+    --static2: #0f0f0f;
     --primary: #000000;
     --secondary: #ffffff;
     --primbuttn: #4685FF;
@@ -111,7 +113,7 @@ p {
 }
 
 .option {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -119,6 +121,17 @@ p {
     cursor: pointer;
     gap: 0.5em;
     border-radius: 4px;
+    user-select: none;
+    position: relative;
+
+}
+
+.randomize {
+    padding: 1.1em 2em;
+}
+
+.export {
+    padding: 1.1em 2em;
 }
 
 .colorpicker {
@@ -131,6 +144,7 @@ p {
     border-radius: 4px;
     border: none;
     visibility: hidden;
+    position: absolute;
 }
 
 .colorpicker::-webkit-color-swatch {
@@ -144,45 +158,48 @@ p {
 }
 
 label {
-    position: absolute;
     cursor: pointer;
-    padding: 1em;
+    text-align: center;
+    padding: 1.3em 2em;
+    margin:0;
+
 }
+  
 
 .prim {
-    width: 100px;
     background-color: var(--secondary);
     color: var(--primary);
 }
 
 .sec {
-    width: 140px;
     background-color: var(--secondary);
     color: var(--primary);
 }
 
 .primbuttn {
-    width: 160px;
     background-color: var(--primbuttn);
     color: var(--secondary);
 }
 
 .secbuttn {
-    width: 190px;
     background-color: var(--secbuttn);
     color: var(--primary);
 }
 
 .accent {
-    width: 100px;
     background-color: var(--accent);
     color: var(--primary);
 }
 
 .export {
-    width: 120px;
+    color: var(--static2);
+    background-color: var(--static3);
 }
 
+.randomize {
+    color: var(--static2);
+    background-color: var(--static3);
+}
 
 
 /* nav */
@@ -671,7 +688,12 @@ nav {
 
 @keyframes highlight {
     0%, 100% {transform: translate(0, 0px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
-    50% {transform: translate(0, -10px) scale(1.02); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
+
+    25% {transform: translate(0, -15px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
+
+    50% {transform: translate(0, 0px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
+
+    75% {transform: translate(0, -7px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
 }
 
 
@@ -745,3 +767,43 @@ nav {
         justify-content: center;
     }
 }
+
+
+
+
+
+
+
+#tip-bar {
+    position: fixed;
+    top: 1em;
+    right: 0;
+    background-color: #f2f2f2;
+    color: var(--static2);
+    text-align: center;
+    padding: 0.5em 1em 0.5em 2em;
+    transition: transform 0.2s ease;
+    transform: translateX(40em);
+    z-index: 9999;
+    border-radius: 6px 0 0 6px;
+    border-bottom: 6px solid var(--primbuttn);
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1em;
+    justify-content: start;
+}
+  
+#tip-bar.show {
+    transform: translateX(0);
+}
+  
+#close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--static2);
+}
+  
