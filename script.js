@@ -340,13 +340,13 @@ const colorCombos = [
 
 function randomizeColors() {
   const randomCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
-  
+
   document.documentElement.style.setProperty('--primary', randomCombo[0]);
   document.documentElement.style.setProperty('--secondary', randomCombo[1]);
   document.documentElement.style.setProperty('--accent', randomCombo[2]);
   document.documentElement.style.setProperty('--primbuttn', randomCombo[3]);
   document.documentElement.style.setProperty('--secbuttn', randomCombo[4]);
-  
+
   const slug = `${randomCombo[0].substring(1)}-${randomCombo[1].substring(1)}-${randomCombo[2].substring(1)}-${randomCombo[3].substring(1)}-${randomCombo[4].substring(1)}`;
   window.history.pushState(null, null, `/${slug}`);
 }
@@ -358,17 +358,19 @@ function setColorsFromSlug(slug) {
   document.documentElement.style.setProperty('--accent', `#${colors[2]}`);
   document.documentElement.style.setProperty('--primbuttn', `#${colors[3]}`);
   document.documentElement.style.setProperty('--secbuttn', `#${colors[4]}`);
-  
-  window.history.pushState(null, null, `/${slug}`);
 }
 
-const currentSlug = window.location.pathname.substring(1);
-if (currentSlug) {
-  setColorsFromSlug(currentSlug);
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const currentSlug = window.location.pathname.substring(1);
+  if (currentSlug) {
+    setColorsFromSlug(currentSlug);
+  }
+});
 
 const randomizeBtn = document.getElementById('randomize');
 if (randomizeBtn) {
   randomizeBtn.addEventListener('click', randomizeColors);
 }
+
+
 
