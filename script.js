@@ -351,12 +351,6 @@ function randomizeColors() {
   window.history.pushState(null, null, `/${slug}`);
 }
 
-// Get the URL of the current page
-const url = window.location.href;
-
-// Extract the hex codes from the URL
-const hexCodes = url.split('/').pop().split('-');
-
 function setColorsFromSlug(slug) {
   const colors = slug.split('-');
   document.documentElement.style.setProperty('--primary', `#${colors[0]}`);
@@ -364,12 +358,17 @@ function setColorsFromSlug(slug) {
   document.documentElement.style.setProperty('--accent', `#${colors[2]}`);
   document.documentElement.style.setProperty('--primbuttn', `#${colors[3]}`);
   document.documentElement.style.setProperty('--secbuttn', `#${colors[4]}`);
+  
+  window.history.pushState(null, null, `/${slug}`);
 }
 
 const currentSlug = window.location.pathname.substring(1);
 if (currentSlug) {
   setColorsFromSlug(currentSlug);
-} else {
-  randomizeColors();
+}
+
+const randomizeBtn = document.getElementById('randomize');
+if (randomizeBtn) {
+  randomizeBtn.addEventListener('click', randomizeColors);
 }
 
