@@ -166,7 +166,7 @@ accentColor.addEventListener('change', debounce(() => {
     const textColor = getComputedStyle(partTwo).color;
     const contrastRatio = getContrastRatio(accentColorValue, textColor);
 
-    if (contrastRatio < 2) {
+    if (contrastRatio < 4.5) {
       partTwo.style.color = 'var(--primary)';
       accentColorClass.style.color = 'var(--primary)';
     }
@@ -322,3 +322,54 @@ function highlightToolbar() {
     toolbar.classList.remove("highlighted");
   }, 1000); // Change the delay (in milliseconds) as needed
 }
+
+
+
+
+
+
+
+const colorCombos = [
+  ['#FF4136', '#2ECC40', '#0074D9', '#FFDC00', '#B10DC9'],
+  ['#FF851B', '#FF4136', '#2ECC40', '#0074D9', '#B10DC9'],
+  ['#FFDC00', '#FF851B', '#FF4136', '#2ECC40', '#B10DC9'],
+  ['#2ECC40', '#0074D9', '#FF851B', '#FF4136', '#B10DC9'],
+  ['#0074D9', '#FF851B', '#FFDC00', '#FF4136', '#B10DC9'],
+  ['#B10DC9', '#FF851B', '#FFDC00', '#FF4136', '#2ECC40']
+];
+
+function randomizeColors() {
+  const randomCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
+  
+  document.documentElement.style.setProperty('--primary', randomCombo[0]);
+  document.documentElement.style.setProperty('--secondary', randomCombo[1]);
+  document.documentElement.style.setProperty('--accent', randomCombo[2]);
+  document.documentElement.style.setProperty('--primbuttn', randomCombo[3]);
+  document.documentElement.style.setProperty('--secbuttn', randomCombo[4]);
+  
+  const slug = `${randomCombo[0].substring(1)}-${randomCombo[1].substring(1)}-${randomCombo[2].substring(1)}-${randomCombo[3].substring(1)}-${randomCombo[4].substring(1)}`;
+  window.history.pushState(null, null, `/${slug}`);
+}
+
+// Get the URL of the current page
+const url = window.location.href;
+
+// Extract the hex codes from the URL
+const hexCodes = url.split('/').pop().split('-');
+
+function setColorsFromSlug(slug) {
+  const colors = slug.split('-');
+  document.documentElement.style.setProperty('--primary', `#${colors[0]}`);
+  document.documentElement.style.setProperty('--secondary', `#${colors[1]}`);
+  document.documentElement.style.setProperty('--accent', `#${colors[2]}`);
+  document.documentElement.style.setProperty('--primbuttn', `#${colors[3]}`);
+  document.documentElement.style.setProperty('--secbuttn', `#${colors[4]}`);
+}
+
+const currentSlug = window.location.pathname.substring(1);
+if (currentSlug) {
+  setColorsFromSlug(currentSlug);
+} else {
+  randomizeColors();
+}
+
