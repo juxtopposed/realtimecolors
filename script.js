@@ -1,8 +1,38 @@
+
 const primaryColor = document.getElementById('prim');
 const secondaryColor = document.getElementById('sec');
 const primbuttnColor = document.getElementById('primbuttn');
 const secbuttnColor = document.getElementById('secbuttn');
 const accentColor = document.getElementById('accent');
+// const randomizeButton = document.getElementById('randomize');
+
+// // Array of color arrays
+// const colorArrays = [
+//   ['#ff0000', '#00ff00', '#0000ff', '#ffffff', '#000000'], // set 1
+//   ['#00ffff', '#ff00ff', '#ffff00', '#ffa500', '#008000'], // set 2
+//   ['#800000', '#808000', '#008080', '#800080', '#ff00ff']  // set 3
+// ];
+
+// randomizeButton.addEventListener('click', () => {
+//   // Get a random color array from your array of color arrays
+//   const randomColorArray = colorArrays[Math.floor(Math.random() * colorArrays.length)];
+
+//   // Update the input values
+//   primaryColor.value = randomColorArray[0];
+//   secondaryColor.value = randomColorArray[1];
+//   primbuttnColor.value = randomColorArray[2];
+//   secbuttnColor.value = randomColorArray[3];
+//   accentColor.value = randomColorArray[4];
+
+//   // Update the CSS variables
+//   document.documentElement.style.setProperty('--primary', randomColorArray[0]);
+//   document.documentElement.style.setProperty('--secondary', randomColorArray[1]);
+//   document.documentElement.style.setProperty('--primbuttn', randomColorArray[2]);
+//   document.documentElement.style.setProperty('--secbuttn', randomColorArray[3]);
+//   document.documentElement.style.setProperty('--accent', randomColorArray[4]);
+// });
+
+
 
 
 primaryColor.addEventListener('input', () => {
@@ -326,51 +356,6 @@ function highlightToolbar() {
 
 
 
-
-
-
-const colorCombos = [
-  ['#FF4136', '#2ECC40', '#0074D9', '#FFDC00', '#B10DC9'],
-  ['#FF851B', '#FF4136', '#2ECC40', '#0074D9', '#B10DC9'],
-  ['#FFDC00', '#FF851B', '#FF4136', '#2ECC40', '#B10DC9'],
-  ['#2ECC40', '#0074D9', '#FF851B', '#FF4136', '#B10DC9'],
-  ['#0074D9', '#FF851B', '#FFDC00', '#FF4136', '#B10DC9'],
-  ['#B10DC9', '#FF851B', '#FFDC00', '#FF4136', '#2ECC40']
-];
-
-function randomizeColors() {
-  const randomCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
-
-  document.documentElement.style.setProperty('--primary', randomCombo[0]);
-  document.documentElement.style.setProperty('--secondary', randomCombo[1]);
-  document.documentElement.style.setProperty('--accent', randomCombo[2]);
-  document.documentElement.style.setProperty('--primbuttn', randomCombo[3]);
-  document.documentElement.style.setProperty('--secbuttn', randomCombo[4]);
-
-  const slug = `${randomCombo[0].substring(1)}-${randomCombo[1].substring(1)}-${randomCombo[2].substring(1)}-${randomCombo[3].substring(1)}-${randomCombo[4].substring(1)}`;
-  window.history.pushState(null, null, `/${slug}`);
-}
-
-function setColorsFromSlug(slug) {
-  const colors = slug.split('-');
-  document.documentElement.style.setProperty('--primary', `#${colors[0]}`);
-  document.documentElement.style.setProperty('--secondary', `#${colors[1]}`);
-  document.documentElement.style.setProperty('--accent', `#${colors[2]}`);
-  document.documentElement.style.setProperty('--primbuttn', `#${colors[3]}`);
-  document.documentElement.style.setProperty('--secbuttn', `#${colors[4]}`);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const currentSlug = window.location.pathname.substring(1);
-  if (currentSlug) {
-    setColorsFromSlug(currentSlug);
-  }
-});
-
-const randomizeBtn = document.getElementById('randomize');
-if (randomizeBtn) {
-  randomizeBtn.addEventListener('click', randomizeColors);
-}
 
 
 
