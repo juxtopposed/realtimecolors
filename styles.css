@@ -109,7 +109,7 @@ p {
     padding: 6px;
     border-radius: 6px;
     gap: 6px;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .option {
@@ -255,6 +255,7 @@ nav {
     transition: transform ease 0.2s, box-shadow ease 0.2s;
     display: inline-block;
     font-size: 18px;
+    z-index: 2;
 }
 
 .primary-button:hover {
@@ -271,6 +272,7 @@ nav {
     transition: transform ease 0.2s, box-shadow ease 0.2s;
     display: inline-block;
     font-size: 18px;
+    z-index: 1;
 }
 
 .secondary-button:hover {
@@ -807,3 +809,17 @@ nav {
     color: var(--static2);
 }
   
+
+
+.color-source {
+    position: fixed;
+    padding: 0.5em 1em;
+    top: 1em;
+    left: 1em;
+    font-size: 14px;
+    color: var(--primary);
+    background-color: var(--secondary);
+    border-radius: 6px;
+    line-height: 200%;
+    z-index: 9999;
+}
