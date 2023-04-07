@@ -1,5 +1,6 @@
 :root {
     --static: rgba(225, 225, 225, 0.5);
+    --static4: rgba(225, 225, 225, 0.2);
     --static3: #ffffff;
     --static2: #0f0f0f;
     --primary: #000000;
@@ -123,7 +124,6 @@ p {
     border-radius: 4px;
     user-select: none;
     position: relative;
-
 }
 
 .randomize {
@@ -164,7 +164,7 @@ label {
     margin:0;
 
 }
-  
+
 
 .prim {
     background-color: var(--secondary);
@@ -304,6 +304,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     gap: 3em;
+    width: 50%;
 }
 
 .hero-cta {
@@ -323,6 +324,10 @@ nav {
 
 .mondrian {
     max-width: 100%;
+}
+
+.hero-img {
+    width: 50%;
 }
 
 
@@ -588,7 +593,6 @@ nav {
     padding: 0.5em 2em;
     border-radius: 6px;
     width: 100%;
-    transition: all ease 0.2s;
     cursor: pointer;
 }
 
@@ -598,7 +602,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    transition: all ease 0.2s;
 }
 
 .faq-q > p {
@@ -704,9 +707,54 @@ nav {
     body {
         margin: 0 5%;
     }
+
+    .option > div, .option > label {
+        font-size: 14px;
+    }
+
+    .toolbar {
+        bottom: 2em;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .sub {
+        font-size: 14px;
+    }
+
+
+}
+
+@media screen and (max-width: 1100px) {
+
+
+
+
 }
 
 @media screen and (max-width: 900px) {
+
+    body {
+        gap: 2em;
+    }
     .hero {
         flex-wrap: wrap;
         justify-content: center;
@@ -735,43 +783,111 @@ nav {
         width: 100%;
     }
 
+    .part2-left {
+        width: 100%;
+    }
+
+    .part2-right {
+        width: 100%;
+    }
+
     .toolbar {
         flex-wrap: wrap;
         justify-content: center;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .subtitle {
-        font-size: 20px;
-    }
-
-    h3 {
-        font-size: 20px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    .sub {
-        font-size: 14px;
     }
 
     nav {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    main {
+        margin: 3% 5%;
+        width: 100%;
+    }
+
+    .footer-cols {
+        flex-direction: column;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 3em;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-img {
+        width: 70%;
+    }
+
+    .mondrian {
+        height: auto;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .logoface {
+        width: 30px;
+    }
+
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .primary-button, .secondary-button {
+        text-align: center;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .rolloutbutton {
+        display: flex !important;
+        padding: 0.5em 5em;
+    }
+
+    .rolloutbutton.rotate > svg {
+        transform: rotate(180deg);
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-self: flex-end;
+        bottom: 1em;
+    }
+
+    .rollout {
+        display: none !important;
+    }
+
+    
 }
 
+@media screen and (max-width: 800px) {
+
+    .step {width: 100%;}
+
+    .part2 {
+        gap: 1em;
+    }
+
+    .part2-right {
+        gap: 1em;
+    }
 
 
+}
 
 
 
@@ -822,4 +938,14 @@ nav {
     border-radius: 6px;
     line-height: 200%;
     z-index: 9999;
+}
+
+.rolloutbutton {
+    display: none;
+    background-color: var(--static3);
+    color: var(--static2);
+}
+
+.rollout {
+    display: flex;
 }
