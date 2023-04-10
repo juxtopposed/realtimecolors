@@ -24,18 +24,6 @@
     --sub: 16px;
 }
 
-::selection {
-    background-color: var(--accent);
-}
-
-.subtitle {
-    font-size: var(--subtitle);
-}
-
-.sub {
-    font-size: var(--sub);
-}
-
 * {
     box-sizing: border-box;
     scroll-padding-top: 3em;
@@ -99,6 +87,22 @@ p {
     letter-spacing: normal;
     line-height: 150%;
 }
+
+::selection {
+    background-color: var(--accent);
+}
+
+.subtitle {
+    font-size: var(--subtitle);
+}
+
+.sub {
+    font-size: var(--sub);
+}
+
+
+
+/* toolbar styles */
 
 .toolbar {
     position: fixed;
@@ -199,6 +203,24 @@ label {
 .randomize {
     color: var(--static2);
     background-color: var(--static3);
+}
+
+
+/* toolbar animation after clicking Get Started */
+
+.toolbar.highlighted {
+    animation-name: highlight;
+    animation-duration: 0.4s;
+}
+
+@keyframes highlight {
+    0%, 100% {transform: translate(0, 0px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
+
+    25% {transform: translate(0, -15px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
+
+    50% {transform: translate(0, 0px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
+
+    75% {transform: translate(0, -7px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
 }
 
 
@@ -638,7 +660,8 @@ nav {
     align-items: center;
 }
 
-/* part 5 */
+
+/* part 5 - footer */
 
 .part5 {
     display: flex;
@@ -686,21 +709,63 @@ nav {
 }
 
 
-.toolbar.highlighted {
-    animation-name: highlight;
-    animation-duration: 0.4s;
+
+/* tip */
+
+#tip-bar {
+    position: fixed;
+    top: 1em;
+    right: 0;
+    background-color: #f2f2f2;
+    color: var(--static2);
+    text-align: center;
+    padding: 0.5em 1em 0.5em 2em;
+    transition: transform 0.2s ease;
+    transform: translateX(40em);
+    z-index: 9999;
+    border-radius: 6px 0 0 6px;
+    border-bottom: 6px solid var(--primbuttn);
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1em;
+    justify-content: start;
+}
+  
+#tip-bar.show {
+    transform: translateX(0);
+}
+  
+#close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--static2);
+}
+  
+
+/* color source top left */
+
+.color-source {
+    position: fixed;
+    padding: 0.5em 1em;
+    top: 1em;
+    left: 1em;
+    font-size: 14px;
+    color: var(--primary);
+    background-color: var(--secondary);
+    border-radius: 6px;
+    line-height: 200%;
+    z-index: 9999;
 }
 
-@keyframes highlight {
-    0%, 100% {transform: translate(0, 0px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
 
-    25% {transform: translate(0, -15px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
 
-    50% {transform: translate(0, 0px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
 
-    75% {transform: translate(0, -7px) scale(1); transition: all 0.4s cubic-bezier(.47,1.64,.41,.8);}
-}
 
+/* responsiveness */
 
 
 @media screen and (max-width: 1200px) {
@@ -739,13 +804,6 @@ nav {
     .sub {
         font-size: 14px;
     }
-
-
-}
-
-@media screen and (max-width: 1100px) {
-
-
 
 
 }
@@ -892,53 +950,7 @@ nav {
 
 
 
-#tip-bar {
-    position: fixed;
-    top: 1em;
-    right: 0;
-    background-color: #f2f2f2;
-    color: var(--static2);
-    text-align: center;
-    padding: 0.5em 1em 0.5em 2em;
-    transition: transform 0.2s ease;
-    transform: translateX(40em);
-    z-index: 9999;
-    border-radius: 6px 0 0 6px;
-    border-bottom: 6px solid var(--primbuttn);
-
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 1em;
-    justify-content: start;
-}
-  
-#tip-bar.show {
-    transform: translateX(0);
-}
-  
-#close-btn {
-    background-color: transparent;
-    border: none;
-    font-size: 32px;
-    cursor: pointer;
-    color: var(--static2);
-}
-  
-
-
-.color-source {
-    position: fixed;
-    padding: 0.5em 1em;
-    top: 1em;
-    left: 1em;
-    font-size: 14px;
-    color: var(--primary);
-    background-color: var(--secondary);
-    border-radius: 6px;
-    line-height: 200%;
-    z-index: 9999;
-}
+/* mobile expand button */
 
 .rolloutbutton {
     display: none;

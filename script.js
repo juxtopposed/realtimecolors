@@ -1,4 +1,5 @@
 
+// Inputs
 
 const primaryColor = document.getElementById('prim');
 const secondaryColor = document.getElementById('sec');
@@ -7,6 +8,8 @@ const secbuttnColor = document.getElementById('secbuttn');
 const accentColor = document.getElementById('accent');
 const randomizeButton = document.getElementById('randomize');
 
+
+// Random color sets
 
 const colorSets = [
   {
@@ -228,6 +231,9 @@ const colorSets = [
   
 ];
 
+
+// Randomization
+
 let lastSelectedColorSet = null;
 
 randomizeButton.addEventListener('click', () => {
@@ -288,7 +294,6 @@ function randomizeColors() {
   }
 
   
-
 
 
 
@@ -435,12 +440,13 @@ function randomizeColors() {
   });
 
 
-
 }
 
 
 
 
+
+// COLOR INPUT 
 
 
 primaryColor.addEventListener('input', () => {
@@ -474,6 +480,11 @@ primbuttnColor.addEventListener('input', checkContrast);
 secbuttnColor.addEventListener('input', checkContrast);
 accentColor.addEventListener('input', checkContrast);
 
+
+
+
+
+// EXPORT
 
 const exportButton = document.getElementById('export');
 exportButton.addEventListener('click', () => {
@@ -523,7 +534,6 @@ function hexToRgb(hex) {
   return `${r}, ${g}, ${b}`;
 }
 
-// Function to convert data URI to blob
 function dataURItoBlob(dataURI) {
   const byteString = atob(dataURI.split(',')[1]);
   const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -543,7 +553,7 @@ function dataURItoBlob(dataURI) {
 // 
 // 
 
-// contrast checking 
+// CONTRAST CHECKER
 
 function getBrightness(color) {
   let hex = color;
@@ -583,6 +593,9 @@ function debounce(func, wait) {
 
 
 
+
+// CONTRAST CHECKING RULES
+
 const primaryButtons = document.querySelectorAll('.primary-button');
 const secondaryButtons = document.querySelectorAll('.secondary-button');
 const partTwo = document.querySelectorAll('.part2');
@@ -590,8 +603,6 @@ const primbuttnColorClass = document.querySelector('.primbuttn');
 const secbuttnColorClass = document.querySelector('.secbuttn');
 const accentColorClass = document.querySelector('.accent');
 
-
-// contrast checking rules
 
 function checkContrast() {
   primbuttnColor.addEventListener('input', debounce(() => {
@@ -750,7 +761,7 @@ function checkContrast() {
 
 
 
-
+// CONTRAST CHECKING FUNCTION
 
 function getContrastRatio(background, foreground) {
   const bg = parseColor(background);
@@ -806,7 +817,7 @@ function getLuminance(color) {
 
 
 
-// faq
+// FAQ
 
 const faqQuestions = document.querySelectorAll(".faq");
 const faqAnswers = document.querySelectorAll(".faq-a");
@@ -832,6 +843,7 @@ function highlightToolbar() {
 
 
 
+// TIP
 
 const tipBar = document.getElementById('tip-bar');
 const closeBtn = document.getElementById('close-btn');
@@ -870,9 +882,8 @@ if (localStorage.getItem('tipShown')) {
 
 
 
+// SLUG update based on selected colors
 
-
-// Update the URL slug with the current color values
 function updateSlug() {
   const primaryColorValue = primaryColor.value;
   const secondaryColorValue = secondaryColor.value;
@@ -888,7 +899,6 @@ function updateSlug() {
 
   const slug = `${primary}-${secondary}-${primbuttn}-${secbuttn}-${accent}`;
 
-  // Update the URL with the slug
   window.history.replaceState({}, document.title, `?colors=${slug}`);
 }
 
@@ -911,8 +921,8 @@ function applyColorsFromSlug() {
     document.documentElement.style.setProperty('--primbuttn', primbuttnColor.value);
     document.documentElement.style.setProperty('--secbuttn', secbuttnColor.value);
     document.documentElement.style.setProperty('--accent', accentColor.value);
-  } else {
-    // If there's no slug, use the default color values from the inputs
+  } 
+  else {
     const primaryColorValue = primaryColor.value;
     const secondaryColorValue = secondaryColor.value;
     const primbuttnColorValue = primbuttnColor.value;
@@ -921,7 +931,6 @@ function applyColorsFromSlug() {
 
     const defaultSlug = `${encodeURIComponent(primaryColorValue.replace('#', ''))}-${encodeURIComponent(secondaryColorValue.replace('#', ''))}-${encodeURIComponent(primbuttnColorValue.replace('#', ''))}-${encodeURIComponent(secbuttnColorValue.replace('#', ''))}-${encodeURIComponent(accentColorValue.replace('#', ''))}`;
 
-    // Update the URL with the default slug
     window.history.replaceState({}, document.title, `?colors=${defaultSlug}`);
   }
 
@@ -1073,17 +1082,14 @@ function applyColorsFromSlug() {
 
 }
 
-// Apply the colors from the URL slug on page load
 applyColorsFromSlug();
 
-// Update the URL slug as the user changes the color inputs
 primaryColor.addEventListener('change', updateSlug);
 secondaryColor.addEventListener('change', updateSlug);
 primbuttnColor.addEventListener('change', updateSlug);
 secbuttnColor.addEventListener('change', updateSlug);
 accentColor.addEventListener('change', updateSlug);
 
-// Update the color inputs and colors on the page as the user changes the colors
 function updateColors() {
   const primaryColorValue = primaryColor.value.replace(/#|%23/g, '');
   const secondaryColorValue = secondaryColor.value.replace(/#|%23/g, '');
@@ -1093,10 +1099,8 @@ function updateColors() {
 
   const slug = `${primaryColorValue}-${secondaryColorValue}-${primbuttnColorValue}-${secbuttnColorValue}-${accentColorValue}`;
 
-  // Update the URL with the new colors
   window.history.replaceState({}, document.title, `?colors=${slug}`);
   
-  // Update the colors on the page
   document.documentElement.style.setProperty('--primary', `#${primaryColorValue}`);
   document.documentElement.style.setProperty('--secondary', `#${secondaryColorValue}`);
   document.documentElement.style.setProperty('--primbuttn', `#${primbuttnColorValue}`);
@@ -1104,7 +1108,6 @@ function updateColors() {
   document.documentElement.style.setProperty('--accent', `#${accentColorValue}`);  
 }
   
-// Apply the updated colors as the user changes the color inputs
 primaryColor.addEventListener('change', updateColors);
 secondaryColor.addEventListener('change', updateColors);
 primbuttnColor.addEventListener('change', updateColors);
@@ -1115,15 +1118,15 @@ accentColor.addEventListener('change', updateColors);
 
 
 
+
+// Expand button for mobile
+
 const expandButton = document.querySelector(".rolloutbutton");
 
 expandButton.addEventListener("click", () => {
-  // Get all elements with class name "option"
   var options = document.getElementsByClassName("option");
 
-  // Loop through all options
   for (var i = 0; i < options.length; i++) {
-    // Add "rollout" class for all options except the clicked one
     if (options[i] !== expandButton) {
       options[i].classList.toggle("rollout");
     }
