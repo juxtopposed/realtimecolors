@@ -3,6 +3,7 @@
     --static4: rgba(225, 225, 225, 0.2);
     --static3: #ffffff;
     --static2: #0f0f0f;
+    --static5: rgb(24, 172, 122);
     --primary: #000000;
     --secondary: #ffffff;
     --primbuttn: #4685FF;
@@ -100,6 +101,14 @@ p {
     font-size: var(--sub);
 }
 
+.link {
+    border-bottom: 2px solid var(--secondary);
+}
+
+.link:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
 
 
 /* toolbar styles */
@@ -130,14 +139,6 @@ p {
     position: relative;
 }
 
-.randomize {
-    padding: 1.1em 2em;
-}
-
-.export {
-    padding: 1.1em 2em;
-}
-
 .colorpicker {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -164,9 +165,8 @@ p {
 label {
     cursor: pointer;
     text-align: center;
-    padding: 1.3em 2em;
+    padding: 1.3em 1.5em;
     margin:0;
-
 }
 
 
@@ -198,11 +198,29 @@ label {
 .export {
     color: var(--static2);
     background-color: var(--static3);
+    padding: 1.1em 1.5em;
 }
 
 .randomize {
     color: var(--static2);
     background-color: var(--static3);
+    padding: 1.1em 1.5em;
+}
+
+.share-link {
+    color: var(--static2);
+    background-color: var(--static3);
+    padding: 1.1em 1.5em;
+    gap: 1em;
+}
+
+.share-link-buttn {
+    transition: all 0.2s ease;
+}
+
+.share-link-buttn.copied {
+    color: var(--static5);
+    transition: all 0.2s ease;
 }
 
 
@@ -243,7 +261,7 @@ nav {
 }
 
 .logoface {
-    width: 60px;
+    width: 50px;
     transform: rotate(0);
 }
 
@@ -251,6 +269,10 @@ nav {
 .logoface {
     transform: rotate(360deg);
     transition: all ease-in-out 0.4s;
+}
+
+.sitename {
+    font-size: var(--subtitle);
 }
 
 .menu {
@@ -262,8 +284,12 @@ nav {
 }
 
 .menu-item {
-    font-size: 18px;
+    font-size: var(--sub);
     transition: transform ease 0.2s;
+}
+
+.menu-item-font {
+    font-size: var(--sub) !important;
 }
 
 
@@ -878,10 +904,11 @@ nav {
 
     .hero-text {
         width: 100%;
+        gap: 1em;
     }
 
     .hero-img {
-        width: 70%;
+        width: 80%;
     }
 
     .mondrian {
@@ -891,6 +918,7 @@ nav {
     .hero {
         flex-direction: column-reverse;
         align-items: center;
+        gap: 2em;
     }
 
     .logoface {

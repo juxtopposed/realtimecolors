@@ -1119,6 +1119,8 @@ accentColor.addEventListener('change', updateColors);
 
 
 
+
+
 // Expand button for mobile
 
 const expandButton = document.querySelector(".rolloutbutton");
@@ -1134,3 +1136,22 @@ expandButton.addEventListener("click", () => {
 
   expandButton.classList.toggle("rotate");
 });
+
+
+
+// SHARE
+
+function copyPageUrl() {
+  const pageUrl = window.location.href;
+
+  navigator.clipboard.writeText(pageUrl);
+
+  const shareButton = document.querySelector('.share-link-buttn');
+  shareButton.textContent = 'Copied!';
+  shareButton.classList.add('copied');
+
+  setTimeout(function() {
+    shareButton.textContent = 'Share';
+    shareButton.classList.remove('copied');
+  }, 2000);
+}
