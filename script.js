@@ -228,6 +228,30 @@ const colorSets = [
   {
     colors: ['#ededed', '#222546', '#29658a', '#474866', '#d1d2d6'],
   },
+
+  {
+    colors: ['#000000', '#fae053', '#000000', '#ffea61', '#fffad6'],
+  },
+
+  {
+    colors: ['#000000', '#ffffff', '#ffb100', '#f5f5f5', '#d3d8de'],
+  },
+
+  {
+    colors: ['#000000', '#d3d8de', '#000000', '#f5f5f5', '#fdaf1e'],
+  },
+
+  {
+    colors: ['#000000', '#fff5fd', '#000000', '#fff0fc', '#ffb8f2'],
+  },
+
+  {
+    colors: ['#24221b', '#e4dcc9', '#24221b', '#e4dcc9', '#24221b'],
+  },
+
+  {
+    colors: ['#000000', '#ffffff', '#06522c', '#cbfdcf', '#06522c'],
+  },
   
 ];
 
@@ -235,6 +259,8 @@ const colorSets = [
 // Randomization
 
 let lastSelectedColorSet = null;
+let shuffledColors = shuffleArray(colorSets);
+let colorSetIndex = 0;
 
 randomizeButton.addEventListener('click', () => {
   removeColorSource();
@@ -266,11 +292,16 @@ function removeColorSource() {
 }
 
 function randomizeColors() {
-  let randomColorSet;
+    let randomColorSet;
   
-  do {
-    randomColorSet = colorSets[Math.floor(Math.random() * colorSets.length)];
-  } while (randomColorSet === lastSelectedColorSet);
+  if (colorSetIndex >= shuffledColors.length) {
+    // If all color sets have been used, shuffle the array again
+    shuffledColors = shuffleArray(colorSets);
+    colorSetIndex = 0;
+  }
+  
+  randomColorSet = shuffledColors[colorSetIndex];
+  colorSetIndex++;
   
   lastSelectedColorSet = randomColorSet;
 
@@ -442,6 +473,15 @@ function randomizeColors() {
 
 }
 
+
+function shuffleArray(array) {
+
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 
 
