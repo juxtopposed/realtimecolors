@@ -26,4 +26,6 @@ This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercia
 2. NonCommercial — You may not use the material for commercial purposes.
 3. If you remix, transform, or build upon the material, you may not distribute the modified material.
 
-Read more: https://creativecommons.org/licenses/by-nc-nd/4.0/
+[Read more about License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+[View License](https://github.com/juxtopposed/realtimecolors/blob/main/LICENSE.md)
