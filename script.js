@@ -480,7 +480,75 @@ const colorSets = [
   {
     colors: ['#1c1c1c', '#f6f6f1', '#5c43f5', '#f5f5f0', '#fa7b6a'],
   },
+
+  {
+    colors: ['#0f2335', '#fdfcfa', '#0f2335', '#cce5df', '#bf2659'],
+  },
+
+  {
+    colors: ['#0f2335', '#fdfcfa', '#be2659', '#cce5df', '#0f2335'],
+  },
+
+  {
+    colors: ['#222222', '#ffffff', '#fc4070', '#fff3f9', '#fae0e6'],
+  },
+
+  {
+    colors: ['#1c2541', '#ffffff', '#ff8629', '#fafafa', '#76a6da'],
+  },
+
+  {
+    colors: ['#1c2541', '#ffffff', '#ff8629', '#e9f4ff', '#76a6da'],
+  },
+
+  {
+    colors: ['#3e3e3f', '#ffffff', '#008977', '#fbfaf3', '#0e2d3f'],
+  },
+
+  {
+    colors: ['#444444', '#f7f7fc', '#22baa0', '#ffffff', '#5e36ca'],
+  },
+
+  {
+    colors: ['#03391c', '#f8f5f0', '#0a964c', '#ccdbd3', '#e19233'],
+  },
+
+  {
+    colors: ['#2a2538', '#e9e8e4', '#7b6767', '#e7e8c3', '#bad0c9'],
+  },
+
+  {
+    colors: ['#2a2538', '#e9e8e4', '#2a2538', '#fefff5', '#ebc5c5'],
+  },
+
+  {
+    colors: ['#ffffff', '#321c3d', '#943222', '#5e4766', '#b14e40'],
+  },
+
+  {
+    colors: ['#000000', '#e7cbe0', '#eb7b62', '#daa2a5', '#bd6a5e'],
+  },
+
+  {
+    colors: ['#000000', '#ffffff', '#e5cc99', '#d7d1cb', '#bea75c'],
+  },
+
+  {
+    colors: ['#ffffff', '#131417', '#47cf73', '#444857', '#ffdd40'],
+    source: '<b>Inspiration:</b><br>CodePen'
+  },
+
+  {
+    colors: ['#000000', '#fafafa', '#f98644', '#f4eee9', '#f78643'],
+  },
+
+  {
+    colors: ['#201f40', '#f9f9f9', '#c3f928', '#e9e0ff', '#c0abf9'],
+  },
   
+  {
+    colors: ['#ffffff', '#1e1e22', '#73f190', '#17181b', '#3b974e'],
+  },
 ];
 
 
@@ -1423,3 +1491,5 @@ function copyPageUrl() {
     shareButton.classList.remove('copied');
   }, 2000);
 }
+
+
