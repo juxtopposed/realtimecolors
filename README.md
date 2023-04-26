@@ -18,7 +18,7 @@ When the colors for the primary button, secondary button, and accent are being s
 The contrast checker will not choose any other color out of the selected colors, and whether there is harmony or contrast on the page is completely up to your choices.
 
 # Limitations and Future Considerations
-For now, it's not possible to paste a HEX or RGB value, mainly because the tool is using <input type="color"> for the inputs, which shows a colorpicker with limited abilities. For the future, the colorpicker will change into something more compatible.
+For now, it's not possible to paste a HEX or RGB value, mainly because the tool is using type="color" for the inputs, which shows a colorpicker with limited abilities depending on the browser. For the future, the colorpicker will change into something more compatible.
 
 # License
 This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.
