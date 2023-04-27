@@ -549,6 +549,11 @@ const colorSets = [
   {
     colors: ['#ffffff', '#1e1e22', '#73f190', '#17181b', '#3b974e'],
   },
+
+  {
+    colors: ['#e3d7c6', '#2c440c', '#d75628', '#496506', '#e2904e'],
+    source: '<b>Inspiration:</b><br>Lovebirds'
+  },
 ];
 
 
