@@ -126,12 +126,11 @@ function updateColorBlockCodes() {
 // Contrast Checker
 
 
-const mainColorInput = document.getElementById('main-color');
 const colorBlocks = document.querySelectorAll('.color-block, .main-block');
 const option = document.querySelector('.option');
 
-mainColorInput.addEventListener('change', function() {
-  const backgroundColor = mainColorInput.value;
+mainColor.addEventListener('change', function() {
+  const backgroundColor = mainColor.value;
   option.style.backgroundColor = backgroundColor;
   
   const r = parseInt(backgroundColor.slice(1, 3), 16);
@@ -163,6 +162,26 @@ mainColorInput.addEventListener('change', function() {
 
 
 
+const randomizeBtn = document.getElementById("randomize");
+randomizeBtn.addEventListener("click", function() {
+  const hexChars = "0123456789abcdef";
+  let randomHex = "#";
+  for (let i = 0; i < 6; i++) {
+    randomHex += hexChars[Math.floor(Math.random() * hexChars.length)];
+  }
+  document.getElementById("main-color").value = randomHex;
+  const event = new Event("change");
+  document.getElementById("main-color").dispatchEvent(event);
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.code === 'Space') {
+    randomizeBtn.click();
+    event.preventDefault();
+  }
+});
+
+
 
 
 
@@ -181,28 +200,23 @@ exportButton.addEventListener('click', () => {
     getComputedStyle(triadic).backgroundColor
   ];
 
-  // Draw color squares on the canvas
   for (let i = 0; i < colors.length; i++) {
     ctx.fillStyle = colors[i];
     ctx.fillRect(i * 50, 0, 50, 50);
   }
 
-  // Generate image data URL and create blob
   const paletteImage = canvas.toDataURL('image/png');
   const paletteBlob = dataURItoBlob(paletteImage);
   const paletteFile = new File([paletteBlob], 'palette.png', { type: 'image/png' });
 
-  // Generate text file with color codes
   const colorText = `Your color palette:\n\n${complementaryCode.textContent} - ${mainCode.textContent} - ${monochromaticCode.textContent} - ${analogousCode.textContent} - ${triadicCode.textContent}\n\nThanks for using Realtime Colors!`;
   const colorBlob = new Blob([colorText], { type: 'text/plain' });
   const colorFile = new File([colorBlob], 'colors.txt', { type: 'text/plain' });
 
-  // Add files to zip
   const zip = new JSZip();
   zip.file(paletteFile.name, paletteFile);
   zip.file(colorFile.name, colorFile);
 
-  // Generate zip file and download
   zip.generateAsync({ type: 'blob' }).then(function (blob) {
     saveAs(blob, 'colors.zip');
   });
@@ -240,4 +254,33 @@ function highlightToolbar() {
   setTimeout(function() {
     toolbar.classList.remove("highlighted");
   }, 1000);
+}
+
+
+
+
+// TIP
+
+const tipBar = document.getElementById('tip-bar');
+const closeBtn = document.getElementById('close-btn');
+
+function showTipBar() {
+  tipBar.classList.add('show');
+}
+
+function hideTipBar() {
+  tipBar.classList.remove('show');
+}
+
+closeBtn.addEventListener('click', hideTipBar);
+
+randomizeBtn.addEventListener('click', function(event) {
+  if (!localStorage.getItem('tipShown')) {
+    setTimeout(showTipBar, 2000);
+    localStorage.setItem('tipShown', true);
+  }
+});
+
+if (localStorage.getItem('tipShown')) {
+  tipBar.style.display = 'none';
 }
