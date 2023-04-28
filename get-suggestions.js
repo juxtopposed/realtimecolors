@@ -1,23 +1,5 @@
 
 
-// Expand button for mobile
-
-const expandButton = document.querySelector(".rolloutbutton");
-
-expandButton.addEventListener("click", () => {
-  var options = document.getElementsByClassName("option");
-
-  for (var i = 0; i < options.length; i++) {
-    if (options[i] !== expandButton) {
-      options[i].classList.toggle("rollout");
-    }
-  }
-
-  expandButton.classList.toggle("rotate");
-});
-
-
-
 // Highlight Toolbar
 
 
