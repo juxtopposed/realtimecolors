@@ -1110,3 +1110,7 @@ nav {
     width: 50%;
     background-color: #E0D5FC;
 }
+
+.hero-img-left, .hero-img-right {
+    opacity: 20%;
+}
