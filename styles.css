@@ -1,3 +1,4 @@
+
 :root {
     --static: rgba(225, 225, 225, 0.5);
     --static4: rgba(225, 225, 225, 0.2);
@@ -101,14 +102,24 @@ p {
     font-size: var(--sub);
 }
 
-.link {
+.link.reversed {
     border-bottom: 2px solid var(--secondary);
 }
 
-.link:hover {
+.link.reversed:hover {
     background-color: var(--secondary);
     color: var(--primary);
 }
+
+.link {
+    border-bottom: 2px solid var(--accent);
+}
+
+.link:hover {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
 
 
 /* toolbar styles */
@@ -292,6 +303,13 @@ nav {
     font-size: var(--sub) !important;
 }
 
+.menu-item-header {
+    opacity: 50%;
+}
+.current {
+    font-weight: bold;
+}
+
 
 /* buttons */
 
@@ -375,7 +393,7 @@ nav {
 }
 
 .hero-img {
-    width: 50%;
+    width: 45%;
 }
 
 
@@ -386,6 +404,15 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.part1-rows {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     justify-content: center;
     align-items: center;
 }
@@ -427,20 +454,28 @@ nav {
 
 .highlight {
     z-index: 5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .highlight::before {
     content: "";
-    background-color: var(--accent);
-    height: 12px;
+    height: 50%;
     width: 100%;
     display: block;
-    transform: translate(0, 32px);
     z-index: -5;
-    opacity: 50%;
-    position: relative;
+    opacity: 30%;
+    position: absolute;
+    transition: all 0.3s ease;
+    background: linear-gradient(180deg, transparent 50%, var(--primbuttn) 50%);
 }
 
+.part1-card:hover > .highlight::before {
+    transition: all 0.3s ease;
+    height: 100%;
+}
 
 
 /* part 2 */
@@ -505,6 +540,9 @@ nav {
     transform: translate(-1em, 0);
 }
 
+.part2.get-suggestions {
+    background-color: #F1F1F1;
+}
 
 /* part 3 */
 
@@ -988,4 +1026,71 @@ nav {
 
 .rollout {
     display: flex;
+}
+
+
+
+
+
+/* GET SUGGESTIONS PAGE */
+
+
+
+.color-block {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    gap: 1em;
+}
+
+.main-block {
+    width: 65%;
+    height: 300px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #3C62E7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-block > p {
+    color: #fff;
+}
+
+.complementary {
+    width: 35%;
+    height: 300px;
+    background-color: #F3D872;
+}
+
+.monochromatic {
+    width: 30%;
+    background-color: #081A5E;
+}
+
+.monochromatic > p {
+    color: #fff;
+}
+
+.analogous {
+    width: 20%;
+    background-color: #F589A0;
+}
+
+.triadic {
+    width: 50%;
+    background-color: #E0D5FC;
 }

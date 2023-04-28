@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html lang="en" data-theme="light">
+    <head>
+        <title>Realtime Colors</title>
+        <meta name="description" content="A tool to visualize color choices and color palettes on a real website to help with branding and UI design decision making.">
+        <meta name="keywords" content="colorpicker, color palettes, color theory, UI design, UX design, brand styleguide">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-control" content="max-age=31536000">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.png">
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7300FPX4EJ"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7300FPX4EJ');
+        </script>
+    </head>
+
+    <body>
+
+        <nav>
+            <div class="logo">
+                <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
+                <a href="https://realtimecolors.com/"><h2 class="sitename">Realtime Colors</h2></a>
+            </div>
+
+            <div class="menu">
+                <a href="get-suggestions" class="menu-item current">Get Suggestions <span style="background-color: var(--primary); padding: 0.5em; border-radius: 5px; font-size: 12px; color: var(--secondary);"> New!</span></a>
+                <!-- <a href="#" class="menu-item">About</a> -->
+                <!-- <a href="#" class="menu-item">Blog</a> -->
+                <a href="#sub" class="primary-button menu-item-font">Subscribe</a>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="336" height="343" viewBox="0 0 336 343" fill="none">
+                    <rect x="28.0118" width="100.3" height="100.3" rx="9.03606" fill="#FFB084"/>
+                    <rect x="140.963" y="45.1803" width="55.12" height="55.12" rx="9.03606" fill="#D9E6FF"/>
+                    <rect x="87.6498" y="287.347" width="55.12" height="55.12" rx="9.03606" fill="#FD9BFF"/>
+                    <rect x="260.239" y="220.48" width="74.9993" height="74.9993" rx="9.03606" fill="#FFE1D0"/>
+                    <rect y="200.601" width="74.9993" height="74.9993" rx="9.03606" fill="#BBFFBE"/>
+                    <rect x="84.939" y="112.047" width="163.553" height="163.553" rx="9.03606" fill="#3C62E7"/>
+                </svg>
+            </div>
+            <div class="hero-text" style="align-items: center;">
+                <h1 style="text-align: center;">Find Cool Palettes<br>For Any <span class="color-effect">Color</span></h1>
+                <p class="subtitle" style="text-align: center;">Find out which other colors would go perfectly with your color of choice.</p>
+                <div class="hero-cta">
+                    <a href="#generator" onclick="highlightToolbar()" class="primary-button">Get Started</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="316" height="343" viewBox="0 0 316 343" fill="none">
+                    <rect x="0.641357" y="121.083" width="55.12" height="55.12" rx="9.03606" fill="#DCBAFF"/>
+                    <rect x="57.5686" width="80.4209" height="80.4209" rx="9.03606" fill="#FF9B9B"/>
+                    <rect x="241.001" y="80.4209" width="74.9993" height="74.9993" rx="9.03606" fill="#FFF1A7"/>
+                    <rect x="99.1345" y="267.467" width="74.9993" height="74.9993" rx="9.03606" fill="#C2E9E9"/>
+                    <rect x="66.6047" y="92.1678" width="163.553" height="163.553" rx="9.03606" fill="#E7D63C"/>
+                </svg>
+            </div>
+        </div>
+
+        <main>
+            <div class="part1" style="gap: 1em;" id="generator">
+                <div class="row">
+                    <div class="color-block complementary">
+                        <p class="color-block-text">Complementary</p>
+                        <p class="color-code" id="complementary-code">#F3D872</p>
+                    </div>
+                    <div class="main-block">
+                        <p class="color-block-text">Main Color</p>
+                        <p class="color-code" id="main-code">#3C62E7</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="color-block monochromatic">
+                        <p class="color-block-text">Monochromatic</p>
+                        <p class="color-code" id="monochromatic-code">#081A5E</p>
+                    </div>
+                    <div class="color-block analogous">
+                        <p class="color-block-text">Analogous</p>
+                        <p class="color-code" id="analogous-code">#F589A0</p>
+                    </div>
+                    <div class="color-block triadic">
+                        <p class="color-block-text">Triadic</p>
+                        <p class="color-code" id="triadic-code">#E0D5FC</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar" id="toolbar" style="position: relative;">
+                <div class="option main-color rollout" style="background-color: #3c62e7; color: white;">
+                    <input type="color" id="main-color" name="main-color" class="colorpicker" value="#000000">
+                    <label for="main-color">Main Color</label>
+                </div>
+                
+
+
+                <div class="option export rollout" id="export">
+                    <div>Export</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                        <path d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z" fill="#0F0F0F"/>
+                        <rect x="4.109" y="2.93511" width="24.6552" height="24.6552" rx="3.88633" stroke="var(--static2)" stroke-width="1.17406"/>
+                    </svg>
+                </div>
+
+                <div class="option rolloutbutton" id="rolloutbutton">
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                        <path d="M11.5032 20.8392L16.9999 15.3425L22.4965 20.8392C23.049 21.3917 23.9415 21.3917 24.494 20.8392C25.0465 20.2867 25.0465 19.3942 24.494 18.8417L17.9915 12.3392C17.439 11.7867 16.5465 11.7867 15.994 12.3392L9.49152 18.8417C8.93902 19.3942 8.93902 20.2867 9.49152 20.8392C10.044 21.3775 10.9507 21.3917 11.5032 20.8392Z" fill="var(--static2)"/>
+                    </svg>
+                </div>
+
+                
+            </div>
+    
+            <div class="part2 get-suggestions" id="how">
+                <div class="part2-left">
+                    <h2>How Does it Work?</h2>
+                    <p>Find colors that would go well with your main color of choice in 4 simple steps.</p>
+                </div>
+                <div class="part2-right">
+                    <p class="one step">Select your main color from the toolbar.</p>
+                    <p class="two step">Wait for the randomly-generated colors that would match your main color to appear.</p>
+                    <p class="three step">Fiddle with the main color to find the best combinations.</p>
+                    <p class="four step">Either grab the HEX code or export your colors. You can use these colors in the Realtime Colors UI color palette tool to make a final decision.</p>
+                </div>
+            </div>
+
+            <div class="part4" id="faq">
+                <div class="part4-heading">
+                    <h2>FAQ</h2>
+                    <p>Answers to some questions you might have.</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>What is this tool exactly?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>This tool works a bit differently from other color palette generators you've seen. Usually, color palettes go by one one color scheme: monochromatic, analogous, complementary, triadic, etc. That is great but it doesn't give you a complete outlook of the all the possible color palettes you could encounter by just choosing one single color. This tool does exactly that. It shows you a bit of each color scheme, randomly. So, for one single color, it can generate hundreds of (even slightly)different colors that would go well with your main color.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>What can I do with the colors generated?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>Well, for starters, you could just export it and receive a beautiful color palette in .png and a .txt file with your chosen colors in HEX values. But if you're thinking of 'what's next', you can always enter the HEX values inside the <a class="link" href="https://realtimecolors.com" target="_blank">Realtime Colors</a> tool and check how those colors would look like on a real website.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>What will I receive after exporting my colors?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>After exporting, you will receive a .zip file. This file is compressed, so you will have to extract it.<br>After extracting it, you will see a .png file and a .txt file. The .png image shows your color palette in squares next to each other. The .txt file includes the color codes in HEX and RGB. You can send these files to designers or developers, or just use them in your project.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq">
+                        <div class="faq-q">
+                            <h3>Are these colors all suitable for one website/project?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>Yes and no. These colors are just meant to be inspirations for your big ideas. Don't just limit yourself to one color scheme. Make your designs fun and vibrant. You can use these colors as an inspiration for adding visual hierarchy to your website. You might need to modify a thing or two or skip a color, but still, it can turn out great.<br><br>Sometimes these colors might all go very well together on a single webpage without any modifications. But you should only consider that as a happy accident. :)</p>
+                        </div>
+                    </div> 
+
+                    <!-- <div class="faq">
+                        <div class="faq-q">
+                            <h3>How can I learn more about this tool?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a">
+                            <p>You can find more information about Realtime Colors on the <a href="/about" target="_blank" class="link">About</a> page. You can also <a href="mailto:juxtopposed.me@gmail.com" target="_blank" class="link">email me</a> any questions you might have.</p>
+                        </div>
+                    </div>  -->
+                </div>
+            </div>
+
+            <div class="part5" id="end">
+                <h1>Your <span class="color-effect">Journey</span> Shouldn't End Here.</h1>
+                <p class="subtitle">Follow me on social media to stay tuned on more projects.</p>
+                <a href="https://twitter.com/juxtopposed" target="_blank" class="primary-button">Stay Tuned</a>
+            </div>
+
+            <div class="footer" id="footer">
+                <div class="logo">
+                    <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
+                    <a href="https://realtimecolors.com/"><h2 class="sitename reversed">Realtime Colors</h2></a>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <p style="margin: 0;">Visualize your color choices.</p>
+                        <a href="https://www.producthunt.com/posts/real-time-colors?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-real&#0045;time&#0045;colors" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=390080&theme=dark" alt="Real&#0045;time&#0032;Colors - Real&#0045;time&#0032;UI&#0032;Color&#0032;Palette&#0032;Tool | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+                    </div>
+
+                    <div class="footer-col">
+                        <div class="reversed sub menu-item-header">EXPLORE</div>
+                        <a href="get-suggestions" class="menu-item">Get Suggestions <span style="background-color: var(--secondary); padding: 0.5em; border-radius: 5px; font-size: 12px; color: var(--primary);"> New!</span></a>
+                        <!-- <a href="#" class="menu-item reversed">About</a> -->
+                        <!-- <a href="#" class="menu-item reversed">Blog</a> -->
+                    </div>
+
+                    <div class="footer-col">
+                        <div class="reversed sub menu-item-header">LET'S CONNECT</div>
+                        <a href="https://twitter.com/juxtopposed" class="menu-item reversed" target="_blank">Twitter</a>
+                        <a href="https://codepen.io/Juxtopposed" target="_blank" class="menu-item reversed">CodePen</a>
+                        <a href="https://www.youtube.com/@juxtopposed" target="_blank" class="menu-item reversed">YouTube</a>
+                        <a href="https://dribbble.com/juxtopposed" target="_blank" class="menu-item reversed">Dribbble</a>
+                        <a href="https://github.com/juxtopposed" target="_blank" class="menu-item reversed">GitHub</a>
+                    </div>
+                </div>
+                <div style="width: 100%; height: 1px; background-color: var(--secondary); opacity: 20%; margin-top: 1em;"></div>
+                <div>
+                    <p class="sub">Feedback? Suggestions? Features you'd like to see? <a href="mailto:juxtopposed.me@gmail.com" target="_blank" class="link reversed">Contact me!</a></p>
+                    <p class="sub">Made with <3 by <a href="https://twitter.com/juxtopposed" target="_blank" class="link reversed">@Juxtopposed</a></p>
+                    <p class="sub">Copyright © 2023 All Rights Reserved</p>
+                </div>
+                
+            </div>
+
+        </main>
+
+
+
+
+
+        <script src="get-suggestions.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    </body>
+</html>

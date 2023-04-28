@@ -1496,5 +1496,3 @@ function copyPageUrl() {
     shareButton.classList.remove('copied');
   }, 2000);
 }
-
-
