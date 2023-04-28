@@ -399,13 +399,13 @@ nav {
     align-items: flex-end;
 }
 
-.mondrian-info-icon {
+#mondrian-info-icon {
     transition: all ease 0.3s;
     position: absolute;
 }
 
 
-.mondrian-info-icon:hover {
+#mondrian-info-icon:hover {
     opacity: 50%;
     transition: all ease 0.3s;
 }
