@@ -394,6 +394,20 @@ nav {
 
 .hero-img {
     width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.mondrian-info-icon {
+    transition: all ease 0.3s;
+    position: absolute;
+}
+
+
+.mondrian-info-icon:hover {
+    opacity: 50%;
+    transition: all ease 0.3s;
 }
 
 

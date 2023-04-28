@@ -1496,3 +1496,14 @@ function copyPageUrl() {
     shareButton.classList.remove('copied');
   }, 2000);
 }
+
+
+
+const mondrianInfoIcon = document.getElementById('mondrian-info-icon');
+const mondrianAnswer = document.querySelector('.mondrian-answer');
+const mondrianFAQIcon = document.querySelector('.mondrian-icon');
+
+mondrianInfoIcon.addEventListener("click", () => {
+  mondrianAnswer.classList.add("expand");
+  mondrianFAQIcon.classList.add("expand");
+});

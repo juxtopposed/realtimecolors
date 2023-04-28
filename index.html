@@ -81,29 +81,35 @@
                     <rect x="4.69366" y="487.261" width="71.3258" height="152.739" fill="var(--accent)" stroke="var(--secondary)" stroke-width="8"/>
                 </svg> -->
 
-
+                <a href="#mondrian-info" id="mondrian-info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9.06818 14.2259V7.6804H10.8835V14.2259H9.06818ZM9.98011 6.83665C9.71023 6.83665 9.47869 6.74716 9.28551 6.56818C9.09517 6.38636 9 6.16903 9 5.91619C9 5.66619 9.09517 5.4517 9.28551 5.27273C9.47869 5.09091 9.71023 5 9.98011 5C10.25 5 10.4801 5.09091 10.6705 5.27273C10.8636 5.4517 10.9602 5.66619 10.9602 5.91619C10.9602 6.16903 10.8636 6.38636 10.6705 6.56818C10.4801 6.74716 10.25 6.83665 9.98011 6.83665Z" fill="var(--primary)"/>
+                        <circle cx="10" cy="10" r="9.44118" stroke="var(--primary)" stroke-width="1.11765"/>
+                    </svg>
+                </a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="652" height="644" viewBox="0 0 652 644" fill="none" class="mondrian">
-                    <rect x="1" width="163" height="60" rx="10" fill="var(--secbuttn)"/>
-                    <rect x="424" width="193" height="60" rx="10" fill="var(--accent)"/>
-                    <rect x="424" y="68" width="193" height="175" rx="10" fill="var(--accent)"/>
-                    <rect x="424" y="401" width="193" height="79" rx="10" fill="var(--secondary)"/>
+                    <rect opacity="0.05" x="1" width="163" height="60" rx="10" fill="var(--primary)"/>
+                    <rect x="424" width="193" height="60" rx="10" fill="var(--secbuttn)"/>
+                    <rect x="424" y="68" width="193" height="175" rx="10" fill="var(--secbuttn)"/>
+                    <rect opacity="0.2" x="424" y="401" width="193" height="79" rx="10" fill="var(--primbuttn)"/>
                     <rect x="255" y="626" width="362" height="18" rx="9" fill="var(--secondary)"/>
                     <rect x="80" y="579" width="166" height="65" rx="10" fill="var(--secondary)"/>
-                    <rect x="255" y="579" width="160" height="40" rx="10" fill="black"/>
-                    <rect x="255" y="490" width="160" height="80" rx="10" fill="var(--secbuttn)"/>
-                    <rect x="255" y="400" width="160" height="80" rx="10" fill="var(--secbuttn)"/>
+                    <rect x="255" y="579" width="160" height="40" rx="10" fill="var(--primary)"/>
+                    <rect opacity="0.05" x="255" y="490" width="160" height="80" rx="10" fill="var(--primary)"/>
+                    <rect opacity="0.05" x="255" y="400" width="160" height="80" rx="10" fill="var(--primary)"/>
                     <rect x="80" y="68" width="335" height="324" rx="10" fill="var(--primbuttn)"/>
-                    <rect x="80" y="401" width="166" height="169" rx="10" fill="black"/>
-                    <rect opacity="0.5" x="424" y="490" width="193" height="129" rx="10" fill="var(--accent)"/>
+                    <rect x="80" y="401" width="166" height="169" rx="10" fill="var(--primary)"/>
+                    <rect x="424" y="490" width="193" height="129" rx="10" fill="var(--accent)"/>
                     <rect x="626" y="490" width="26" height="154" rx="10" fill="var(--primbuttn)"/>
                     <rect x="424" y="252" width="91" height="140" rx="10" fill="var(--secondary)"/>
                     <rect x="524" y="252" width="93" height="140" rx="10" fill="var(--secondary)"/>
-                    <rect x="626" width="26" height="480" rx="10" fill="var(--secondary)"/>
+                    <rect opacity="0.05" x="626" width="26" height="480" rx="10" fill="var(--primary)"/>
                     <rect x="173" width="242" height="60" rx="10" fill="var(--secondary)"/>
                     <rect x="1" y="68" width="70" height="157" rx="10" fill="var(--secondary)"/>
-                    <rect x="1" y="234" width="70" height="259" rx="10" fill="var(--secbuttn)"/>
-                    <rect x="1" y="502" width="70" height="142" rx="10" fill="var(--accent)"/>
+                    <rect opacity="0.05" x="1" y="234" width="70" height="259" rx="10" fill="var(--primary)"/>
+                    <rect x="1" y="502" width="70" height="142" rx="10" fill="var(--secbuttn)"/>
                 </svg>
+                
             </div>
         </div>
 
@@ -329,6 +335,19 @@
                         </div>
                         <div class="faq-a">
                             <p>This website allows you to choose only opaque colors. However, to make the design more appealing, I’ve made some parts more transparent by adding a bit of opacity to them. Of course, you can use these colors however you want in your own projects.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq mondrian-faq" id="mondrian-info">
+                        <div class="faq-q">
+                            <h3>What does the hero image represent?</h3>
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon mondrian-icon">
+                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
+                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-a mondrian-answer">
+                            <p>The hero image is inspired by Piet Mondrian's <b>Composition with Large Red Plane, Yellow, Black, Grey and Blue</b>. This composition keeps the ratio of the main colors (red, blue, and yellow) very close to the 60-30-10 rule of UI design. This is mainly why I've chosen this composition to visualize the distribution of the colors on the page.</p>
                         </div>
                     </div> 
 
