@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html lang="en" data-theme="light">
+    <head>
+        <title>About Realtime Colors</title>
+        <meta name="description" content="Read more about Realtime Colors - A tool to visualize color choices and color palettes on a real website to help with branding and UI design decision making.">
+        <meta name="keywords" content="colorpicker, color palettes, color theory, UI design, UX design, brand styleguide">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-control" content="max-age=31536000">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.png">
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7300FPX4EJ"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7300FPX4EJ');
+        </script>
+    </head>
+
+    <body>
+
+        <nav>
+            <div class="logo">
+                <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
+                <a href="https://realtimecolors.com/"><h2 class="sitename">Realtime Colors</h2></a>
+            </div>
+
+            <div class="menu">
+                <a href="get-suggestions" class="menu-item">Get Suggestions <span style="background-color: var(--primary); padding: 0.5em; border-radius: 5px; font-size: 12px; color: var(--secondary);"> New!</span></a>
+                <a href="about" class="menu-item current">About</a>
+                <!-- <a href="#" class="menu-item">Blog</a> -->
+                <a href="https://realtimecolors.com" class="secondary-button menu-item-font">Try it out</a>
+            </div>
+        </nav>
+
+        <div class="hero" >
+            <div class="hero-text" style="gap: 1em;">
+                <h1>What is <span class="color-effect">Realtime Colors</span>?</h1>
+                <p class="subtitle">A realtime UI color palette tool?<br>What is that all about?</p>
+                <p>Colors are one of the most important parts of web design / UI design. We spend a lot of time trying to figure them out. This tool aims to simplify that process, specifically for web design.</p>
+            </div>
+            <div class="hero-img" >
+                <img src="images/about-1.png" alt="About Realtime Colors - Buttons" class="mondrian"/>  
+            </div>
+        </div>
+
+        <main>
+            <div class="part1" style="gap: 6em">
+                <h2>The Problem</h2>
+
+                <div class="hero">
+                    <div class="hero-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="528" height="300" viewBox="0 0 528 300" fill="none" class="mondrian">
+                            <rect x="107" width="100" height="300" rx="10" fill="var(--primbuttn)"/>
+                            <rect x="321.5" y="0.5" width="99" height="299" rx="9.5" fill="var(--primary)" stroke="var(--secondary)"/>
+                            <rect x="428.5" y="0.5" width="99" height="299" rx="9.5" fill="var(--secondary)" stroke="var(--primary)"/>
+                            <rect x="214" width="100" height="300" rx="10" fill="var(--secbuttn)"/>
+                            <rect width="100" height="300" rx="10" fill="var(--accent)"/>
+                        </svg>
+                    </div>
+                    <div class="hero-text" style="gap: 1em;">
+                        <p class="subtitle">Color Palettes are cool and all, but can you instantly make a decision based on them?</p>
+                        <p>If you want to choose a color palette for UI properly, the least you have to do is put them on a lofi UI or grayscale the entire UI on Figma, Adobe XD, or similar platforms to get a better idea of what those colors will actually look like on a product.</p>
+                        <p>This process can take a long time (and time is gold!). Clients (and anyone, really) often have very different impressions from the actual implementation of a color palette. So, there is a lot of back-and-forth in the process of design. We should hope to minimize that.</p>
+                        <p>Another problem is that colors are usually presented differently on different devices and monitors due to the difference in their calibrations. So you might choose a color on your desktop and notice it's completely different on mobile. These differences should be addressed before the entire process of design and development so as to avoid any issues further on.</p>
+                    
+                    </div>  
+                </div>
+            </div>
+    
+            <div class="part1" style="gap: 6em">
+                <h2>The Solution</h2>
+
+                <div class="hero">
+                    
+                    <div class="hero-text" style="gap: 1em;">
+                        <p class="subtitle">It is right in front of you!</p>
+                        <p>A platform that allows for you to visualize and realize all your color choices can fix the problems mentioned above. You'd say that we already have design platforms (e.g., Figma) for that. That is absolutely correct, and ultimately, you should try out the color palette on your own design yourself.</p>
+                        <p>To present the color palette on a design platform, like Figma, you'd have to create a quick prototype and try to view it on different platforms, share it with clients, etc. You can already imagine how long that takes.</p>
+                        <p>Instead, you can share input your favorite colors on Realtime Colors and instantly share the link to a real website showcasing those colors.</p>
+                        <div class="hero-cta">
+                            <a href="#toolbar" onclick="highlightToolbar()" class="primary-button">Try it out</a>
+                        </div>
+                    </div>  
+                    <div class="hero-img">
+                        <img src="images/realtime-var.png" alt="About Realtime Colors - Variations" class="mondrian"/> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="part5" id="end">
+                <h1>Your <span class="color-effect">Journey</span> Shouldn't End Here.</h1>
+                <p class="subtitle">Follow me on social media to stay tuned on more projects.</p>
+                <a href="https://twitter.com/juxtopposed" target="_blank" class="primary-button">Stay Tuned</a>
+            </div>
+
+            <div class="footer" id="footer">
+                <div class="logo">
+                    <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
+                    <a href="https://realtimecolors.com/"><h2 class="sitename reversed">Realtime Colors</h2></a>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <p style="margin: 0;">Visualize your color choices.</p>
+                        <a href="https://www.producthunt.com/posts/real-time-colors?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-real&#0045;time&#0045;colors" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=390080&theme=dark" alt="Real&#0045;time&#0032;Colors - Real&#0045;time&#0032;UI&#0032;Color&#0032;Palette&#0032;Tool | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+                    </div>
+
+                    <div class="footer-col">
+                        <div class="reversed sub menu-item-header">EXPLORE</div>
+                        <a href="get-suggestions" class="menu-item">Get Suggestions <span style="background-color: var(--secondary); padding: 0.5em; border-radius: 5px; font-size: 12px; color: var(--primary);"> New!</span></a>
+                        <a href="about" class="menu-item reversed">About</a>
+                        <!-- <a href="#" class="menu-item reversed">Blog</a> -->
+                    </div>
+
+                    <div class="footer-col">
+                        <div class="reversed sub menu-item-header">LET'S CONNECT</div>
+                        <a href="https://twitter.com/juxtopposed" class="menu-item reversed" target="_blank">Twitter</a>
+                        <a href="https://codepen.io/Juxtopposed" target="_blank" class="menu-item reversed">CodePen</a>
+                        <a href="https://www.youtube.com/@juxtopposed" target="_blank" class="menu-item reversed">YouTube</a>
+                        <a href="https://dribbble.com/juxtopposed" target="_blank" class="menu-item reversed">Dribbble</a>
+                        <a href="https://github.com/juxtopposed" target="_blank" class="menu-item reversed">GitHub</a>
+                    </div>
+                </div>
+                <div style="width: 100%; height: 1px; background-color: var(--secondary); opacity: 20%; margin-top: 1em;"></div>
+                <div>
+                    <p class="sub">Feedback? Suggestions? Features you'd like to see? <a href="mailto:juxtopposed.me@gmail.com" target="_blank" class="link reversed">Contact me!</a></p>
+                    <p class="sub">Made with <3 by <a href="https://twitter.com/juxtopposed" target="_blank" class="link reversed">@Juxtopposed</a></p>
+                    <p class="sub">Copyright © 2023 All Rights Reserved</p>
+                </div>
+                
+            </div>
+    
+            <div class="toolbar" id="toolbar">
+                <div class="option prim rollout">
+                    <input type="color" id="prim" name="prim" class="colorpicker" value="#000000">
+                    <label for="prim">Text</label>
+                </div>
+    
+                <div class="option sec rollout">
+                    <input type="color" id="sec" name="sec" class="colorpicker" value="#ffffff">
+                    <label for="sec">Background</label>
+                </div>
+    
+                <div class="option primbuttn rollout">
+                    <input type="color" id="primbuttn" name="primbuttn" class="colorpicker" value="#4685FF">
+                    <label for="primbuttn">Primary Button</label>
+                </div>
+    
+                <div class="option secbuttn rollout">
+                    <input type="color" id="secbuttn" name="secbuttn" class="colorpicker" value="#F2F2F2">
+                    <label for="secbuttn">Secondary Button</label>
+                </div>
+    
+                <div class="option accent rollout">
+                    <input type="color" id="accent" name="accent" class="colorpicker" value="#FFB084">
+                    <label for="accent">Accent</label>
+                </div>
+                
+    
+                
+
+                <div class="option randomize rollout" id="randomize">
+                    <div>Randomize</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+                        <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
+                        <circle cx="10.0138" cy="8.85138" r="1.87757" fill="var(--static2)"/>
+                        <circle cx="22.5306" cy="8.85138" r="1.87757" transform="rotate(90 22.5306 8.85138)" fill="var(--static2)"/>
+                        <circle cx="16.2718" cy="15.11" r="1.87757" transform="rotate(90 16.2718 15.11)" fill="var(--static2)"/>
+                        <circle cx="22.5304" cy="21.3685" r="1.87757" fill="var(--static2)"/>
+                        <circle cx="10.014" cy="21.3685" r="1.87757" transform="rotate(90 10.014 21.3685)" fill="var(--static2)"/>
+                    </svg>
+                </div>
+
+                <div class="option export rollout" id="export">
+                    <div>Export</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                        <path d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z" fill="#0F0F0F"/>
+                        <rect x="4.109" y="2.93511" width="24.6552" height="24.6552" rx="3.88633" stroke="var(--static2)" stroke-width="1.17406"/>
+                    </svg>
+                </div>
+
+                <div class="option share-link rollout" id="share-link" onclick="copyPageUrl()">
+                    <div class="share-link-buttn">Share</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+                        <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
+                        <path d="M12 18.5968H11.6229C10.3391 18.5968 9.29834 17.5561 9.29834 16.2722V9.29842C9.29834 8.01458 10.3391 6.97382 11.6229 6.97382H16.2722C17.556 6.97382 18.5968 8.01458 18.5968 9.29842V16.2722C18.5968 17.5561 17.556 18.5968 16.2722 18.5968H16" stroke="var(--static2)" stroke-width="1.1623"/>
+                        <path d="M20.5 11.623H20.9216C22.2054 11.623 23.2462 12.6638 23.2462 13.9477V20.9215C23.2462 22.2053 22.2054 23.2461 20.9216 23.2461H16.2724C14.9885 23.2461 13.9478 22.2053 13.9478 20.9215V19.7592V13.9477C13.9478 12.6638 14.9885 11.623 16.2724 11.623H16.5" stroke="var(--static2)" stroke-width="1.1623"/>
+                    </svg>
+                </div>
+
+                <div class="option rolloutbutton" id="rolloutbutton">
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                        <path d="M11.5032 20.8392L16.9999 15.3425L22.4965 20.8392C23.049 21.3917 23.9415 21.3917 24.494 20.8392C25.0465 20.2867 25.0465 19.3942 24.494 18.8417L17.9915 12.3392C17.439 11.7867 16.5465 11.7867 15.994 12.3392L9.49152 18.8417C8.93902 19.3942 8.93902 20.2867 9.49152 20.8392C10.044 21.3775 10.9507 21.3917 11.5032 20.8392Z" fill="var(--static2)"/>
+                    </svg>
+                </div>
+
+                
+            </div>
+
+            <div id="tip-bar">
+                <button id="close-btn">&times;</button>
+                <p><b>Tip:</b> Press the Spacebar to randomize faster!</p>
+            </div>
+
+        </main>
+
+
+
+
+
+        <script src="script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    </body>
+</html>
