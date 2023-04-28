@@ -1010,6 +1010,22 @@ nav {
         gap: 1em;
     }
 
+    .hero-img-left, .hero-img-right {
+        display: none;
+    }
+
+    .row {
+        flex-direction: column !important;
+    }
+
+    .color-block {
+        width: 100% !important;
+    }
+
+    .main-block {
+        width: 100% !important;
+    }
+
 
 }
 
