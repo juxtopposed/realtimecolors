@@ -1009,6 +1009,11 @@ nav {
         display: none !important;
     }
 
+    .get-suggestions-toolbar {
+        flex-direction: row;
+        align-self: center;
+    }
+
     
 }
 
@@ -1028,17 +1033,27 @@ nav {
         display: none;
     }
 
-    .row {
-        flex-direction: column !important;
+    .main-block > p {
+        font-size: 12px;
     }
 
-    .color-block {
-        width: 100% !important;
+    .color-block > p {
+        font-size: 12px;
     }
 
     .main-block {
+        height: 150px !important;
+    }
+
+    .color-block {
+        height: 150px !important;
+    }
+
+    .row {
         width: 100% !important;
     }
+
+
 
 
 }
