@@ -1014,21 +1014,6 @@ nav {
         align-self: center;
     }
 
-    
-}
-
-@media screen and (max-width: 800px) {
-
-    .step {width: 100%;}
-
-    .part2 {
-        gap: 1em;
-    }
-
-    .part2-right {
-        gap: 1em;
-    }
-
     .hero-img-left, .hero-img-right {
         display: none;
     }
@@ -1052,6 +1037,22 @@ nav {
     .row {
         width: 100% !important;
     }
+    
+}
+
+@media screen and (max-width: 800px) {
+
+    .step {width: 100%;}
+
+    .part2 {
+        gap: 1em;
+    }
+
+    .part2-right {
+        gap: 1em;
+    }
+
+
 
 
 
