@@ -1240,7 +1240,13 @@ function updateSlug() {
 
   const slug = `${primary}-${secondary}-${primbuttn}-${secbuttn}-${accent}`;
 
-  window.history.replaceState({}, document.title, `?colors=${slug}`);
+  // check if the current pathname includes "get-suggestions"
+  const excludePage = window.location.pathname.includes("get-suggestions");
+
+  // update the URL path with the new slug unless the current page is "get-suggestions"
+  if (!excludePage) {
+    window.history.replaceState({}, document.title, `${window.location.pathname}?colors=${slug}`);
+  }
 }
 
 
@@ -1507,3 +1513,9 @@ mondrianInfoIcon.addEventListener("click", () => {
   mondrianAnswer.classList.add("expand");
   mondrianFAQIcon.classList.add("expand");
 });
+
+
+
+
+
+
