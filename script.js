@@ -1240,13 +1240,7 @@ function updateSlug() {
 
   const slug = `${primary}-${secondary}-${primbuttn}-${secbuttn}-${accent}`;
 
-  // check if the current pathname includes "get-suggestions"
-  const excludePage = window.location.pathname.includes("get-suggestions");
-
-  // update the URL path with the new slug unless the current page is "get-suggestions"
-  if (!excludePage) {
-    window.history.replaceState({}, document.title, `${window.location.pathname}?colors=${slug}`);
-  }
+  window.history.replaceState({}, document.title, `?colors=${slug}`);
 }
 
 
@@ -1517,5 +1511,19 @@ mondrianInfoIcon.addEventListener("click", () => {
 
 
 
+// Carry slug over to any other page
+
+const params = new URLSearchParams(window.location.search);
+const colors = params.get('colors');
 
 
+const links = document.querySelectorAll('a:not([href*="get-suggestions"])');
+links.forEach(link => {
+  let href = link.getAttribute('href');
+  if (href.includes('?')) {
+    href += `&colors=${colors}`;
+  } else {
+    href += `?colors=${colors}`;
+  }
+  link.setAttribute('href', href);
+});
