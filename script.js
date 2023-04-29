@@ -1498,32 +1498,39 @@ function copyPageUrl() {
 }
 
 
+// updating links based on slug
 
-const mondrianInfoIcon = document.getElementById('mondrian-info-icon');
-const mondrianAnswer = document.querySelector('.mondrian-answer');
-const mondrianFAQIcon = document.querySelector('.mondrian-icon');
-
-mondrianInfoIcon.addEventListener("click", () => {
-  mondrianAnswer.classList.add("expand");
-  mondrianFAQIcon.classList.add("expand");
-});
-
-
-
-
-// Carry slug over to any other page
-
-const params = new URLSearchParams(window.location.search);
-const colors = params.get('colors');
-
-
-const links = document.querySelectorAll('a:not([href*="get-suggestions"])');
-links.forEach(link => {
-  let href = link.getAttribute('href');
-  if (href.includes('?')) {
-    href += `&colors=${colors}`;
-  } else {
-    href += `?colors=${colors}`;
+function updateLinks(slug) {
+  const links = document.querySelectorAll('a');
+  links.forEach(link => {
+      const href = link.getAttribute('href');
+      const url = new URL(href, window.location.origin);
+      url.searchParams.set('colors', slug);
+      link.setAttribute('href', url.toString());
+  });
+}
+  
+let currentSlug = '';
+const checkForUpdates = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const newSlug = urlParams.get('colors');
+  if (newSlug && newSlug !== currentSlug) {
+      currentSlug = newSlug;
+      updateLinks(currentSlug);
   }
-  link.setAttribute('href', href);
-});
+  setTimeout(checkForUpdates, 100);
+};
+checkForUpdates();            
+
+
+
+
+
+
+
+
+
+
+
+
+
