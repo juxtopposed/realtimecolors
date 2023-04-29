@@ -1501,26 +1501,27 @@ function copyPageUrl() {
 // updating links based on slug
 
 function updateLinks(slug) {
-  const links = document.querySelectorAll('a');
+  const links = document.querySelectorAll('a:not([href^="#"])');
   links.forEach(link => {
-      const href = link.getAttribute('href');
-      const url = new URL(href, window.location.origin);
-      url.searchParams.set('colors', slug);
-      link.setAttribute('href', url.toString());
+    const href = link.getAttribute('href');
+    const url = new URL(href, window.location.origin);
+    url.searchParams.set('colors', slug);
+    link.setAttribute('href', url.toString());
   });
 }
-  
+
 let currentSlug = '';
 const checkForUpdates = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const newSlug = urlParams.get('colors');
   if (newSlug && newSlug !== currentSlug) {
-      currentSlug = newSlug;
-      updateLinks(currentSlug);
+    currentSlug = newSlug;
+    updateLinks(currentSlug);
   }
   setTimeout(checkForUpdates, 100);
 };
-checkForUpdates();            
+checkForUpdates();
+      
 
 
 
