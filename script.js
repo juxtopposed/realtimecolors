@@ -839,11 +839,11 @@ exportButton.addEventListener('click', () => {
 
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-  canvas.width = colorValues.length * 50;
-  canvas.height = 50;
+  canvas.width = colorValues.length * 100;
+  canvas.height = 100;
   for (let i = 0; i < colorValues.length; i++) {
     ctx.fillStyle = colorValues[i];
-    ctx.fillRect(i * 50, 0, 50, 50);
+    ctx.fillRect(i * 100, 0, 100, 100);
   }
 
   const paletteImage = canvas.toDataURL('image/png');
@@ -856,7 +856,7 @@ exportButton.addEventListener('click', () => {
     Primary Button: ${primbuttnColor.value} (RGB: ${hexToRgb(primbuttnColor.value)})
     Secondary Button: ${secbuttnColor.value} (RGB: ${hexToRgb(secbuttnColor.value)})
     Accent: ${accentColor.value} (RGB: ${hexToRgb(accentColor.value)})\n
-Thanks for using Real-time Colors!`;
+Thanks for using RealtimeColors.com!`;
   const colorBlob = new Blob([colorText], { type: 'text/plain' });
   const colorFile = new File([colorBlob], 'colors.txt', { type: 'text/plain' });
 
@@ -1504,9 +1504,11 @@ function updateLinks(slug) {
   const links = document.querySelectorAll('a:not([href^="#"])');
   links.forEach(link => {
     const href = link.getAttribute('href');
-    const url = new URL(href, window.location.origin);
-    url.searchParams.set('colors', slug);
-    link.setAttribute('href', url.toString());
+    if (!href.startsWith('https://') && !href.startsWith('mailto:')) {
+      const url = new URL(href, window.location.origin);
+      url.searchParams.set('colors', slug);
+      link.setAttribute('href', url.toString());
+    }
   });
 }
 

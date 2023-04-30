@@ -1,5 +1,3 @@
-
-
 // Highlight Toolbar
 
 
@@ -13,94 +11,267 @@ function highlightToolbar() {
 
 
 
+
+
+
 // Get Suggestions
 
 const mainColor = document.getElementById("main-color");
 
-mainColor.addEventListener("change", function() {
+function updateColorSchemes() {
   const color = mainColor.value;
-  const colorScheme = generateColorScheme(color);
-  const colorBlocks = document.getElementsByClassName("color-block");
+  const colorSchemes = generateColorSchemes(color);
 
-  for (let i = 0; i < colorBlocks.length; i++) {
-    colorBlocks[i].style.backgroundColor = colorScheme[i % colorScheme.length];
-  }
+  // Update analogous colors
+  const analogousBlocks = document.querySelectorAll(".analogous");
+  analogousBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[0][index];
+  });
 
-  const mainBlock = document.querySelector(".main-block");
-  mainBlock.style.backgroundColor = color;
+  // Update monochromatic colors
+  const monochromaticBlocks = document.querySelectorAll(".monochromatic");
+  monochromaticBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[1][index];
+  });
 
-  updateColorBlockCodes();
-  
-});
+  // Update triadic colors
+  const triadicBlocks = document.querySelectorAll(".triadic");
+  triadicBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[2][index];
+  });
 
-function generateColorScheme(color) {
+  // Update complementary colors
+  const complementaryBlocks = document.querySelectorAll(".complementary");
+  complementaryBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[3][index];
+  });
+
+  // Update split complementary colors
+  const splitComplementaryBlocks = document.querySelectorAll(".split-complementary");
+  splitComplementaryBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[4][index];
+  });
+
+  // Update double complementary colors
+  const doubleComplementaryBlocks = document.querySelectorAll(".double-complementary");
+  doubleComplementaryBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[5][index];
+  });
+
+  // Update square colors
+  const squareBlocks = document.querySelectorAll(".square-colors");
+  squareBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[6][index];
+  });
+
+  // Update compound colors
+  const compoundBlocks = document.querySelectorAll(".compound-colors");
+  compoundBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[7][index];
+  });
+
+  // Update shades colors
+  const shadesBlocks = document.querySelectorAll(".shades-colors");
+  shadesBlocks.forEach(function(block, index) {
+    block.style.backgroundColor = colorSchemes.allSchemes[8][index];
+  });
+
+  // updateColorBlockCodes();
+}
+
+mainColor.addEventListener("change", updateColorSchemes);
+
+// Call the updateColorSchemes function when the page loads
+window.addEventListener("load", updateColorSchemes);
+
+
+
+
+
+
+
+function generateColorSchemes(color) {
   const hsl = hexToHsl(color);
   const h = hsl[0];
   const s = hsl[1];
   const l = hsl[2];
+
+  const analogous = generateAnalogousColors(h, s, l);
+  const monochromatic = generateMonochromaticColors(h, s, l);
+  const triadic = generateTriadicColors(h, s, l);
+  const complementary = generateComplementaryColors(h, s, l);
+  const splitComplementary = generateSplitComplementaryColors(h, s, l);
+  const doubleSplitComplementary = generateDoubleSplitComplementaryColors(h, s, l);
+  const square = generateSquareColors(h, s, l);
+  const compound = generateCompoundColors(h, s, l);
+  const shades = generateShadesColors(h, s, l);
+  const allSchemes = [analogous, monochromatic, triadic, complementary, splitComplementary, doubleSplitComplementary, square, compound, shades];
   
-  const complementary = `hsl(${(h + 180) % 360}, ${s}%, ${Math.floor(Math.random() * 50 + 50)}%)`;
-  const monochromatic = `hsl(${h}, ${s}%, ${Math.floor(Math.random() * 40)}%)`;
-  const analogous = `hsl(${(h + 30) % 360}, ${s}%, ${Math.floor(Math.random() * 20 + 80)}%)`;
-  const triadic = `hsl(${(h + 120) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
-  
-  return [complementary, monochromatic, analogous, triadic];
+  console.log('allSchemes:', allSchemes);
+  return { allSchemes };
+
 }
 
-function hexToHsl(hex) {
-  const r = parseInt(hex.substring(1, 3), 16) / 255;
-  const g = parseInt(hex.substring(3, 5), 16) / 255;
-  const b = parseInt(hex.substring(5, 7), 16) / 255;
 
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
 
-  let h, s, l = (max + min) / 2;
+function generateAnalogousColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const analogous1 = `hsl(${(h + 30) % 360}, ${s}%, ${Math.floor(Math.random() * 20 + 60)}%)`;
+  const analogous2 = `hsl(${(h + 15) % 360}, ${s}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const analogous3 = `hsl(${(h - 15 + 360) % 360}, ${s}%, ${Math.floor(Math.random() * 20 + 60)}%)`;
+  const analogous4 = `hsl(${(h - 30 + 360) % 360}, ${s}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  return [main, analogous1, analogous2, analogous3, analogous4];
+}
 
-  if (max === min) {
-    h = s = 0; // achromatic
-  } else {
-    const d = max - min;
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    switch (max) {
-      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-      case g: h = (b - r) / d + 2; break;
-      case b: h = (r - g) / d + 4; break;
-    }
-    h /= 6;
+function generateMonochromaticColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const monochromatic1 = `hsl(${h}, ${s}%, ${Math.floor(Math.random() * 40)}%)`;
+  const monochromatic2 = `hsl(${h}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const monochromatic3 = `hsl(${h}, ${Math.floor(s * 0.5)}%, ${Math.floor(Math.random() * 20 + 30)}%)`; 
+  const monochromatic4 = `hsl(${h}, ${Math.floor(s * 0.25)}%, ${Math.floor(Math.random() * 20 + 10)}%)`;
+  return [  main, monochromatic2, monochromatic3, monochromatic1, monochromatic4];
+}
+
+function generateTriadicColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const triadic1 = `hsl(${(h + 120) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const triadic2 = `hsl(${(h + 240) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const triadic3 = `hsl(${(h + 240) % 360}, ${Math.floor(s * 0.5)}%, ${Math.floor(Math.random() * 20 + 30)}%)`;
+  const triadic4 = `hsl(${(h + 240) % 360}, ${Math.floor(s * 0.25)}%, ${Math.floor(Math.random() * 20 + 10)}%)`;
+  return [main, triadic1, triadic2, triadic3, triadic4];
+}
+  
+function generateComplementaryColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const complementary1 = `hsl(${(h + 180) % 360}, ${s}%, ${Math.floor(Math.random() * 50 + 50)}%)`;
+  const complementary2 = `hsl(${(h + 60) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const complementary3 = `hsl(${(h + 60) % 360}, ${Math.floor(s * 0.5)}%, ${Math.floor(Math.random() * 20 + 30)}%)`;
+  const complementary4 = `hsl(${(h + 60) % 360}, ${Math.floor(s * 0.25)}%, ${Math.floor(Math.random() * 20 + 10)}%)`;
+  return [main, complementary1, complementary2, complementary3, complementary4];
+}
+
+function generateSplitComplementaryColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const splitComplementary1 = `hsl(${(h + 150) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const splitComplementary2 = `hsl(${(h + 210) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const splitComplementary3 = `hsl(${(h + 60) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const splitComplementary4 = `hsl(${(h + 60) % 360}, ${Math.floor(s * 0.5)}%, ${Math.floor(Math.random() * 20 + 30)}%)`;
+  return [main, splitComplementary1, splitComplementary2, splitComplementary3, splitComplementary4];
+}
+
+function generateDoubleSplitComplementaryColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const doubleSplitComplementary1 = `hsl(${(h + 150) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const doubleSplitComplementary2 = `hsl(${(h + 210) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const doubleSplitComplementary3 = `hsl(${(h + 270) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const doubleSplitComplementary4 = `hsl(${(h + 30) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  return [main, doubleSplitComplementary1, doubleSplitComplementary2, doubleSplitComplementary3, doubleSplitComplementary4];
+}
+
+
+function generateSquareColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const square1 = `hsl(${(h + 90) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const square2 = `hsl(${(h + 180) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const square3 = `hsl(${(h + 270) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const square4 = `hsl(${(h + 45) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  return [main, square1, square2, square3, square4];
+  }
+  
+  
+  function generateCompoundColors(h, s, l) {
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  const compound1 = `hsl(${(h + 30) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  const compound2 = `hsl(${(h + 150) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const compound3 = `hsl(${(h + 210) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
+  const compound4 = `hsl(${(h + 330) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
+  return [main, compound1, compound2, compound3, compound4];
+  }
+  
+  
+  function generateShadesColors(h, s, l) {
+  const shades1 = `hsl(${h}, ${Math.floor(s * 0.25)}%, ${Math.floor(l * 0.25)}%)`;
+  const shades2 = `hsl(${h}, ${Math.floor(s * 0.5)}%, ${Math.floor(l * 0.5)}%)`;
+  const shades3 = `hsl(${h}, ${Math.floor(s * 0.75)}%, ${Math.floor(l * 0.75)}%)`;
+  const shades4 = `hsl(${h}, ${Math.floor(s * 0.9)}%, ${Math.floor(l * 0.9)}%)`;
+  const main = `hsl(${h}, ${s}%, ${l}%)`;
+  return [main, shades4, shades3, shades2, shades1 ];
   }
 
-  return [h * 360, s * 100, l * 100];
+
+
+
+function hexToHsl(hex) {
+  let r = 0, g = 0, b = 0;
+  if (hex.length === 4) {
+    r = parseInt(hex[1] + hex[1], 16);
+    g = parseInt(hex[2] + hex[2], 16);
+    b = parseInt(hex[3] + hex[3], 16);
+  } else if (hex.length === 7) {
+    r = parseInt(hex.slice(1, 3), 16);
+    g = parseInt(hex.slice(3, 5), 16);
+    b = parseInt(hex.slice(5, 7), 16);
+  }
+
+  r /= 255, g /= 255, b /= 255;
+  const cmax = Math.max(r, g, b), cmin = Math.min(r, g, b);
+  const delta = cmax - cmin;
+  let h = 0, s = 0, l = 0;
+
+  if (delta === 0) {
+    h = 0;
+  } else if (cmax === r) {
+    h = ((g - b) / delta) % 6;
+  } else if (cmax === g) {
+    h = (b - r) / delta + 2;
+  } else {
+    h = (r - g) / delta + 4;
+  }
+
+  h = Math.round(h * 60);
+  if (h < 0) h += 360;
+
+  l = (cmax + cmin) / 2;
+
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+
+  s = +(s * 100).toFixed(1);
+  l = +(l * 100).toFixed(1);
+
+  return [h, s, l];
 }
 
 
 
-// Add HEX values
-
-const complementary = document.querySelector('.complementary');
-const main = document.querySelector('.main-block');
-const monochromatic = document.querySelector('.monochromatic');
-const analogous = document.querySelector('.analogous');
-const triadic = document.querySelector('.triadic');
-
-const complementaryCode = document.querySelector('#complementary-code');
-const mainCode = document.querySelector('#main-code');
-const monochromaticCode = document.querySelector('#monochromatic-code');
-const analogousCode = document.querySelector('#analogous-code');
-const triadicCode = document.querySelector('#triadic-code');
-
-function updateColorBlockCodes() {
-  complementaryCode.textContent = "#" + getComputedStyle(complementary).backgroundColor.slice(4, -1).split(',').map(x => parseInt(x.trim()).toString(16).padStart(2, '0')).join('');
-  mainCode.textContent = "#" + getComputedStyle(main).backgroundColor.slice(4, -1).split(',').map(x => parseInt(x.trim()).toString(16).padStart(2, '0')).join('');
-  monochromaticCode.textContent = "#" + getComputedStyle(monochromatic).backgroundColor.slice(4, -1).split(',').map(x => parseInt(x.trim()).toString(16).padStart(2, '0')).join('');
-  analogousCode.textContent = "#" + getComputedStyle(analogous).backgroundColor.slice(4, -1).split(',').map(x => parseInt(x.trim()).toString(16).padStart(2, '0')).join('');
-  triadicCode.textContent = "#" + getComputedStyle(triadic).backgroundColor.slice(4, -1).split(',').map(x => parseInt(x.trim()).toString(16).padStart(2, '0')).join('');
-}
 
 
 
 
 
+
+
+
+
+
+// Randomize
+const randomizeBtn = document.getElementById("randomize");
+randomizeBtn.addEventListener("click", function() {
+  const hexChars = "0123456789abcdef";
+  let randomHex = "#";
+  for (let i = 0; i < 6; i++) {
+    randomHex += hexChars[Math.floor(Math.random() * hexChars.length)];
+  }
+  document.getElementById("main-color").value = randomHex;
+  const event = new Event("change");
+  document.getElementById("main-color").dispatchEvent(event);
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.code === 'Space') {
+    randomizeBtn.click();
+    event.preventDefault();
+  }
+});
 
 
 
@@ -126,94 +297,155 @@ mainColor.addEventListener('change', function() {
   } else {
     option.querySelector('label').style.color = 'white';
   }
-  
-  colorBlocks.forEach(block => {
-    const computedStyle = getComputedStyle(block);
-    const backgroundColor = computedStyle.backgroundColor;
-    const [h, s, l] = backgroundColor.match(/\d+/g);
-    const lightness = Math.round((l/255)*100);
-    if (lightness > 50) {
-      block.querySelector('.color-block-text').style.color = 'black';
-      block.querySelector('.color-code').style.color = 'black';
-    } else {
-      block.querySelector('.color-block-text').style.color = 'white';
-      block.querySelector('.color-code').style.color = 'white';
-    }
-  });
-});
 
-
-
-const randomizeBtn = document.getElementById("randomize");
-randomizeBtn.addEventListener("click", function() {
-  const hexChars = "0123456789abcdef";
-  let randomHex = "#";
-  for (let i = 0; i < 6; i++) {
-    randomHex += hexChars[Math.floor(Math.random() * hexChars.length)];
-  }
-  document.getElementById("main-color").value = randomHex;
-  const event = new Event("change");
-  document.getElementById("main-color").dispatchEvent(event);
-});
-
-document.addEventListener("keydown", function(event) {
-  if (event.code === 'Space') {
-    randomizeBtn.click();
-    event.preventDefault();
-  }
 });
 
 
 
 
-
+// Export
 const exportButton = document.getElementById('export');
-exportButton.addEventListener('click', () => {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = 250;
-  canvas.height = 50;
+exportButton.addEventListener('click', exportPalettes);
 
-  const colors = [
-    getComputedStyle(complementary).backgroundColor,
-    getComputedStyle(main).backgroundColor,
-    getComputedStyle(monochromatic).backgroundColor,
-    getComputedStyle(analogous).backgroundColor,
-    getComputedStyle(triadic).backgroundColor
-  ];
 
-  for (let i = 0; i < colors.length; i++) {
-    ctx.fillStyle = colors[i];
-    ctx.fillRect(i * 50, 0, 50, 50);
+function exportPalettes() {
+  const schemes = ["analogous", "monochromatic", "triadic", "complementary", "split-complementary", "double-complementary", "square-colors", "compound-colors", "shades-colors"];
+  const schemeNames = ["Analogous", "Monochromatic", "Triadic", "Complementary", "Split Complementary", "Double Split Complementary", "Square", "Compound", "Shades"];
+  const zip = new JSZip();
+  let text = "Your selected palettes:\n";
+  schemes.forEach((scheme, index) => {
+    const schemeName = schemeNames[index];
+    const schemeColors = document.querySelectorAll(`.${scheme}`);
+    let paletteText = `${schemeName}:`;
+    const palette = new CanvasPalette(500, 100);
+    schemeColors.forEach((colorBlock, colorIndex) => {
+      const color = colorBlock.style.backgroundColor;
+      const hex = rgbToHex(color);
+      palette.setColor(colorIndex, color);
+      paletteText += ` ${hex.toUpperCase()}`;
+    });
+    zip.file(`${schemeName}.png`, palette.toDataURL().split(',')[1], { base64: true });
+    text += `\n- ${paletteText}`;
+  });
+  zip.file("Selected Palettes.txt", text + "\n\nThank you for using RealtimeColors.com!");
+  zip.generateAsync({ type: "blob" }).then(function (content) {
+    saveAs(content, "palettes.zip");
+  });
+}
+
+function rgbToHex(rgb) {
+  const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  const r = parseInt(match[1], 10);
+  const g = parseInt(match[2], 10);
+  const b = parseInt(match[3], 10);
+  const hex = ((r << 16) | (g << 8) | b).toString(16);
+  return "#" + hex.padStart(6, '0');
+}
+
+class CanvasPalette {
+  constructor(width, height) {
+    this.canvas = document.createElement("canvas");
+    this.canvas.width = width;
+    this.canvas.height = height;
+    this.context = this.canvas.getContext("2d");
   }
 
-  const paletteImage = canvas.toDataURL('image/png');
-  const paletteBlob = dataURItoBlob(paletteImage);
-  const paletteFile = new File([paletteBlob], 'palette.png', { type: 'image/png' });
+  setColor(index, color) {
+    const x = index * this.canvas.width / 5;
+    const y = 0;
+    const width = this.canvas.width / 5;
+    const height = this.canvas.height;
+    this.context.fillStyle = color;
+    this.context.fillRect(x, y, width, height);
+  }
 
-  const colorText = `Your color palette:\n\n${complementaryCode.textContent} - ${mainCode.textContent} - ${monochromaticCode.textContent} - ${analogousCode.textContent} - ${triadicCode.textContent}\n\nThanks for using Realtime Colors!`;
-  const colorBlob = new Blob([colorText], { type: 'text/plain' });
-  const colorFile = new File([colorBlob], 'colors.txt', { type: 'text/plain' });
+  toDataURL() {
+    return this.canvas.toDataURL();
+  }
+}
 
-  const zip = new JSZip();
-  zip.file(paletteFile.name, paletteFile);
-  zip.file(colorFile.name, colorFile);
 
-  zip.generateAsync({ type: 'blob' }).then(function (blob) {
-    saveAs(blob, 'colors.zip');
+
+
+
+
+
+// show hex values
+document.addEventListener('DOMContentLoaded', () => {
+  const colorBlocks = document.querySelectorAll('.color-block');
+
+  colorBlocks.forEach(colorBlock => {
+    const bgColor = getComputedStyle(colorBlock).getPropertyValue('background-color');
+
+    const hexColor = rgbToHex(bgColor);
+
+    colorBlock.querySelector('.color-code').textContent = hexColor;
+
+    const observer = new MutationObserver(mutationsList => {
+      for (let mutation of mutationsList) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+          const newBgColor = getComputedStyle(colorBlock).getPropertyValue('background-color');
+          const newHexColor = rgbToHex(newBgColor);
+          colorBlock.querySelector('.color-code').textContent = newHexColor;
+          break;
+        }
+      }
+    });
+    observer.observe(colorBlock, { attributes: true });
   });
 });
 
-function dataURItoBlob(dataURI) {
-  const byteString = atob(dataURI.split(',')[1]);
-  const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-  const ab = new ArrayBuffer(byteString.length);
-  const ia = new Uint8Array(ab);
-  for (let i = 0; i < byteString.length; i++) {
-    ia[i] = byteString.charCodeAt(i);
-  }
-  return new Blob([ab], { type: mimeString });
+function rgbToHex(rgbColor) {
+  const [r, g, b] = rgbColor.slice(4, -1).split(',').map(x => parseInt(x.trim()));
+
+  const hexValue = ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+
+  return '#' + hexValue;
 }
+
+
+
+
+// Copy HEX codes
+
+document.addEventListener('DOMContentLoaded', () => {
+  const colorBlocks = document.querySelectorAll('.color-block');
+
+  colorBlocks.forEach(colorBlock => {
+    const colorCode = colorBlock.querySelector('.color-code');
+
+    colorBlock.addEventListener('click', () => {
+      const tempElement = document.createElement('textarea');
+      tempElement.value = colorCode.textContent;
+
+      document.body.appendChild(tempElement);
+
+      tempElement.select();
+
+      document.execCommand('copy');
+
+      colorCode.textContent = "Copied!";
+
+      setTimeout(() => {
+        colorCode.textContent = tempElement.value;
+      }, 2000);
+
+      document.body.removeChild(tempElement);
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // FAQ
@@ -276,9 +508,11 @@ function updateLinks(slug) {
   const links = document.querySelectorAll('a:not([href^="#"])');
   links.forEach(link => {
     const href = link.getAttribute('href');
-    const url = new URL(href, window.location.origin);
-    url.searchParams.set('colors', slug);
-    link.setAttribute('href', url.toString());
+    if (!href.startsWith('https://') && !href.startsWith('mailto:')) {
+      const url = new URL(href, window.location.origin);
+      url.searchParams.set('colors', slug);
+      link.setAttribute('href', url.toString());
+    }
   });
 }
 
@@ -293,3 +527,4 @@ const checkForUpdates = () => {
   setTimeout(checkForUpdates, 100);
 };
 checkForUpdates();
+      
