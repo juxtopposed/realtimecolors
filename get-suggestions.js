@@ -508,13 +508,20 @@ function updateLinks(slug) {
   const links = document.querySelectorAll('a:not([href^="#"])');
   links.forEach(link => {
     const href = link.getAttribute('href');
-    if (!href.startsWith('https://') && !href.startsWith('mailto:')) {
+    if (href.startsWith('https://realtimecolors.com')) {
+
+      const url = new URL(href);
+      url.searchParams.set('colors', slug);
+      link.setAttribute('href', url.toString());
+    } else if (!href.startsWith('https://') && !href.startsWith('mailto:')) {
+
       const url = new URL(href, window.location.origin);
       url.searchParams.set('colors', slug);
       link.setAttribute('href', url.toString());
     }
   });
 }
+
 
 let currentSlug = '';
 const checkForUpdates = () => {
