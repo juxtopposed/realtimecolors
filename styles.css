@@ -484,7 +484,7 @@ nav {
     opacity: 30%;
     position: absolute;
     transition: all 0.3s ease;
-    background: linear-gradient(180deg, transparent 50%, var(--primbuttn) 50%);
+    background: linear-gradient(180deg, transparent 50%, var(--accent) 50%);
 }
 
 .part1-card:hover > .highlight::before {
@@ -500,7 +500,7 @@ nav {
 /* part 2 */
 
 .part2 {
-    background-color: var(--accent);
+    background-color: var(--secbuttn);
     border-radius: 6px;
     padding: 3em 5em;
 

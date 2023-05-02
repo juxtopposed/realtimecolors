@@ -736,7 +736,7 @@ function randomizeColors() {
 
   });
 
-  const accentColorValue = accentColor.value;
+
 
   partTwo.forEach(partTwo => {
     const primaryColorValue = primaryColor.value;
@@ -745,31 +745,60 @@ function randomizeColors() {
     const primaryBrightness = getBrightness(primaryColorValue);
     const secondaryBrightness = getBrightness(secondaryColorValue);
 
-    const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+    const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
 
     if (primaryBrightness < secondaryBrightness) {
       if (contrastRatio < 4.5) {
         partTwo.style.color = 'var(--secondary)';
-        accentColorClass.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
       }
       else if (contrastRatio > 4.5) {
         partTwo.style.color = 'var(--primary)';
-        accentColorClass.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
       }
     }
 
     if (primaryBrightness > secondaryBrightness) {
       if (contrastRatio < 4.5) {
         partTwo.style.color = 'var(--secondary)';
-        accentColorClass.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
       }
       else if (contrastRatio > 4.5) {
         partTwo.style.color = 'var(--primary)';
-        accentColorClass.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
       }
     }
 
   });
+
+
+  const accentColorValue = accentColor.value;
+      
+  const primaryColorValue = primaryColor.value;
+  const secondaryColorValue = secondaryColor.value;
+
+  const primaryBrightness = getBrightness(primaryColorValue);
+  const secondaryBrightness = getBrightness(secondaryColorValue);
+
+  const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+
+  if (primaryBrightness < secondaryBrightness) {
+    if (contrastRatio < 4.5) {
+      accentColorClass.style.color = 'var(--secondary)';
+    }
+    else if (contrastRatio > 4.5) {
+      accentColorClass.style.color = 'var(--primary)';
+    }
+  }
+
+  if (primaryBrightness > secondaryBrightness) {
+    if (contrastRatio < 4.5) {
+      accentColorClass.style.color = 'var(--secondary)';
+    }
+    else if (contrastRatio > 4.5) {
+      accentColorClass.style.color = 'var(--primary)';
+    }
+  }
 
 
 }
@@ -1059,13 +1088,51 @@ function checkContrast() {
       }
 
     });
+
+  }));
+
+
+  secbuttnColor.addEventListener('input', debounce(() => {
+    const secbuttnColorValue = secbuttnColor.value;
+    
+    partTwo.forEach(partTwo => {
+      const primaryColorValue = primaryColor.value;
+      const secondaryColorValue = secondaryColor.value;
+
+      const primaryBrightness = getBrightness(primaryColorValue);
+      const secondaryBrightness = getBrightness(secondaryColorValue);
+
+      const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
+
+      if (primaryBrightness < secondaryBrightness) {
+        if (contrastRatio < 4.5) {
+          partTwo.style.color = 'var(--secondary)';
+          secbuttnColorClass.style.color = 'var(--secondary)';
+        }
+        else if (contrastRatio > 4.5) {
+          partTwo.style.color = 'var(--primary)';
+          secbuttnColorClass.style.color = 'var(--primary)';
+        }
+      }
+
+      if (primaryBrightness > secondaryBrightness) {
+        if (contrastRatio < 4.5) {
+          partTwo.style.color = 'var(--secondary)';
+          secbuttnColorClass.style.color = 'var(--secondary)';
+        }
+        else if (contrastRatio > 4.5) {
+          partTwo.style.color = 'var(--primary)';
+          secbuttnColorClass.style.color = 'var(--primary)';
+        }
+      }
+
+    });
   }));
 
 
   accentColor.addEventListener('input', debounce(() => {
     const accentColorValue = accentColor.value;
     
-    partTwo.forEach(partTwo => {
       const primaryColorValue = primaryColor.value;
       const secondaryColorValue = secondaryColor.value;
 
@@ -1076,28 +1143,24 @@ function checkContrast() {
 
       if (primaryBrightness < secondaryBrightness) {
         if (contrastRatio < 4.5) {
-          partTwo.style.color = 'var(--secondary)';
           accentColorClass.style.color = 'var(--secondary)';
         }
         else if (contrastRatio > 4.5) {
-          partTwo.style.color = 'var(--primary)';
           accentColorClass.style.color = 'var(--primary)';
         }
       }
 
       if (primaryBrightness > secondaryBrightness) {
         if (contrastRatio < 4.5) {
-          partTwo.style.color = 'var(--secondary)';
           accentColorClass.style.color = 'var(--secondary)';
         }
         else if (contrastRatio > 4.5) {
-          partTwo.style.color = 'var(--primary)';
           accentColorClass.style.color = 'var(--primary)';
         }
       }
 
-    });
   }));
+  
 }
 
 
@@ -1384,7 +1447,6 @@ function applyColorsFromSlug() {
   
     });
   
-    const accentColorValue = accentColor.value;
   
     partTwo.forEach(partTwo => {
       const primaryColorValue = primaryColor.value;
@@ -1393,31 +1455,61 @@ function applyColorsFromSlug() {
       const primaryBrightness = getBrightness(primaryColorValue);
       const secondaryBrightness = getBrightness(secondaryColorValue);
   
-      const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+      const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
   
       if (primaryBrightness < secondaryBrightness) {
         if (contrastRatio < 4.5) {
           partTwo.style.color = 'var(--secondary)';
-          accentColorClass.style.color = 'var(--secondary)';
+          secbuttnColorClass.style.color = 'var(--secondary)';
         }
         else if (contrastRatio > 4.5) {
           partTwo.style.color = 'var(--primary)';
-          accentColorClass.style.color = 'var(--primary)';
+          secbuttnColorClass.style.color = 'var(--primary)';
         }
       }
   
       if (primaryBrightness > secondaryBrightness) {
         if (contrastRatio < 4.5) {
           partTwo.style.color = 'var(--secondary)';
-          accentColorClass.style.color = 'var(--secondary)';
+          secbuttnColorClass.style.color = 'var(--secondary)';
         }
         else if (contrastRatio > 4.5) {
           partTwo.style.color = 'var(--primary)';
-          accentColorClass.style.color = 'var(--primary)';
+          secbuttnColorClass.style.color = 'var(--primary)';
         }
       }
   
     });
+
+
+      const accentColorValue = accentColor.value;
+      
+        const primaryColorValue = primaryColor.value;
+        const secondaryColorValue = secondaryColor.value;
+  
+        const primaryBrightness = getBrightness(primaryColorValue);
+        const secondaryBrightness = getBrightness(secondaryColorValue);
+  
+        const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+  
+        if (primaryBrightness < secondaryBrightness) {
+          if (contrastRatio < 4.5) {
+            accentColorClass.style.color = 'var(--secondary)';
+          }
+          else if (contrastRatio > 4.5) {
+            accentColorClass.style.color = 'var(--primary)';
+          }
+        }
+  
+        if (primaryBrightness > secondaryBrightness) {
+          if (contrastRatio < 4.5) {
+            accentColorClass.style.color = 'var(--secondary)';
+          }
+          else if (contrastRatio > 4.5) {
+            accentColorClass.style.color = 'var(--primary)';
+          }
+        }
+  
 
     updateColors();
 
