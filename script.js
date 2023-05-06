@@ -1554,20 +1554,88 @@ accentColor.addEventListener('change', updateColors);
 
 
 
-// Expand button for mobile
+// // Expand button for toolbar
 
-const expandButton = document.querySelector(".rolloutbutton");
+const expandButtonColors = document.querySelector(".colors-rollout");
+const expandButtonFonts = document.querySelector(".fonts-rollout");
+const colorsOptions = document.querySelectorAll(".colors-option");
+const fontsOptions = document.querySelectorAll(".fonts-option");
+const colorSpan = document.querySelector('.color-tools-span');
+const fontSpan = document.querySelector('.font-tools-span');
 
-expandButton.addEventListener("click", () => {
-  var options = document.getElementsByClassName("option");
+const colorsRolloutIcon = document.querySelector('.colors-rollout svg');
+const fontsRolloutIcon = document.querySelector('.fonts-rollout svg');
 
-  for (var i = 0; i < options.length; i++) {
-    if (options[i] !== expandButton) {
-      options[i].classList.toggle("rollout");
-    }
+
+if (window.innerWidth < 1100) {
+  expandButtonFonts.addEventListener("click", () => {
+    colorSpan.classList.remove('hide');
+  });
+} else {
+  expandButtonFonts.addEventListener("click", () => {
+    colorSpan.classList.add('hide');
+  });
+}
+
+expandButtonColors.addEventListener("click", () => {
+  expandButtonColors.classList.add('hide');
+  expandButtonFonts.classList.remove('hide');
+  colorSpan.classList.toggle('hide');
+  fontSpan.classList.add('hide');
+  colorsRolloutIcon.classList.toggle('rotateX');
+  fontsRolloutIcon.classList.remove('rotateX');
+});
+
+expandButtonFonts.addEventListener("click", () => {
+  expandButtonFonts.classList.add('hide');
+  expandButtonColors.classList.remove('hide');
+  fontSpan.classList.toggle('hide');
+  fontsRolloutIcon.classList.toggle('rotateX');
+  colorsRolloutIcon.classList.remove('rotateX');
+});
+
+
+
+
+
+
+// expanding fonts
+
+const textFontsButton = document.getElementById('text-fonts-buttn');
+const textFontsBox = document.querySelector('.text-fonts-box');
+const textFontsIcon = document.querySelector('.text-fonts-buttn svg');
+
+textFontsButton.addEventListener('click', () => {
+  textFontsBox.classList.toggle('open');
+  textFontsIcon.classList.toggle('rotate');
+  headingFontsBox.classList.remove('open');
+  headingFontsIcon.classList.remove('rotate');
+});
+
+
+document.addEventListener('click', (event) => {
+  if (!textFontsBox.contains(event.target) && event.target !== textFontsButton) {
+    textFontsBox.classList.remove('open');
+    textFontsIcon.classList.remove('rotate');
   }
+});
 
-  expandButton.classList.toggle("rotate");
+const headingFontsButton = document.getElementById('heading-fonts-buttn');
+const headingFontsBox = document.querySelector('.heading-fonts-box');
+const headingFontsIcon = document.querySelector('.heading-fonts-buttn svg');
+
+headingFontsButton.addEventListener('click', () => {
+  headingFontsBox.classList.toggle('open');
+  headingFontsIcon.classList.toggle('rotate');
+  textFontsBox.classList.remove('open');
+  textFontsIcon.classList.remove('rotate');
+});
+
+document.addEventListener('click', (event) => {
+  if (!headingFontsBox.contains(event.target) && event.target !== headingFontsButton) {
+    headingFontsBox.classList.remove('open');
+    headingFontsIcon.classList.remove('rotate');
+  }
 });
 
 
@@ -1629,10 +1697,14 @@ checkForUpdates();
 
 
 
+// hamburger menu 
 
+if (window.innerWidth < 1100) {
+  const hamburger = document.querySelector('#hamburger');
+  const mobileMenu = document.querySelector('.menu');
 
-
-
-
-
-
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    mobileMenu.classList.toggle('hide')
+  });
+}

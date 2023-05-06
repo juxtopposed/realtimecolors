@@ -535,3 +535,18 @@ const checkForUpdates = () => {
 };
 checkForUpdates();
       
+
+
+
+
+// hamburger menu 
+
+if (window.innerWidth < 1100) {
+  const hamburger = document.querySelector('#hamburger');
+  const mobileMenu = document.querySelector('.menu');
+
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    mobileMenu.classList.toggle('hide')
+  });
+}

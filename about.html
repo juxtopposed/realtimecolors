@@ -30,16 +30,22 @@
                 <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
                 <a href="/"><h2 class="sitename">Realtime Colors</h2></a>
             </div>
+            <div class="ham-menu">
+                <button id="hamburger">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
 
-            <div class="menu">
-                <a href="https://www.figma.com/community/plugin/1234060894101724457/Realtime-Colors" target="_blank" class="menu-item">Try Figma Plugin 
+            <div class="menu hide">
+                <a href="https://www.figma.com/community/plugin/1234060894101724457/Realtime-Colors" target="_blank" class="menu-item menu-item-mobile">Try Figma Plugin 
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <rect x="0.318182" y="0.318182" width="13.3636" height="13.3636" rx="2.10647" stroke="var(--primary)" stroke-width="0.636364"/>
                         <path d="M4.33594 9.7564L9.75615 4.33618M9.75615 4.33618L5.41998 4.33618M9.75615 4.33618V8.94337" stroke="var(--primary)" stroke-width="0.813033" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 &nbsp;<span style="background-color: var(--primary); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--secondary);"> New!</span></a>
-                <a href="get-suggestions" class="menu-item">Get Suggestions</a>
-                <a href="about" class="menu-item current">About</a>
+                <a href="get-suggestions" class="menu-item menu-item-mobile">Get Suggestions</a>
+                <a href="about" class="menu-item menu-item-mobile current">About</a>
                 <!-- <a href="#" class="menu-item">Blog</a> -->
                 <a href="/" class="secondary-button menu-item-font">Try it out</a>
             </div>
@@ -101,8 +107,27 @@
                 </div>
             </div>
 
-            <h2>Watch Video Introduction</h2>
-            <iframe style="aspect-ratio: 16 / 9; width: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/HAlIWRcldoc" title="I turned a whole website into a UI color palette tool - Realtime Colors" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+            <div class="part1">
+                <h2>Watch Video Introduction</h2>
+                <p>Learn more about Realtime Colors and using it on this video.</p>
+                <iframe style="aspect-ratio: 16 / 9; width: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/HAlIWRcldoc" title="I turned a whole website into a UI color palette tool - Realtime Colors" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+
+
+            <div class="part2" id="how" style="flex-direction: column; gap: 1em;">
+                <h2>Do you enjoy using Realtime Colors?</h2>
+                        <p>This project is constantly updated. I make sure it incorporates every feature you might need to help make your job easier. If you'd like to help out on this, I'll leave the donate links below. Your help is already very much appreciated! <3</p>
+                        <a href="https://coindrop.to/juxtopposed" target="_blank"><img src="https://coindrop.to/embed-button.png" style="border-radius: 10px; height: 57px !important;width: 229px !important;" alt="Coindrop.to me"></img></a>
+                        <p>Besides this, if you enjoy the tool, just spreading out the word means the world! Thank you for using RealtimeColors.com!</p>
+                </div>
+
+            </div>
+
+
+
+
 
             <div class="part5" id="end">
                 <h1>Your <span class="color-effect">Journey</span> Shouldn't End Here.</h1>
@@ -153,68 +178,152 @@
             </div>
     
             <div class="toolbar" id="toolbar">
-                <div class="option prim rollout">
-                    <input type="color" id="prim" name="prim" class="colorpicker" value="#000000">
-                    <label for="prim">Text</label>
-                </div>
-    
-                <div class="option sec rollout">
-                    <input type="color" id="sec" name="sec" class="colorpicker" value="#ffffff">
-                    <label for="sec">Background</label>
-                </div>
-    
-                <div class="option primbuttn rollout">
-                    <input type="color" id="primbuttn" name="primbuttn" class="colorpicker" value="#4685FF">
-                    <label for="primbuttn">Primary Button</label>
-                </div>
-    
-                <div class="option secbuttn rollout">
-                    <input type="color" id="secbuttn" name="secbuttn" class="colorpicker" value="#F2F2F2">
-                    <label for="secbuttn">Secondary Button</label>
-                </div>
-    
-                <div class="option accent rollout">
-                    <input type="color" id="accent" name="accent" class="colorpicker" value="#FFB084">
-                    <label for="accent">Accent</label>
-                </div>
-                
-    
-                
 
-                <div class="option randomize rollout" id="randomize">
-                    <div>Randomize</div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
-                        <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
-                        <circle cx="10.0138" cy="8.85138" r="1.87757" fill="var(--static2)"/>
-                        <circle cx="22.5306" cy="8.85138" r="1.87757" transform="rotate(90 22.5306 8.85138)" fill="var(--static2)"/>
-                        <circle cx="16.2718" cy="15.11" r="1.87757" transform="rotate(90 16.2718 15.11)" fill="var(--static2)"/>
-                        <circle cx="22.5304" cy="21.3685" r="1.87757" fill="var(--static2)"/>
-                        <circle cx="10.014" cy="21.3685" r="1.87757" transform="rotate(90 10.014 21.3685)" fill="var(--static2)"/>
+                <!-- Colors -->
+                <div class="option colors-rollout hide">
+                    Colors
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                        <path d="M0 6.5H13" stroke="var(--static2)" stroke-width="1.2"/>
+                        <path d="M6.5 0L6.5 13" stroke="var(--static2)" stroke-width="1.2"/>
                     </svg>
                 </div>
 
-                <div class="option export rollout" id="export">
-                    <div>Export</div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
-                        <path d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z" fill="#0F0F0F"/>
-                        <rect x="4.109" y="2.93511" width="24.6552" height="24.6552" rx="3.88633" stroke="var(--static2)" stroke-width="1.17406"/>
+                <div class="color-tools-span">
+
+                    <div class="option colors-option prim">
+                        <input type="color" id="prim" name="prim" class="colorpicker" value="#000000">
+                        <label for="prim">Text</label>
+                    </div>
+        
+                    <div class="option colors-option sec">
+                        <input type="color" id="sec" name="sec" class="colorpicker" value="#ffffff">
+                        <label for="sec">Background</label>
+                    </div>
+        
+                    <div class="option colors-option primbuttn">
+                        <input type="color" id="primbuttn" name="primbuttn" class="colorpicker" value="#4685FF">
+                        <label for="primbuttn">Primary Button</label>
+                    </div>
+        
+                    <div class="option colors-option secbuttn">
+                        <input type="color" id="secbuttn" name="secbuttn" class="colorpicker" value="#F2F2F2">
+                        <label for="secbuttn">Secondary Button</label>
+                    </div>
+        
+                    <div class="option colors-option accent">
+                        <input type="color" id="accent" name="accent" class="colorpicker" value="#FFB084">
+                        <label for="accent">Accent</label>
+                    </div>
+                    
+                    <div class="option colors-option randomize" id="randomize">
+                        <div>Randomize</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
+                            <circle cx="10.0138" cy="8.85138" r="1.87757" fill="var(--static2)"/>
+                            <circle cx="22.5306" cy="8.85138" r="1.87757" transform="rotate(90 22.5306 8.85138)" fill="var(--static2)"/>
+                            <circle cx="16.2718" cy="15.11" r="1.87757" transform="rotate(90 16.2718 15.11)" fill="var(--static2)"/>
+                            <circle cx="22.5304" cy="21.3685" r="1.87757" fill="var(--static2)"/>
+                            <circle cx="10.014" cy="21.3685" r="1.87757" transform="rotate(90 10.014 21.3685)" fill="var(--static2)"/>
+                        </svg>
+                    </div>
+
+                    <div class="option colors-option export" id="export">
+                        <div>Export</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                            <path d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z" fill="#0F0F0F"/>
+                            <rect x="4.109" y="2.93511" width="24.6552" height="24.6552" rx="3.88633" stroke="var(--static2)" stroke-width="1.17406"/>
+                        </svg>
+                    </div>
+
+                    <div class="option colors-option share-link" id="share-link" onclick="copyPageUrl()">
+                        <div class="share-link-buttn">Share</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
+                            <path d="M12 18.5968H11.6229C10.3391 18.5968 9.29834 17.5561 9.29834 16.2722V9.29842C9.29834 8.01458 10.3391 6.97382 11.6229 6.97382H16.2722C17.556 6.97382 18.5968 8.01458 18.5968 9.29842V16.2722C18.5968 17.5561 17.556 18.5968 16.2722 18.5968H16" stroke="var(--static2)" stroke-width="1.1623"/>
+                            <path d="M20.5 11.623H20.9216C22.2054 11.623 23.2462 12.6638 23.2462 13.9477V20.9215C23.2462 22.2053 22.2054 23.2461 20.9216 23.2461H16.2724C14.9885 23.2461 13.9478 22.2053 13.9478 20.9215V19.7592V13.9477C13.9478 12.6638 14.9885 11.623 16.2724 11.623H16.5" stroke="var(--static2)" stroke-width="1.1623"/>
+                        </svg>
+                    </div>
+                </div>
+
+
+
+
+                <div style="height: 50px; width: 2px; background-color: var(--static2); opacity: 20%; align-self: center;" class="divider-line"></div>
+
+
+
+
+
+                <!-- Fonts -->
+                <div class="option fonts-rollout" id="rolloutbutton">
+                    Fonts
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                        <path d="M0 6.5H13" stroke="var(--static2)" stroke-width="1.2"/>
+                        <path d="M6.5 0L6.5 13" stroke="var(--static2)" stroke-width="1.2"/>
                     </svg>
                 </div>
 
-                <div class="option share-link rollout" id="share-link" onclick="copyPageUrl()">
-                    <div class="share-link-buttn">Share</div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
-                        <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
-                        <path d="M12 18.5968H11.6229C10.3391 18.5968 9.29834 17.5561 9.29834 16.2722V9.29842C9.29834 8.01458 10.3391 6.97382 11.6229 6.97382H16.2722C17.556 6.97382 18.5968 8.01458 18.5968 9.29842V16.2722C18.5968 17.5561 17.556 18.5968 16.2722 18.5968H16" stroke="var(--static2)" stroke-width="1.1623"/>
-                        <path d="M20.5 11.623H20.9216C22.2054 11.623 23.2462 12.6638 23.2462 13.9477V20.9215C23.2462 22.2053 22.2054 23.2461 20.9216 23.2461H16.2724C14.9885 23.2461 13.9478 22.2053 13.9478 20.9215V19.7592V13.9477C13.9478 12.6638 14.9885 11.623 16.2724 11.623H16.5" stroke="var(--static2)" stroke-width="1.1623"/>
-                    </svg>
+                <div class="font-tools-span hide">
+
+                    <div class="option fonts-option heading-fonts-buttn rollout-fonts" id="heading-fonts-buttn">
+                        <div class="heading-fonts-label" id="headings-fonts-label">Headings</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="var(--static2)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        <div class="heading-fonts-box">
+                            <div class="fonts-row">
+                                    <label for="font-upload-headings" class="font-label">
+                                        <span id="heading-label-span">Upload</span>
+                                        <input type="file" id="font-upload-headings" accept=".ttf, .otf, .woff2, .eot, .woff" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                                            <path d="M9.97537 8.58356L9.97537 13.4251C9.97537 13.5704 10.0335 13.702 10.1292 13.796C10.2249 13.8917 10.3565 13.9498 10.5 13.9498C10.6453 13.9498 10.7769 13.8917 10.8709 13.796C10.9666 13.7003 11.0247 13.5704 11.0247 13.4251L11.0247 8.58356L12.8909 10.2122C12.9986 10.3062 13.1353 10.3489 13.2686 10.3421C13.4036 10.3336 13.5335 10.2755 13.6309 10.1678C13.7266 10.0601 13.7693 9.9234 13.7625 9.7901C13.7539 9.6568 13.6958 9.52692 13.5882 9.43121L10.847 7.03863C10.7461 6.94977 10.6197 6.90704 10.4949 6.90704C10.3701 6.90704 10.2454 6.95489 10.1497 7.04376L7.41018 9.43634C7.30594 9.53204 7.24783 9.66022 7.23929 9.79181C7.23074 9.92511 7.27517 10.0601 7.37088 10.1678L7.37429 10.1712C7.47 10.2772 7.59988 10.3336 7.73147 10.3421L7.73318 10.3421C7.86648 10.3489 8.0032 10.3062 8.11087 10.2105L9.97537 8.58356Z" fill="var(--static2)"/>
+                                            <rect x="18.3852" y="18.0589" width="15.6897" height="15.6897" rx="2.47312" transform="rotate(-180 18.3852 18.0589)" stroke="var(--static2)" stroke-width="0.747126"/>
+                                        </svg>
+                                    </label>
+                                    <div class="font-label reset-font-heading">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+                                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
+                                            <path d="M21.3885 11.5047C20.196 10.1536 18.4514 9.30151 16.5077 9.30151C12.9136 9.30151 10 12.2151 10 15.8092C10 19.4033 12.9136 22.3169 16.5077 22.3169C18.4514 22.3169 20.196 21.4648 21.3885 20.1138C22.308 19.072 22.8991 17.7335 23 16.2603" stroke="var(--static2)"/>
+                                            <path d="M17.5 13L21.3883 11.5792L20.5 7" stroke="var(--static2)"/>
+                                        </svg>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="option fonts-option text-fonts-buttn rollout-fonts" id="text-fonts-buttn">
+                        <div class="text-fonts-label" id="texts-fonts-label">Texts</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="var(--static2)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+
+                        <div class="text-fonts-box">
+                            <div class="fonts-row">
+                                    <label for="font-upload-texts" class="font-label">
+                                        <span id="text-label-span">Upload</span>
+                                        <input type="file" id="font-upload-texts" accept=".ttf, .otf, .woff2, .eot, .woff" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                                            <path d="M9.97537 8.58356L9.97537 13.4251C9.97537 13.5704 10.0335 13.702 10.1292 13.796C10.2249 13.8917 10.3565 13.9498 10.5 13.9498C10.6453 13.9498 10.7769 13.8917 10.8709 13.796C10.9666 13.7003 11.0247 13.5704 11.0247 13.4251L11.0247 8.58356L12.8909 10.2122C12.9986 10.3062 13.1353 10.3489 13.2686 10.3421C13.4036 10.3336 13.5335 10.2755 13.6309 10.1678C13.7266 10.0601 13.7693 9.9234 13.7625 9.7901C13.7539 9.6568 13.6958 9.52692 13.5882 9.43121L10.847 7.03863C10.7461 6.94977 10.6197 6.90704 10.4949 6.90704C10.3701 6.90704 10.2454 6.95489 10.1497 7.04376L7.41018 9.43634C7.30594 9.53204 7.24783 9.66022 7.23929 9.79181C7.23074 9.92511 7.27517 10.0601 7.37088 10.1678L7.37429 10.1712C7.47 10.2772 7.59988 10.3336 7.73147 10.3421L7.73318 10.3421C7.86648 10.3489 8.0032 10.3062 8.11087 10.2105L9.97537 8.58356Z" fill="var(--static2)"/>
+                                            <rect x="18.3852" y="18.0589" width="15.6897" height="15.6897" rx="2.47312" transform="rotate(-180 18.3852 18.0589)" stroke="var(--static2)" stroke-width="0.747126"/>
+                                        </svg>
+                                    </label>
+                                    <div class="font-label reset-font-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+                                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
+                                            <path d="M21.3885 11.5047C20.196 10.1536 18.4514 9.30151 16.5077 9.30151C12.9136 9.30151 10 12.2151 10 15.8092C10 19.4033 12.9136 22.3169 16.5077 22.3169C18.4514 22.3169 20.196 21.4648 21.3885 20.1138C22.308 19.072 22.8991 17.7335 23 16.2603" stroke="var(--static2)"/>
+                                            <path d="M17.5 13L21.3883 11.5792L20.5 7" stroke="var(--static2)"/>
+                                        </svg>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="option rolloutbutton" id="rolloutbutton">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-                        <path d="M11.5032 20.8392L16.9999 15.3425L22.4965 20.8392C23.049 21.3917 23.9415 21.3917 24.494 20.8392C25.0465 20.2867 25.0465 19.3942 24.494 18.8417L17.9915 12.3392C17.439 11.7867 16.5465 11.7867 15.994 12.3392L9.49152 18.8417C8.93902 19.3942 8.93902 20.2867 9.49152 20.8392C10.044 21.3775 10.9507 21.3917 11.5032 20.8392Z" fill="var(--static2)"/>
-                    </svg>
-                </div>
+        
 
                 
             </div>
@@ -231,6 +340,7 @@
 
 
         <script src="script.js"></script>
+        <script src="font-loader.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
