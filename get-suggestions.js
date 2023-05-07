@@ -22,66 +22,55 @@ function updateColorSchemes() {
   const color = mainColor.value;
   const colorSchemes = generateColorSchemes(color);
 
-  // Update analogous colors
   const analogousBlocks = document.querySelectorAll(".analogous");
   analogousBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[0][index];
   });
 
-  // Update monochromatic colors
   const monochromaticBlocks = document.querySelectorAll(".monochromatic");
   monochromaticBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[1][index];
   });
 
-  // Update triadic colors
   const triadicBlocks = document.querySelectorAll(".triadic");
   triadicBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[2][index];
   });
 
-  // Update complementary colors
   const complementaryBlocks = document.querySelectorAll(".complementary");
   complementaryBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[3][index];
   });
 
-  // Update split complementary colors
   const splitComplementaryBlocks = document.querySelectorAll(".split-complementary");
   splitComplementaryBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[4][index];
   });
 
-  // Update double complementary colors
   const doubleComplementaryBlocks = document.querySelectorAll(".double-complementary");
   doubleComplementaryBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[5][index];
   });
 
-  // Update square colors
   const squareBlocks = document.querySelectorAll(".square-colors");
   squareBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[6][index];
   });
 
-  // Update compound colors
   const compoundBlocks = document.querySelectorAll(".compound-colors");
   compoundBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[7][index];
   });
 
-  // Update shades colors
   const shadesBlocks = document.querySelectorAll(".shades-colors");
   shadesBlocks.forEach(function(block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[8][index];
   });
 
-  // updateColorBlockCodes();
 }
 
 mainColor.addEventListener("change", updateColorSchemes);
 
-// Call the updateColorSchemes function when the page loads
 window.addEventListener("load", updateColorSchemes);
 
 
@@ -107,7 +96,6 @@ function generateColorSchemes(color) {
   const shades = generateShadesColors(h, s, l);
   const allSchemes = [analogous, monochromatic, triadic, complementary, splitComplementary, doubleSplitComplementary, square, compound, shades];
   
-  console.log('allSchemes:', allSchemes);
   return { allSchemes };
 
 }
@@ -254,7 +242,7 @@ function hexToHsl(hex) {
 
 
 // Randomize
-const randomizeBtn = document.getElementById("randomize");
+const randomizeBtn = document.getElementById('randomize');
 randomizeBtn.addEventListener("click", function() {
   const hexChars = "0123456789abcdef";
   let randomHex = "#";
@@ -438,70 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// FAQ
-
-const faqQuestions = document.querySelectorAll(".faq");
-const faqAnswers = document.querySelectorAll(".faq-a");
-const faqIcons = document.querySelectorAll(".faq-icon");
-
-faqQuestions.forEach((faqQuestion, index) => {
-  faqQuestion.addEventListener('click', () => {
-    faqIcons[index].classList.toggle("expand");
-    faqAnswers[index].classList.toggle("expand");
-  });
-});
-
-
-function highlightToolbar() {
-  var toolbar = document.getElementById("toolbar");
-  toolbar.classList.add("highlighted");
-  setTimeout(function() {
-    toolbar.classList.remove("highlighted");
-  }, 1000);
-}
-
-
-
-
-// TIP
-
-const tipBar = document.getElementById('tip-bar');
-const closeBtn = document.getElementById('close-btn');
-
-function showTipBar() {
-  tipBar.classList.add('show');
-}
-
-function hideTipBar() {
-  tipBar.classList.remove('show');
-}
-
-closeBtn.addEventListener('click', hideTipBar);
-
-randomizeBtn.addEventListener('click', function(event) {
-  if (!localStorage.getItem('tipShown')) {
-    setTimeout(showTipBar, 2000);
-    localStorage.setItem('tipShown', true);
-  }
-});
-
-if (localStorage.getItem('tipShown')) {
-  tipBar.style.display = 'none';
-}
-
-
-
-
 // updating links based on slug
 
 function updateLinks(slug) {
@@ -534,7 +458,62 @@ const checkForUpdates = () => {
   setTimeout(checkForUpdates, 100);
 };
 checkForUpdates();
-      
+
+
+
+
+
+// FAQ
+
+const faqQuestions = document.querySelectorAll(".faq");
+const faqAnswers = document.querySelectorAll(".faq-a");
+const faqIcons = document.querySelectorAll(".faq-icon");
+
+faqQuestions.forEach((faqQuestion, index) => {
+  faqQuestion.addEventListener('click', () => {
+    faqIcons[index].classList.toggle("expand");
+    faqAnswers[index].classList.toggle("expand");
+  });
+});
+
+
+function highlightToolbar() {
+  var toolbar = document.getElementById("toolbar");
+  toolbar.classList.add("highlighted");
+  setTimeout(function() {
+    toolbar.classList.remove("highlighted");
+  }, 1000);
+}
+
+
+
+// TIP
+
+const tipBar = document.getElementById('tip-bar');
+const closeBtn = document.getElementById('close-btn');
+
+
+function showTipBar() {
+  tipBar.classList.add('show');
+}
+
+function hideTipBar() {
+  tipBar.classList.remove('show');
+}
+
+closeBtn.addEventListener('click', hideTipBar);
+
+randomizeBtn.addEventListener('click', function(event) {
+  if (!localStorage.getItem('tipShown')) {
+    setTimeout(showTipBar, 2000);
+    localStorage.setItem('tipShown', true);
+  }
+});
+
+if (localStorage.getItem('tipShown')) {
+  tipBar.style.display = 'none';
+}
+
 
 
 
@@ -542,11 +521,11 @@ checkForUpdates();
 // hamburger menu 
 
 if (window.innerWidth < 1100) {
-  const hamburger = document.querySelector('#hamburger');
-  const mobileMenu = document.querySelector('.menu');
-
-  hamburger.addEventListener('click', function() {
-    this.classList.toggle('active');
-    mobileMenu.classList.toggle('hide')
-  });
-}
+    const hamburger = document.querySelector('#hamburger');
+    const mobileMenu = document.querySelector('.menu');
+  
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileMenu.classList.toggle('hide')
+    });
+  }
