@@ -361,6 +361,7 @@ nav {
 
 .sitename {
     font-size: var(--subtitle);
+    letter-spacing: -0.5px;
 }
 
 .menu {
