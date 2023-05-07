@@ -265,6 +265,22 @@ label {
     justify-content: center;
 }
 
+.heading-fonts-buttn > svg {
+    pointer-events: none;
+}
+
+.text-fonts-buttn > svg {
+    pointer-events: none;
+}
+
+.heading-fonts-label {
+    pointer-events: none;
+}
+
+.text-fonts-label {
+    pointer-events: none;
+}
+
 
 .text-fonts-box {
     position: absolute;
