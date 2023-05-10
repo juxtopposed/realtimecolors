@@ -28,7 +28,13 @@
 
 * {
     box-sizing: border-box;
-    scroll-padding-top: 3em;
+    /* scroll-padding-top: 3em; */
+}
+
+html,
+html:focus-within {
+    scroll-behavior: smooth;
+    text-size-adjust: none;
 }
 
 body {
@@ -39,6 +45,9 @@ body {
     height: 100vh;
     margin: 0 15%;
     gap: 4em;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     /* font */
     font-family: 'Inter', sans-serif;
@@ -60,23 +69,23 @@ main {
 
 
 /* text styles */
+:where(h1, h2, h3) {
+    margin: 0;
+    font-weight: 700;
+}
+
 h1 {
     font-size: 48px;
     letter-spacing: -1px;
-    font-weight: 700;
-    margin: 0;
 }
 
 h2 {
     font-size: 32px;
     letter-spacing: -2px;
-    font-weight: 700;
-    margin: 0;
 }
 
 h3 {
     font-size: var(--subtitle);
-    font-weight: 700;
 }
 
 a {
@@ -92,6 +101,8 @@ p {
 
 ::selection {
     background-color: var(--accent);
+    color: var(--primary);
+    -webkit-text-fill-color: var(--primary);
 }
 
 .subtitle {
@@ -415,14 +426,28 @@ nav {
 
 /* buttons */
 
+:where(.primary-button,.secondary-button){
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+    appearance: button;
+    padding: max(1em, 1rem) max(2em, 2rem);
+    border-radius: 6px;
+    font: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 18px;
+    transition: transform ease 0.2s, box-shadow ease 0.2s;
+}
+
 .primary-button {
-    padding: 1em 2em;
     background-color: var(--primbuttn);
     color: var(--secondary);
-    border-radius: 6px;
-    transition: transform ease 0.2s, box-shadow ease 0.2s;
-    display: inline-block;
-    font-size: 18px;
     z-index: 2;
 }
 
@@ -431,15 +456,9 @@ nav {
     box-shadow: 0 20px 80px -10px var(--primbuttn);
 }
 
-
 .secondary-button {
-    padding: 1em 2em;
     background-color: var(--secbuttn);
     color: var(--primary);
-    border-radius: 6px;
-    transition: transform ease 0.2s, box-shadow ease 0.2s;
-    display: inline-block;
-    font-size: 18px;
     z-index: 1;
 }
 
@@ -818,19 +837,18 @@ nav {
     width: 95%;
 }
 
-
 .faq-a {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: max-height ease 0.2s, opacity ease 0.2s, visibility ease 0.2s;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows ease 0.2s, opacity ease 0.2s, visibility ease 0.2s;
+}
+.faq-a p {
+    overflow: hidden;
 }
 
 .faq-a.expand {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transition: max-height ease 0.2s, opacity ease 0.2s, visibility ease 0.2s;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows ease 0.2s, opacity ease 0.2s, visibility ease 0.2s;
 }
 
 .faq-icon {
@@ -1129,7 +1147,7 @@ nav {
 /* responsiveness */
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 57em) {
     body {
         margin: 0 5%;
     }
@@ -1169,7 +1187,7 @@ nav {
 
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 78.75em) {
 
     body {
         gap: 2em;
@@ -1504,7 +1522,7 @@ nav {
     
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 50em) {
 
     .step {width: 100%;}
 
@@ -1519,20 +1537,21 @@ nav {
     .color-code {
         font-size: 10px;
     }
-
-
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-  
+.old-script,
+.no-script {
+    width: 100vw;
+    height: 100vh;
+    @include flex(r, c, c);
+    z-index: 9999;
+    position: fixed;
+    padding: 0 1rem;
+    text-align: center;
+    background-color: #1c1e21;
+    color: #d9d4ce;
+    & > p {
+        font-size: 18px;
+        color: #d9d4ce;
+    }
+}

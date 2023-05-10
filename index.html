@@ -1,33 +1,72 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
     <head>
         <title>Realtime Colors</title>
-        <meta name="description" content="A tool to visualize color choices and color palettes on a real website to help with branding and UI design decision making.">
-        <meta name="keywords" content="colorpicker, color palettes, color theory, UI design, UX design, brand styleguide">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Cache-control" content="max-age=31536000">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="styles.css">
-        <link rel="preconnect" href="https://rsms.me/">
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="icon" type="image/x-icon" href="images/favicon.png">
+        <meta
+            name="description"
+            content="A tool to visualize color choices and color palettes on a real website to help with branding and UI design decision making."
+        />
+        <meta
+            name="keywords"
+            content="colorpicker, color palettes, color theory, UI design, UX design, brand styleguide"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Cache-control" content="max-age=31536000" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="icon" type="image/x-icon" href="images/favicon.png" />
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7300FPX4EJ"></script>
+        <!-- ################################ -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Realtime Colors" />
+        <meta
+            name="twitter:description"
+            content="A tool to visualize color choices and color palettes on a real website to help with branding and UI design decision making."
+        />
+        <meta name="twitter:image" content="./images/realtime-var.png" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://realtimecolors.com/" />
+        <meta property="og:title" content="Realtime Colors" />
+        <meta property="og:image" content="./images/realtime-var.png" />
+        <meta
+            property="og:description"
+            content="A tool to visualize color choices and color palettes on a real website to help with branding and UI design decision making."
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <!-- ################################ -->
+
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-7300FPX4EJ"
+        ></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-        gtag('config', 'G-7300FPX4EJ');
+            gtag("config", "G-7300FPX4EJ");
         </script>
     </head>
 
     <body>
-
         <nav>
             <div class="logo">
-                <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
+                <img
+                    src="https://juxtopposed.github.io/realtimecolors/images/favicon.png"
+                    alt="logoface"
+                    class="logoface"
+                />
                 <a href="/"><h2 class="sitename">Realtime Colors</h2></a>
             </div>
             <div class="ham-menu">
@@ -38,67 +77,295 @@
             </div>
 
             <div class="menu hide">
-
-                <a href="https://www.figma.com/community/plugin/1234060894101724457/Realtime-Colors" target="_blank" class="menu-item menu-item-mobile">Try Figma Plugin 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <rect x="0.318182" y="0.318182" width="13.3636" height="13.3636" rx="2.10647" stroke="var(--primary)" stroke-width="0.636364"/>
-                        <path d="M4.33594 9.7564L9.75615 4.33618M9.75615 4.33618L5.41998 4.33618M9.75615 4.33618V8.94337" stroke="var(--primary)" stroke-width="0.813033" stroke-linecap="round" stroke-linejoin="round"/>
+                <a
+                    href="https://www.figma.com/community/plugin/1234060894101724457/Realtime-Colors"
+                    target="_blank"
+                    class="menu-item menu-item-mobile"
+                    >Try Figma Plugin
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                    >
+                        <rect
+                            x="0.318182"
+                            y="0.318182"
+                            width="13.3636"
+                            height="13.3636"
+                            rx="2.10647"
+                            stroke="var(--primary)"
+                            stroke-width="0.636364"
+                        />
+                        <path
+                            d="M4.33594 9.7564L9.75615 4.33618M9.75615 4.33618L5.41998 4.33618M9.75615 4.33618V8.94337"
+                            stroke="var(--primary)"
+                            stroke-width="0.813033"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
                     </svg>
-                &nbsp;<span style="background-color: var(--primary); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--secondary);"> New!</span></a>
-                <a href="get-suggestions" class="menu-item menu-item-mobile">Get Suggestions</a>
+                    &nbsp;<span
+                        style="
+                            background-color: var(--primary);
+                            padding: 0.4em 0.4em 0.4em 0.2em;
+                            border-radius: 5px;
+                            font-size: 12px;
+                            color: var(--secondary);
+                        "
+                    >
+                        New!</span
+                    ></a
+                >
+                <a href="get-suggestions" class="menu-item menu-item-mobile"
+                    >Get Suggestions</a
+                >
                 <a href="about" class="menu-item menu-item-mobile">About</a>
                 <!-- <a href="#" class="menu-item">Blog</a> -->
-                <a href="#sub" class="primary-button menu-item-font">Subscribe</a>
+                <a href="#sub" class="primary-button menu-item-font"
+                    >Subscribe</a
+                >
             </div>
         </nav>
 
         <div class="hero">
             <div class="hero-text">
-                <h1>Visualize Your <span class="color-effect">Colors</span><br>On a Real Website</h1>
-                <p class="subtitle">Choosing a color palette for your website?<br>Use the Toolbar below to realize your choices.</p>
+                <h1>
+                    Visualize Your <span class="color-effect">Colors</span
+                    ><br />On a Real Website
+                </h1>
+                <p class="subtitle">
+                    Choosing a color palette for your website?<br />Use the
+                    Toolbar below to realize your choices.
+                </p>
                 <div class="hero-cta">
-                    <a href="#toolbar" onclick="highlightToolbar()" class="primary-button">Get Started</a>
-                    <a href="#how" class="secondary-button">How does it work?</a>
+                    <a
+                        href="#toolbar"
+                        onclick="highlightToolbar()"
+                        class="primary-button"
+                        >Get Started</a
+                    >
+                    <a href="#how" class="secondary-button"
+                        >How does it work?</a
+                    >
                 </div>
                 <div class="hero-scroll">
                     <svg width="23" height="33" viewBox="0 0 23 33" fill="none">
-                        <rect x="0.767442" y="0.767442" width="20.7209" height="31.4651" rx="10.3605" stroke="var(--primary)" stroke-width="1.53488"/>
-                        <rect x="9" y="8" width="4" height="8" rx="2" fill="var(--primary)"/>
+                        <rect
+                            x="0.767442"
+                            y="0.767442"
+                            width="20.7209"
+                            height="31.4651"
+                            rx="10.3605"
+                            stroke="var(--primary)"
+                            stroke-width="1.53488"
+                        />
+                        <rect
+                            x="9"
+                            y="8"
+                            width="4"
+                            height="8"
+                            rx="2"
+                            fill="var(--primary)"
+                        />
                     </svg>
                     <p class="sub">Scroll to see more sections</p>
                 </div>
             </div>
             <div class="hero-img">
-
                 <a href="#mondrian-info" id="mondrian-info-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M9.06818 14.2259V7.6804H10.8835V14.2259H9.06818ZM9.98011 6.83665C9.71023 6.83665 9.47869 6.74716 9.28551 6.56818C9.09517 6.38636 9 6.16903 9 5.91619C9 5.66619 9.09517 5.4517 9.28551 5.27273C9.47869 5.09091 9.71023 5 9.98011 5C10.25 5 10.4801 5.09091 10.6705 5.27273C10.8636 5.4517 10.9602 5.66619 10.9602 5.91619C10.9602 6.16903 10.8636 6.38636 10.6705 6.56818C10.4801 6.74716 10.25 6.83665 9.98011 6.83665Z" fill="var(--primary)"/>
-                        <circle cx="10" cy="10" r="9.44118" stroke="var(--primary)" stroke-width="1.11765"/>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                    >
+                        <path
+                            d="M9.06818 14.2259V7.6804H10.8835V14.2259H9.06818ZM9.98011 6.83665C9.71023 6.83665 9.47869 6.74716 9.28551 6.56818C9.09517 6.38636 9 6.16903 9 5.91619C9 5.66619 9.09517 5.4517 9.28551 5.27273C9.47869 5.09091 9.71023 5 9.98011 5C10.25 5 10.4801 5.09091 10.6705 5.27273C10.8636 5.4517 10.9602 5.66619 10.9602 5.91619C10.9602 6.16903 10.8636 6.38636 10.6705 6.56818C10.4801 6.74716 10.25 6.83665 9.98011 6.83665Z"
+                            fill="var(--primary)"
+                        />
+                        <circle
+                            cx="10"
+                            cy="10"
+                            r="9.44118"
+                            stroke="var(--primary)"
+                            stroke-width="1.11765"
+                        />
                     </svg>
                 </a>
-                <svg xmlns="http://www.w3.org/2000/svg" width="652" height="644" viewBox="0 0 652 644" fill="none" class="mondrian">
-                    <rect opacity="0.05" x="1" width="163" height="60" rx="10" fill="var(--primary)"/>
-                    <rect x="424" width="193" height="60" rx="10" fill="var(--secbuttn)"/>
-                    <rect x="424" y="68" width="193" height="175" rx="10" fill="var(--secbuttn)"/>
-                    <rect opacity="0.2" x="424" y="401" width="193" height="79" rx="10" fill="var(--primbuttn)"/>
-                    <rect x="255" y="626" width="362" height="18" rx="9" fill="var(--secondary)"/>
-                    <rect x="80" y="579" width="166" height="65" rx="10" fill="var(--secondary)"/>
-                    <rect x="255" y="579" width="160" height="40" rx="10" fill="var(--primary)"/>
-                    <rect opacity="0.05" x="255" y="490" width="160" height="80" rx="10" fill="var(--primary)"/>
-                    <rect opacity="0.05" x="255" y="400" width="160" height="80" rx="10" fill="var(--primary)"/>
-                    <rect x="80" y="68" width="335" height="324" rx="10" fill="var(--primbuttn)"/>
-                    <rect x="80" y="401" width="166" height="169" rx="10" fill="var(--primary)"/>
-                    <rect x="424" y="490" width="193" height="129" rx="10" fill="var(--accent)"/>
-                    <rect x="626" y="490" width="26" height="154" rx="10" fill="var(--primbuttn)"/>
-                    <rect x="424" y="252" width="91" height="140" rx="10" fill="var(--secondary)"/>
-                    <rect x="524" y="252" width="93" height="140" rx="10" fill="var(--secondary)"/>
-                    <rect opacity="0.05" x="626" width="26" height="480" rx="10" fill="var(--primary)"/>
-                    <rect x="173" width="242" height="60" rx="10" fill="var(--secondary)"/>
-                    <rect x="1" y="68" width="70" height="157" rx="10" fill="var(--secondary)"/>
-                    <rect opacity="0.05" x="1" y="234" width="70" height="259" rx="10" fill="var(--primary)"/>
-                    <rect x="1" y="502" width="70" height="142" rx="10" fill="var(--secbuttn)"/>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="652"
+                    height="644"
+                    viewBox="0 0 652 644"
+                    fill="none"
+                    class="mondrian"
+                >
+                    <rect
+                        opacity="0.05"
+                        x="1"
+                        width="163"
+                        height="60"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        x="424"
+                        width="193"
+                        height="60"
+                        rx="10"
+                        fill="var(--secbuttn)"
+                    />
+                    <rect
+                        x="424"
+                        y="68"
+                        width="193"
+                        height="175"
+                        rx="10"
+                        fill="var(--secbuttn)"
+                    />
+                    <rect
+                        opacity="0.2"
+                        x="424"
+                        y="401"
+                        width="193"
+                        height="79"
+                        rx="10"
+                        fill="var(--primbuttn)"
+                    />
+                    <rect
+                        x="255"
+                        y="626"
+                        width="362"
+                        height="18"
+                        rx="9"
+                        fill="var(--secondary)"
+                    />
+                    <rect
+                        x="80"
+                        y="579"
+                        width="166"
+                        height="65"
+                        rx="10"
+                        fill="var(--secondary)"
+                    />
+                    <rect
+                        x="255"
+                        y="579"
+                        width="160"
+                        height="40"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        opacity="0.05"
+                        x="255"
+                        y="490"
+                        width="160"
+                        height="80"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        opacity="0.05"
+                        x="255"
+                        y="400"
+                        width="160"
+                        height="80"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        x="80"
+                        y="68"
+                        width="335"
+                        height="324"
+                        rx="10"
+                        fill="var(--primbuttn)"
+                    />
+                    <rect
+                        x="80"
+                        y="401"
+                        width="166"
+                        height="169"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        x="424"
+                        y="490"
+                        width="193"
+                        height="129"
+                        rx="10"
+                        fill="var(--accent)"
+                    />
+                    <rect
+                        x="626"
+                        y="490"
+                        width="26"
+                        height="154"
+                        rx="10"
+                        fill="var(--primbuttn)"
+                    />
+                    <rect
+                        x="424"
+                        y="252"
+                        width="91"
+                        height="140"
+                        rx="10"
+                        fill="var(--secondary)"
+                    />
+                    <rect
+                        x="524"
+                        y="252"
+                        width="93"
+                        height="140"
+                        rx="10"
+                        fill="var(--secondary)"
+                    />
+                    <rect
+                        opacity="0.05"
+                        x="626"
+                        width="26"
+                        height="480"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        x="173"
+                        width="242"
+                        height="60"
+                        rx="10"
+                        fill="var(--secondary)"
+                    />
+                    <rect
+                        x="1"
+                        y="68"
+                        width="70"
+                        height="157"
+                        rx="10"
+                        fill="var(--secondary)"
+                    />
+                    <rect
+                        opacity="0.05"
+                        x="1"
+                        y="234"
+                        width="70"
+                        height="259"
+                        rx="10"
+                        fill="var(--primary)"
+                    />
+                    <rect
+                        x="1"
+                        y="502"
+                        width="70"
+                        height="142"
+                        rx="10"
+                        fill="var(--secbuttn)"
+                    />
                 </svg>
-                
             </div>
         </div>
 
@@ -107,95 +374,239 @@
                 <h2>Why Realtime Colors?</h2>
                 <div class="part1-cards">
                     <div class="part1-card">
-                        <svg width="117" height="117" viewBox="0 0 117 117" fill="none" style="z-index: 5;" class="part1-card-img">
-                            <circle cx="58.5" cy="58.5" r="58.5" fill="var(--secondary)"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M89.4669 8.85912L58.0465 63.9419L2.44746 41.7023C9.66585 17.5806 32.0298 0 58.5 0C69.872 0 80.4861 3.24483 89.4669 8.85912Z" fill="var(--accent)" fill-opacity="0.6"/>
-                            <path d="M81.5 22.5L57.1395 64.8489L32 53.5" stroke="var(--primary)" stroke-width="7.25581"/>
+                        <svg
+                            width="117"
+                            height="117"
+                            viewBox="0 0 117 117"
+                            fill="none"
+                            style="z-index: 5"
+                            class="part1-card-img"
+                        >
+                            <circle
+                                cx="58.5"
+                                cy="58.5"
+                                r="58.5"
+                                fill="var(--secondary)"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M89.4669 8.85912L58.0465 63.9419L2.44746 41.7023C9.66585 17.5806 32.0298 0 58.5 0C69.872 0 80.4861 3.24483 89.4669 8.85912Z"
+                                fill="var(--accent)"
+                                fill-opacity="0.6"
+                            />
+                            <path
+                                d="M81.5 22.5L57.1395 64.8489L32 53.5"
+                                stroke="var(--primary)"
+                                stroke-width="7.25581"
+                            />
                         </svg>
                         <p class="subtitle highlight">Saves time</p>
-                        <p>No need to spend hours implementing different variations of colors. Decide right away!</p>
+                        <p>
+                            No need to spend hours implementing different
+                            variations of colors. Decide right away!
+                        </p>
                         <div class="part1-card-bg"></div>
                     </div>
-    
+
                     <div class="part1-card">
-                        <svg width="112" height="114" viewBox="0 0 112 114" fill="none" style="z-index: 5;" class="part1-card-img">
-                            <rect width="58" height="58" fill="var(--secondary)"/>
-                            <rect x="69" y="25" width="33" height="33" fill="var(--accent)" fill-opacity="0.6"/>
-                            <rect x="69" y="71" width="43" height="43" fill="var(--primary)" fill-opacity="0.2"/>
-                            <rect x="20" y="70" width="38" height="39" fill="var(--primary)"/>
+                        <svg
+                            width="112"
+                            height="114"
+                            viewBox="0 0 112 114"
+                            fill="none"
+                            style="z-index: 5"
+                            class="part1-card-img"
+                        >
+                            <rect
+                                width="58"
+                                height="58"
+                                fill="var(--secondary)"
+                            />
+                            <rect
+                                x="69"
+                                y="25"
+                                width="33"
+                                height="33"
+                                fill="var(--accent)"
+                                fill-opacity="0.6"
+                            />
+                            <rect
+                                x="69"
+                                y="71"
+                                width="43"
+                                height="43"
+                                fill="var(--primary)"
+                                fill-opacity="0.2"
+                            />
+                            <rect
+                                x="20"
+                                y="70"
+                                width="38"
+                                height="39"
+                                fill="var(--primary)"
+                            />
                         </svg>
                         <p class="subtitle highlight">It’s Realistic</p>
-                        <p>Color Palettes make it hard to pick. This tool distributes the colors on a real website.</p>
+                        <p>
+                            Color Palettes make it hard to pick. This tool
+                            distributes the colors on a real website.
+                        </p>
                         <div class="part1-card-bg"></div>
                     </div>
-    
+
                     <div class="part1-card">
-                        <svg width="179" height="89" viewBox="0 0 179 89" fill="none" style="z-index: 5;" class="part1-card-img">
-                            <rect y="26" width="154" height="63" fill="var(--accent)" fill-opacity="0.6"/>
-                            <path d="M142 15.5V0" stroke="var(--primary)" stroke-width="8"/>
-                            <path d="M163 34L178.5 34" stroke="var(--primary)" stroke-width="8"/>
-                            <path d="M158 19.5L170.5 7" stroke="var(--primary)" stroke-width="8"/>
-                            <path d="M63 54L74.5 65L95.5 44" stroke="var(--primary)" stroke-width="8"/>
+                        <svg
+                            width="179"
+                            height="89"
+                            viewBox="0 0 179 89"
+                            fill="none"
+                            style="z-index: 5"
+                            class="part1-card-img"
+                        >
+                            <rect
+                                y="26"
+                                width="154"
+                                height="63"
+                                fill="var(--accent)"
+                                fill-opacity="0.6"
+                            />
+                            <path
+                                d="M142 15.5V0"
+                                stroke="var(--primary)"
+                                stroke-width="8"
+                            />
+                            <path
+                                d="M163 34L178.5 34"
+                                stroke="var(--primary)"
+                                stroke-width="8"
+                            />
+                            <path
+                                d="M158 19.5L170.5 7"
+                                stroke="var(--primary)"
+                                stroke-width="8"
+                            />
+                            <path
+                                d="M63 54L74.5 65L95.5 44"
+                                stroke="var(--primary)"
+                                stroke-width="8"
+                            />
                         </svg>
                         <p class="subtitle highlight">It’s simple</p>
-                        <p>Push a few buttons, and there you have it! Your very own branding colors, ready to export.</p>
+                        <p>
+                            Push a few buttons, and there you have it! Your very
+                            own branding colors, ready to export.
+                        </p>
                         <div class="part1-card-bg"></div>
                     </div>
                 </div>
             </div>
-    
+
             <div class="part2" id="how">
                 <div class="part2-left">
                     <h2>How Does it Work?</h2>
-                    <p>You’ll get your finalized color palette in 4 simple steps.</p>
+                    <p>
+                        You’ll get your finalized color palette in 4 simple
+                        steps.
+                    </p>
                 </div>
                 <div class="part2-right">
-                    <p class="one step">Start with two neutral colors for the text and the background.</p>
-                    <p class="two step">Choose your buttons. Primary is for main CTAs, and Secondary is for less important buttons and info cards.</p>
-                    <p class="three step">Accent color is an additional color. It appears in images, highlights, hyperlinks, boxes, cards, etc. It can be the same as your third color (primary button) or another color.</p>
-                    <p class="four step">Happy with the results? Press on “Export” and receive a .zip file with your color palette in .png and your color codes in .txt files.</p>
+                    <p class="one step">
+                        Start with two neutral colors for the text and the
+                        background.
+                    </p>
+                    <p class="two step">
+                        Choose your buttons. Primary is for main CTAs, and
+                        Secondary is for less important buttons and info cards.
+                    </p>
+                    <p class="three step">
+                        Accent color is an additional color. It appears in
+                        images, highlights, hyperlinks, boxes, cards, etc. It
+                        can be the same as your third color (primary button) or
+                        another color.
+                    </p>
+                    <p class="four step">
+                        Happy with the results? Press on “Export” and receive a
+                        .zip file with your color palette in .png and your color
+                        codes in .txt files.
+                    </p>
                 </div>
             </div>
-    
+
             <div class="part3" id="sub">
                 <div class="part3-heading">
                     <h2>Plans & Pricing</h2>
-                    <p>The tool is 100% free! This is just a generic section.</p>
+                    <p>
+                        The tool is 100% free! This is just a generic section.
+                    </p>
                 </div>
-                
+
                 <div class="part3-cards">
                     <div class="part3-card">
                         <div class="part3-card-text">
-                            <div class="promo" style="visibility: hidden;">
+                            <div class="promo" style="visibility: hidden">
                                 <p class="sub promo-text">None</p>
                             </div>
                             <h2>Basic</h2>
                             <p>Free</p>
                             <div class="part3-list">
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
                                     <p class="list-item">Choose any color</p>
                                 </div>
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
                                     <p class="list-item">Export all you want</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <a href="#toolbar" onclick="highlightToolbar()" class="secondary-button">Get Started</a>
+
+                        <a
+                            href="#toolbar"
+                            onclick="highlightToolbar()"
+                            class="secondary-button"
+                            >Get Started</a
+                        >
                         <div class="part3-bg"></div>
                     </div>
-    
+
                     <div class="part3-card">
                         <div class="part3-card-text">
                             <div class="promo">
-                                <svg width="27" height="28" viewBox="0 0 27 28" fill="none">
-                                    <path d="M13.5412 0.494507L14.6922 8.99311L19.4165 1.83551L16.7661 9.99186L24.1282 5.59291L18.2013 11.7915L26.7429 11.0225L18.7135 14.0357L26.7429 17.0489L18.2013 16.2799L24.1282 22.4785L16.7661 18.0796L19.4165 26.2359L14.6922 19.0783L13.5412 27.5769L12.3903 19.0783L7.6659 26.2359L10.3163 18.0796L2.95427 22.4785L8.88114 16.2799L0.339506 17.0489L8.36893 14.0357L0.339506 11.0225L8.88114 11.7915L2.95427 5.59291L10.3163 9.99186L7.6659 1.83551L12.3903 8.99311L13.5412 0.494507Z" fill="var(--primbuttn)"/>
+                                <svg
+                                    width="27"
+                                    height="28"
+                                    viewBox="0 0 27 28"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M13.5412 0.494507L14.6922 8.99311L19.4165 1.83551L16.7661 9.99186L24.1282 5.59291L18.2013 11.7915L26.7429 11.0225L18.7135 14.0357L26.7429 17.0489L18.2013 16.2799L24.1282 22.4785L16.7661 18.0796L19.4165 26.2359L14.6922 19.0783L13.5412 27.5769L12.3903 19.0783L7.6659 26.2359L10.3163 18.0796L2.95427 22.4785L8.88114 16.2799L0.339506 17.0489L8.36893 14.0357L0.339506 11.0225L8.88114 11.7915L2.95427 5.59291L10.3163 9.99186L7.6659 1.83551L12.3903 8.99311L13.5412 0.494507Z"
+                                        fill="var(--primbuttn)"
+                                    />
                                 </svg>
                                 <p class="sub promo-text">Most Popular</p>
                             </div>
@@ -203,71 +614,158 @@
                             <p>$0.00 / month</p>
                             <div class="part3-list">
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
                                     <p class="list-item">Choose any color</p>
                                 </div>
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
                                     <p class="list-item">Export all you want</p>
                                 </div>
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
-                                    <p class="list-item">Get a big thank you for checking this site out</p>
+                                    <p class="list-item">
+                                        Get a big thank you for checking this
+                                        site out
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <a href="#toolbar" onclick="highlightToolbar()" class="primary-button">Get Started</a>
+
+                        <a
+                            href="#toolbar"
+                            onclick="highlightToolbar()"
+                            class="primary-button"
+                            >Get Started</a
+                        >
                         <div class="part3-bg best"></div>
                     </div>
-    
+
                     <div class="part3-card">
                         <div class="part3-card-text">
-                            <div class="promo" style="visibility: hidden;">
+                            <div class="promo" style="visibility: hidden">
                                 <p class="sub promo-text">None</p>
                             </div>
                             <h2>Enterprise</h2>
                             <p>$0.00 / month</p>
                             <div class="part3-list">
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
                                     <p class="list-item">Choose any color</p>
                                 </div>
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
                                     <p class="list-item">Export all you want</p>
                                 </div>
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
-                                    <p class="list-item">Get a big thank you for checking this site out</p>
+                                    <p class="list-item">
+                                        Get a big thank you for checking this
+                                        site out
+                                    </p>
                                 </div>
                                 <div class="list">
-                                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" class="check-icon">
-                                        <path d="M3 9.72308L11.1385 17.8615L26 3" stroke="var(--accent)" stroke-width="5.66154"/>
+                                    <svg
+                                        width="29"
+                                        height="22"
+                                        viewBox="0 0 29 22"
+                                        fill="none"
+                                        class="check-icon"
+                                    >
+                                        <path
+                                            d="M3 9.72308L11.1385 17.8615L26 3"
+                                            stroke="var(--accent)"
+                                            stroke-width="5.66154"
+                                        />
                                     </svg>
-                                    <p class="list-item">Super duper exclusive chat via email</p>
+                                    <p class="list-item">
+                                        Super duper exclusive chat via email
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <a href="mailto:juxtopposed.me@gmail.com" class="secondary-button">Contact</a>
+
+                        <a
+                            href="mailto:juxtopposed.me@gmail.com"
+                            class="secondary-button"
+                            >Contact</a
+                        >
                         <div class="part3-bg"></div>
                     </div>
                 </div>
             </div>
-    
+
             <div class="part4" id="faq">
                 <div class="part4-heading">
                     <h2>FAQ</h2>
@@ -276,329 +774,934 @@
 
                 <div class="faq">
                     <div class="faq-q">
-                        <h3>What is the font picker? <span style="background-color: var(--primary); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--secondary);"> New!</span></h3>
-                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                            <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                            <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                        <h3>
+                            What is the font picker?
+                            <span
+                                style="
+                                    background-color: var(--primary);
+                                    padding: 0.4em 0.4em 0.4em 0.2em;
+                                    border-radius: 5px;
+                                    font-size: 12px;
+                                    color: var(--secondary);
+                                "
+                            >
+                                New!</span
+                            >
+                        </h3>
+                        <svg
+                            width="23"
+                            height="23"
+                            viewBox="0 0 23 23"
+                            fill="none"
+                            class="faq-icon"
+                        >
+                            <path
+                                d="M11.5 0L11.5 23"
+                                stroke="var(--accent)"
+                                stroke-width="6"
+                            />
+                            <path
+                                d="M23 11.5L-2.38419e-07 11.5"
+                                stroke="var(--accent)"
+                                stroke-width="6"
+                            />
                         </svg>
                     </div>
                     <div class="faq-a">
-                        <p>Now, you can also upload your favorite font files and view them in real time, along with your favorite colors. Seeing fonts in dummy texts might not be helpful with your decisions. So, now you can simulate the fonts on this website.</p>
+                        <p>
+                            Now, you can also upload your favorite font files
+                            and view them in real time, along with your favorite
+                            colors. Seeing fonts in dummy texts might not be
+                            helpful with your decisions. So, now you can
+                            simulate the fonts on this website.
+                        </p>
                     </div>
-                </div> 
+                </div>
 
                 <div class="faq">
                     <div class="faq-q">
-                        <h3>How should I use the font picker? <span style="background-color: var(--primary); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--secondary);"> New!</span></h3>
-                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                            <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                            <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                        <h3>
+                            How should I use the font picker?
+                            <span
+                                style="
+                                    background-color: var(--primary);
+                                    padding: 0.4em 0.4em 0.4em 0.2em;
+                                    border-radius: 5px;
+                                    font-size: 12px;
+                                    color: var(--secondary);
+                                "
+                            >
+                                New!</span
+                            >
+                        </h3>
+                        <svg
+                            width="23"
+                            height="23"
+                            viewBox="0 0 23 23"
+                            fill="none"
+                            class="faq-icon"
+                        >
+                            <path
+                                d="M11.5 0L11.5 23"
+                                stroke="var(--accent)"
+                                stroke-width="6"
+                            />
+                            <path
+                                d="M23 11.5L-2.38419e-07 11.5"
+                                stroke="var(--accent)"
+                                stroke-width="6"
+                            />
                         </svg>
                     </div>
                     <div class="faq-a">
-                        <p>For now, you can find the file associated with your favorite font on the internet, download it, and upload it here to view it. These files are often in the following formats: .otf, .ttf, .woff, or .woff2.<br><br>You might want to use two different fonts for the headings and the texts, but if you don't, just upload the same file for both the heading and the texts.</p>
+                        <p>
+                            For now, you can find the file associated with your
+                            favorite font on the internet, download it, and
+                            upload it here to view it. These files are often in
+                            the following formats: .otf, .ttf, .woff, or
+                            .woff2.<br /><br />You might want to use two
+                            different fonts for the headings and the texts, but
+                            if you don't, just upload the same file for both the
+                            heading and the texts.
+                        </p>
                     </div>
-                </div> 
-                
+                </div>
+
                 <div class="faq-list">
                     <div class="faq">
                         <div class="faq-q">
                             <h3>How many colors should I choose?</h3>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="none"
+                                class="faq-icon"
+                            >
+                                <path
+                                    d="M11.5 0L11.5 23"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
+                                <path
+                                    d="M23 11.5L-2.38419e-07 11.5"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
                             </svg>
                         </div>
                         <div class="faq-a">
-                            <p>Normally, 3 colors are absolutely fine (meaning background, text, and one accent color).<br>However, if you want, you can have more. Usually, we don’t add more than 6 colors across a platform. It would just make things too... complicated. Plus, it makes it hard to keep the colors consistent throughout the design.</p>
+                            <p>
+                                Normally, 3 colors are absolutely fine (meaning
+                                background, text, and one accent color).<br />However,
+                                if you want, you can have more. Usually, we
+                                don’t add more than 6 colors across a platform.
+                                It would just make things too... complicated.
+                                Plus, it makes it hard to keep the colors
+                                consistent throughout the design.
+                            </p>
                         </div>
-                    </div> 
-
+                    </div>
 
                     <div class="faq">
                         <div class="faq-q">
                             <h3>Why does the text color change sometimes?</h3>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="none"
+                                class="faq-icon"
+                            >
+                                <path
+                                    d="M11.5 0L11.5 23"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
+                                <path
+                                    d="M23 11.5L-2.38419e-07 11.5"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
                             </svg>
                         </div>
                         <div class="faq-a">
-                            <p>The tool is supposed to show you a realistic image of your colors of choice. However, sometimes, there might be too little contrast between the background color and the text color of some elements. In that case, the text color swaps accordingly to prevent the text from being unreadable. This is activated when the AA and AAA color contrast check doesn’t pass. Keep in mind: The text color will only swap between the background and text colors you’ve chosen to try and pass the contrast check. It won’t select any color outside of your choices.</p>
+                            <p>
+                                The tool is supposed to show you a realistic
+                                image of your colors of choice. However,
+                                sometimes, there might be too little contrast
+                                between the background color and the text color
+                                of some elements. In that case, the text color
+                                swaps accordingly to prevent the text from being
+                                unreadable. This is activated when the AA and
+                                AAA color contrast check doesn’t pass. Keep in
+                                mind: The text color will only swap between the
+                                background and text colors you’ve chosen to try
+                                and pass the contrast check. It won’t select any
+                                color outside of your choices.
+                            </p>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="faq">
                         <div class="faq-q">
-                            <h3>What will I receive after exporting my colors?</h3>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            <h3>
+                                What will I receive after exporting my colors?
+                            </h3>
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="none"
+                                class="faq-icon"
+                            >
+                                <path
+                                    d="M11.5 0L11.5 23"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
+                                <path
+                                    d="M23 11.5L-2.38419e-07 11.5"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
                             </svg>
                         </div>
                         <div class="faq-a">
-                            <p>After exporting, you will receive a .zip file. This file is compressed, so you will have to extract it.<br>After extracting it, you will see a .png file and a .txt file. The .png image shows your color palette in squares next to each other. The .txt file includes the color codes in HEX and RGB. You can send these files to designers or developers, or just use them in your project.</p>
+                            <p>
+                                After exporting, you will receive a .zip file.
+                                This file is compressed, so you will have to
+                                extract it.<br />After extracting it, you will
+                                see a .png file and a .txt file. The .png image
+                                shows your color palette in squares next to each
+                                other. The .txt file includes the color codes in
+                                HEX and RGB. You can send these files to
+                                designers or developers, or just use them in
+                                your project.
+                            </p>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="faq">
                         <div class="faq-q">
                             <h3>Why do some colors have some transparency?</h3>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="none"
+                                class="faq-icon"
+                            >
+                                <path
+                                    d="M11.5 0L11.5 23"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
+                                <path
+                                    d="M23 11.5L-2.38419e-07 11.5"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
                             </svg>
                         </div>
                         <div class="faq-a">
-                            <p>This website allows you to choose only opaque colors. However, to make the design more appealing, I’ve made some parts more transparent by adding a bit of opacity to them. Of course, you can use these colors however you want in your own projects.</p>
+                            <p>
+                                This website allows you to choose only opaque
+                                colors. However, to make the design more
+                                appealing, I’ve made some parts more transparent
+                                by adding a bit of opacity to them. Of course,
+                                you can use these colors however you want in
+                                your own projects.
+                            </p>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="faq mondrian-faq" id="mondrian-info">
                         <div class="faq-q">
                             <h3>What does the hero image represent?</h3>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon mondrian-icon">
-                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="none"
+                                class="faq-icon mondrian-icon"
+                            >
+                                <path
+                                    d="M11.5 0L11.5 23"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
+                                <path
+                                    d="M23 11.5L-2.38419e-07 11.5"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
                             </svg>
                         </div>
                         <div class="faq-a mondrian-answer">
-                            <p>The hero image is inspired by Piet Mondrian's <b>Composition with Large Red Plane, Yellow, Black, Grey and Blue</b>. This composition keeps the ratio of the main colors (red, blue, and yellow) very close to the 60-30-10 rule of UI design. This is mainly why I've chosen this composition to visualize the distribution of the colors on the page.</p>
+                            <p>
+                                The hero image is inspired by Piet Mondrian's
+                                <b
+                                    >Composition with Large Red Plane, Yellow,
+                                    Black, Grey and Blue</b
+                                >. This composition keeps the ratio of the main
+                                colors (red, blue, and yellow) very close to the
+                                60-30-10 rule of UI design. This is mainly why
+                                I've chosen this composition to visualize the
+                                distribution of the colors on the page.
+                            </p>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="faq">
                         <div class="faq-q">
                             <h3>How can I learn more about this tool?</h3>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon">
-                                <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"/>
-                                <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"/>
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="none"
+                                class="faq-icon"
+                            >
+                                <path
+                                    d="M11.5 0L11.5 23"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
+                                <path
+                                    d="M23 11.5L-2.38419e-07 11.5"
+                                    stroke="var(--accent)"
+                                    stroke-width="6"
+                                />
                             </svg>
                         </div>
                         <div class="faq-a">
-                            <p>You can find more information about Realtime Colors on the <a href="about" target="_blank" class="link">About</a> page. You can also <a href="mailto:juxtopposed.me@gmail.com" target="_blank" class="link">email me</a> any questions you might have.</p>
+                            <p>
+                                You can find more information about Realtime
+                                Colors on the
+                                <a href="about" target="_blank" class="link"
+                                    >About</a
+                                >
+                                page. You can also
+                                <a
+                                    href="mailto:juxtopposed.me@gmail.com"
+                                    target="_blank"
+                                    class="link"
+                                    >email me</a
+                                >
+                                any questions you might have.
+                            </p>
                         </div>
-                    </div> 
-
-
-                    
+                    </div>
                 </div>
             </div>
 
-
-
-
-
             <div class="part5" id="end">
-                <h1>Your <span class="color-effect">Journey</span> Shouldn't End Here.</h1>
-                <p class="subtitle">Follow me on social media to stay tuned on more projects.</p>
-                <a href="https://twitter.com/juxtopposed" target="_blank" class="primary-button">Stay Tuned</a>
+                <h1>
+                    Your <span class="color-effect">Journey</span> Shouldn't End
+                    Here.
+                </h1>
+                <p class="subtitle">
+                    Follow me on social media to stay tuned on more projects.
+                </p>
+                <a
+                    href="https://twitter.com/juxtopposed"
+                    target="_blank"
+                    class="primary-button"
+                    >Stay Tuned</a
+                >
             </div>
 
             <div class="footer" id="footer">
                 <div class="logo">
-                    <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
-                    <a href="/"><h2 class="sitename reversed">Realtime Colors</h2></a>
+                    <img
+                        src="https://juxtopposed.github.io/realtimecolors/images/favicon.png"
+                        alt="logoface"
+                        class="logoface"
+                    />
+                    <a href="/"
+                        ><h2 class="sitename reversed">Realtime Colors</h2></a
+                    >
                 </div>
                 <div class="footer-cols">
                     <div class="footer-col">
-                        <p style="margin: 0;">Visualize your color choices.</p>
-                        <a href="https://www.producthunt.com/posts/real-time-colors?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-real&#0045;time&#0045;colors" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=390080&theme=dark" alt="Real&#0045;time&#0032;Colors - Real&#0045;time&#0032;UI&#0032;Color&#0032;Palette&#0032;Tool | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+                        <p style="margin: 0">Visualize your color choices.</p>
+                        <a
+                            href="https://www.producthunt.com/posts/real-time-colors?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-real&#0045;time&#0045;colors"
+                            target="_blank"
+                            ><img
+                                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=390080&theme=dark"
+                                alt="Real&#0045;time&#0032;Colors - Real&#0045;time&#0032;UI&#0032;Color&#0032;Palette&#0032;Tool | Product Hunt"
+                                style="width: 250px; height: 54px"
+                                width="250"
+                                height="54"
+                        /></a>
                     </div>
 
                     <div class="footer-col">
                         <div class="reversed sub menu-item-header">EXPLORE</div>
-                        <a href="https://www.figma.com/community/plugin/1234060894101724457/Realtime-Colors" target="_blank" class="menu-item">Try Figma Plugin 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                <rect x="0.318182" y="0.318182" width="13.3636" height="13.3636" rx="2.10647" stroke="var(--secondary)" stroke-width="0.636364"/>
-                                <path d="M4.33594 9.7564L9.75615 4.33618M9.75615 4.33618L5.41998 4.33618M9.75615 4.33618V8.94337" stroke="var(--secondary)" stroke-width="0.813033" stroke-linecap="round" stroke-linejoin="round"/>
+                        <a
+                            href="https://www.figma.com/community/plugin/1234060894101724457/Realtime-Colors"
+                            target="_blank"
+                            class="menu-item"
+                            >Try Figma Plugin
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
+                                fill="none"
+                            >
+                                <rect
+                                    x="0.318182"
+                                    y="0.318182"
+                                    width="13.3636"
+                                    height="13.3636"
+                                    rx="2.10647"
+                                    stroke="var(--secondary)"
+                                    stroke-width="0.636364"
+                                />
+                                <path
+                                    d="M4.33594 9.7564L9.75615 4.33618M9.75615 4.33618L5.41998 4.33618M9.75615 4.33618V8.94337"
+                                    stroke="var(--secondary)"
+                                    stroke-width="0.813033"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
                             </svg>
-                        &nbsp;<span style="background-color: var(--secondary); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--primary);"> New!</span></a>
-                        <a href="get-suggestions" class="menu-item">Get Suggestions</a>
+                            &nbsp;<span
+                                style="
+                                    background-color: var(--secondary);
+                                    padding: 0.4em 0.4em 0.4em 0.2em;
+                                    border-radius: 5px;
+                                    font-size: 12px;
+                                    color: var(--primary);
+                                "
+                            >
+                                New!</span
+                            ></a
+                        >
+                        <a href="get-suggestions" class="menu-item"
+                            >Get Suggestions</a
+                        >
                         <a href="about" class="menu-item reversed">About</a>
                         <!-- <a href="#" class="menu-item reversed">Blog</a> -->
                     </div>
 
                     <div class="footer-col">
-                        <div class="reversed sub menu-item-header">LET'S CONNECT</div>
-                        <a href="https://twitter.com/juxtopposed" class="menu-item reversed" target="_blank">Twitter</a>
-                        <a href="https://codepen.io/Juxtopposed" target="_blank" class="menu-item reversed">CodePen</a>
-                        <a href="https://www.youtube.com/@juxtopposed" target="_blank" class="menu-item reversed">YouTube</a>
-                        <a href="https://dribbble.com/juxtopposed" target="_blank" class="menu-item reversed">Dribbble</a>
-                        <a href="https://github.com/juxtopposed" target="_blank" class="menu-item reversed">GitHub</a>
+                        <div class="reversed sub menu-item-header">
+                            LET'S CONNECT
+                        </div>
+                        <a
+                            href="https://twitter.com/juxtopposed"
+                            class="menu-item reversed"
+                            target="_blank"
+                            >Twitter</a
+                        >
+                        <a
+                            href="https://codepen.io/Juxtopposed"
+                            target="_blank"
+                            class="menu-item reversed"
+                            >CodePen</a
+                        >
+                        <a
+                            href="https://www.youtube.com/@juxtopposed"
+                            target="_blank"
+                            class="menu-item reversed"
+                            >YouTube</a
+                        >
+                        <a
+                            href="https://dribbble.com/juxtopposed"
+                            target="_blank"
+                            class="menu-item reversed"
+                            >Dribbble</a
+                        >
+                        <a
+                            href="https://github.com/juxtopposed"
+                            target="_blank"
+                            class="menu-item reversed"
+                            >GitHub</a
+                        >
                     </div>
                 </div>
-                <div style="width: 100%; height: 1px; background-color: var(--secondary); opacity: 20%; margin-top: 1em;"></div>
+                <div
+                    style="
+                        width: 100%;
+                        height: 1px;
+                        background-color: var(--secondary);
+                        opacity: 20%;
+                        margin-top: 1em;
+                    "
+                ></div>
                 <div>
-                    <p class="sub">Feedback? Suggestions? Features you'd like to see? <a href="mailto:juxtopposed.me@gmail.com" target="_blank" class="link reversed">Contact me!</a></p>
-                    <p class="sub">Made with <3 by <a href="https://twitter.com/juxtopposed" target="_blank" class="link reversed">@Juxtopposed</a></p>
+                    <p class="sub">
+                        Feedback? Suggestions? Features you'd like to see?
+                        <a
+                            href="mailto:juxtopposed.me@gmail.com"
+                            target="_blank"
+                            class="link reversed"
+                            >Contact me!</a
+                        >
+                    </p>
+                    <p class="sub">
+                        Made with 💙 by
+                        <a
+                            href="https://twitter.com/juxtopposed"
+                            target="_blank"
+                            class="link reversed"
+                            >@Juxtopposed</a
+                        >
+                    </p>
                     <p class="sub">Copyright © 2023 All Rights Reserved</p>
                 </div>
-                
             </div>
-    
-            <div class="toolbar" id="toolbar">
 
+            <div class="toolbar" id="toolbar">
                 <!-- Colors -->
                 <div class="option colors-rollout hide">
                     Colors
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M0 6.5H13" stroke="var(--static2)" stroke-width="1.2"/>
-                        <path d="M6.5 0L6.5 13" stroke="var(--static2)" stroke-width="1.2"/>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                    >
+                        <path
+                            d="M0 6.5H13"
+                            stroke="var(--static2)"
+                            stroke-width="1.2"
+                        />
+                        <path
+                            d="M6.5 0L6.5 13"
+                            stroke="var(--static2)"
+                            stroke-width="1.2"
+                        />
                     </svg>
                 </div>
 
                 <div class="color-tools-span">
-
                     <div class="option colors-option prim">
-                        <input type="color" id="prim" name="prim" class="colorpicker" value="#000000">
+                        <input
+                            type="color"
+                            id="prim"
+                            name="prim"
+                            class="colorpicker"
+                            value="#000000"
+                        />
                         <label for="prim">Text</label>
                     </div>
-        
+
                     <div class="option colors-option sec">
-                        <input type="color" id="sec" name="sec" class="colorpicker" value="#ffffff">
+                        <input
+                            type="color"
+                            id="sec"
+                            name="sec"
+                            class="colorpicker"
+                            value="#ffffff"
+                        />
                         <label for="sec">Background</label>
                     </div>
-        
+
                     <div class="option colors-option primbuttn">
-                        <input type="color" id="primbuttn" name="primbuttn" class="colorpicker" value="#4685FF">
+                        <input
+                            type="color"
+                            id="primbuttn"
+                            name="primbuttn"
+                            class="colorpicker"
+                            value="#4685FF"
+                        />
                         <label for="primbuttn">Primary Button</label>
                     </div>
-        
+
                     <div class="option colors-option secbuttn">
-                        <input type="color" id="secbuttn" name="secbuttn" class="colorpicker" value="#F2F2F2">
+                        <input
+                            type="color"
+                            id="secbuttn"
+                            name="secbuttn"
+                            class="colorpicker"
+                            value="#F2F2F2"
+                        />
                         <label for="secbuttn">Secondary Button</label>
                     </div>
-        
+
                     <div class="option colors-option accent">
-                        <input type="color" id="accent" name="accent" class="colorpicker" value="#FFB084">
+                        <input
+                            type="color"
+                            id="accent"
+                            name="accent"
+                            class="colorpicker"
+                            value="#FFB084"
+                        />
                         <label for="accent">Accent</label>
                     </div>
-                    
+
                     <div class="option colors-option randomize" id="randomize">
                         <div>Randomize</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
-                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
-                            <circle cx="10.0138" cy="8.85138" r="1.87757" fill="var(--static2)"/>
-                            <circle cx="22.5306" cy="8.85138" r="1.87757" transform="rotate(90 22.5306 8.85138)" fill="var(--static2)"/>
-                            <circle cx="16.2718" cy="15.11" r="1.87757" transform="rotate(90 16.2718 15.11)" fill="var(--static2)"/>
-                            <circle cx="22.5304" cy="21.3685" r="1.87757" fill="var(--static2)"/>
-                            <circle cx="10.014" cy="21.3685" r="1.87757" transform="rotate(90 10.014 21.3685)" fill="var(--static2)"/>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="33"
+                            height="31"
+                            viewBox="0 0 33 31"
+                            fill="none"
+                        >
+                            <rect
+                                x="4.06797"
+                                y="2.90574"
+                                width="24.4083"
+                                height="24.4083"
+                                rx="3.84742"
+                                stroke="var(--static2)"
+                                stroke-width="1.1623"
+                            />
+                            <circle
+                                cx="10.0138"
+                                cy="8.85138"
+                                r="1.87757"
+                                fill="var(--static2)"
+                            />
+                            <circle
+                                cx="22.5306"
+                                cy="8.85138"
+                                r="1.87757"
+                                transform="rotate(90 22.5306 8.85138)"
+                                fill="var(--static2)"
+                            />
+                            <circle
+                                cx="16.2718"
+                                cy="15.11"
+                                r="1.87757"
+                                transform="rotate(90 16.2718 15.11)"
+                                fill="var(--static2)"
+                            />
+                            <circle
+                                cx="22.5304"
+                                cy="21.3685"
+                                r="1.87757"
+                                fill="var(--static2)"
+                            />
+                            <circle
+                                cx="10.014"
+                                cy="21.3685"
+                                r="1.87757"
+                                transform="rotate(90 10.014 21.3685)"
+                                fill="var(--static2)"
+                            />
                         </svg>
                     </div>
 
                     <div class="option colors-option export" id="export">
                         <div>Export</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
-                            <path d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z" fill="#0F0F0F"/>
-                            <rect x="4.109" y="2.93511" width="24.6552" height="24.6552" rx="3.88633" stroke="var(--static2)" stroke-width="1.17406"/>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="33"
+                            height="32"
+                            viewBox="0 0 33 32"
+                            fill="none"
+                        >
+                            <path
+                                d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z"
+                                fill="#0F0F0F"
+                            />
+                            <rect
+                                x="4.109"
+                                y="2.93511"
+                                width="24.6552"
+                                height="24.6552"
+                                rx="3.88633"
+                                stroke="var(--static2)"
+                                stroke-width="1.17406"
+                            />
                         </svg>
                     </div>
 
-                    <div class="option colors-option share-link" id="share-link" onclick="copyPageUrl()">
+                    <div
+                        class="option colors-option share-link"
+                        id="share-link"
+                        onclick="copyPageUrl()"
+                    >
                         <div class="share-link-buttn">Share</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
-                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
-                            <path d="M12 18.5968H11.6229C10.3391 18.5968 9.29834 17.5561 9.29834 16.2722V9.29842C9.29834 8.01458 10.3391 6.97382 11.6229 6.97382H16.2722C17.556 6.97382 18.5968 8.01458 18.5968 9.29842V16.2722C18.5968 17.5561 17.556 18.5968 16.2722 18.5968H16" stroke="var(--static2)" stroke-width="1.1623"/>
-                            <path d="M20.5 11.623H20.9216C22.2054 11.623 23.2462 12.6638 23.2462 13.9477V20.9215C23.2462 22.2053 22.2054 23.2461 20.9216 23.2461H16.2724C14.9885 23.2461 13.9478 22.2053 13.9478 20.9215V19.7592V13.9477C13.9478 12.6638 14.9885 11.623 16.2724 11.623H16.5" stroke="var(--static2)" stroke-width="1.1623"/>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="33"
+                            height="31"
+                            viewBox="0 0 33 31"
+                            fill="none"
+                        >
+                            <rect
+                                x="4.06797"
+                                y="2.90574"
+                                width="24.4083"
+                                height="24.4083"
+                                rx="3.84742"
+                                stroke="var(--static2)"
+                                stroke-width="1.1623"
+                            />
+                            <path
+                                d="M12 18.5968H11.6229C10.3391 18.5968 9.29834 17.5561 9.29834 16.2722V9.29842C9.29834 8.01458 10.3391 6.97382 11.6229 6.97382H16.2722C17.556 6.97382 18.5968 8.01458 18.5968 9.29842V16.2722C18.5968 17.5561 17.556 18.5968 16.2722 18.5968H16"
+                                stroke="var(--static2)"
+                                stroke-width="1.1623"
+                            />
+                            <path
+                                d="M20.5 11.623H20.9216C22.2054 11.623 23.2462 12.6638 23.2462 13.9477V20.9215C23.2462 22.2053 22.2054 23.2461 20.9216 23.2461H16.2724C14.9885 23.2461 13.9478 22.2053 13.9478 20.9215V19.7592V13.9477C13.9478 12.6638 14.9885 11.623 16.2724 11.623H16.5"
+                                stroke="var(--static2)"
+                                stroke-width="1.1623"
+                            />
                         </svg>
                     </div>
                 </div>
 
-
-
-
-                <div style="height: 50px; width: 2px; background-color: var(--static2); opacity: 20%; align-self: center;" class="divider-line"></div>
-
-
-
-
+                <div
+                    style="
+                        height: 50px;
+                        width: 2px;
+                        background-color: var(--static2);
+                        opacity: 20%;
+                        align-self: center;
+                    "
+                    class="divider-line"
+                ></div>
 
                 <!-- Fonts -->
                 <div class="option fonts-rollout" id="rolloutbutton">
                     Fonts
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M0 6.5H13" stroke="var(--static2)" stroke-width="1.2"/>
-                        <path d="M6.5 0L6.5 13" stroke="var(--static2)" stroke-width="1.2"/>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                    >
+                        <path
+                            d="M0 6.5H13"
+                            stroke="var(--static2)"
+                            stroke-width="1.2"
+                        />
+                        <path
+                            d="M6.5 0L6.5 13"
+                            stroke="var(--static2)"
+                            stroke-width="1.2"
+                        />
                     </svg>
-                    <span style="background-color: var(--static2); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--static3);"> New!</span>
+                    <span
+                        style="
+                            background-color: var(--static2);
+                            padding: 0.4em 0.4em 0.4em 0.2em;
+                            border-radius: 5px;
+                            font-size: 12px;
+                            color: var(--static3);
+                        "
+                    >
+                        New!</span
+                    >
                 </div>
 
                 <div class="font-tools-span hide">
-
-                    <div class="option fonts-option heading-fonts-buttn rollout-fonts" id="heading-fonts-buttn">
-                        <div class="heading-fonts-label" id="headings-fonts-label">Headings</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                            <path d="M1 1L6 6L11 1" stroke="var(--static2)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <div
+                        class="option fonts-option heading-fonts-buttn rollout-fonts"
+                        id="heading-fonts-buttn"
+                    >
+                        <div
+                            class="heading-fonts-label"
+                            id="headings-fonts-label"
+                        >
+                            Headings
+                        </div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="7"
+                            viewBox="0 0 12 7"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 1L6 6L11 1"
+                                stroke="var(--static2)"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
                         </svg>
 
                         <div class="heading-fonts-box">
                             <div class="fonts-row">
-                                    <label for="font-upload-headings" class="font-label">
-                                        <span id="heading-label-span">Upload</span>
-                                        <input type="file" id="font-upload-headings" accept=".ttf, .otf, .woff2, .eot, .woff" />
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                            <path d="M9.97537 8.58356L9.97537 13.4251C9.97537 13.5704 10.0335 13.702 10.1292 13.796C10.2249 13.8917 10.3565 13.9498 10.5 13.9498C10.6453 13.9498 10.7769 13.8917 10.8709 13.796C10.9666 13.7003 11.0247 13.5704 11.0247 13.4251L11.0247 8.58356L12.8909 10.2122C12.9986 10.3062 13.1353 10.3489 13.2686 10.3421C13.4036 10.3336 13.5335 10.2755 13.6309 10.1678C13.7266 10.0601 13.7693 9.9234 13.7625 9.7901C13.7539 9.6568 13.6958 9.52692 13.5882 9.43121L10.847 7.03863C10.7461 6.94977 10.6197 6.90704 10.4949 6.90704C10.3701 6.90704 10.2454 6.95489 10.1497 7.04376L7.41018 9.43634C7.30594 9.53204 7.24783 9.66022 7.23929 9.79181C7.23074 9.92511 7.27517 10.0601 7.37088 10.1678L7.37429 10.1712C7.47 10.2772 7.59988 10.3336 7.73147 10.3421L7.73318 10.3421C7.86648 10.3489 8.0032 10.3062 8.11087 10.2105L9.97537 8.58356Z" fill="var(--static2)"/>
-                                            <rect x="18.3852" y="18.0589" width="15.6897" height="15.6897" rx="2.47312" transform="rotate(-180 18.3852 18.0589)" stroke="var(--static2)" stroke-width="0.747126"/>
-                                        </svg>
-                                    </label>
-                                    <div class="font-label reset-font-heading">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
-                                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
-                                            <path d="M21.3885 11.5047C20.196 10.1536 18.4514 9.30151 16.5077 9.30151C12.9136 9.30151 10 12.2151 10 15.8092C10 19.4033 12.9136 22.3169 16.5077 22.3169C18.4514 22.3169 20.196 21.4648 21.3885 20.1138C22.308 19.072 22.8991 17.7335 23 16.2603" stroke="var(--static2)"/>
-                                            <path d="M17.5 13L21.3883 11.5792L20.5 7" stroke="var(--static2)"/>
-                                        </svg>
-                                    </div>
+                                <label
+                                    for="font-upload-headings"
+                                    class="font-label"
+                                >
+                                    <span id="heading-label-span">Upload</span>
+                                    <input
+                                        type="file"
+                                        id="font-upload-headings"
+                                        accept=".ttf, .otf, .woff2, .eot, .woff"
+                                    />
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="21"
+                                        height="20"
+                                        viewBox="0 0 21 20"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M9.97537 8.58356L9.97537 13.4251C9.97537 13.5704 10.0335 13.702 10.1292 13.796C10.2249 13.8917 10.3565 13.9498 10.5 13.9498C10.6453 13.9498 10.7769 13.8917 10.8709 13.796C10.9666 13.7003 11.0247 13.5704 11.0247 13.4251L11.0247 8.58356L12.8909 10.2122C12.9986 10.3062 13.1353 10.3489 13.2686 10.3421C13.4036 10.3336 13.5335 10.2755 13.6309 10.1678C13.7266 10.0601 13.7693 9.9234 13.7625 9.7901C13.7539 9.6568 13.6958 9.52692 13.5882 9.43121L10.847 7.03863C10.7461 6.94977 10.6197 6.90704 10.4949 6.90704C10.3701 6.90704 10.2454 6.95489 10.1497 7.04376L7.41018 9.43634C7.30594 9.53204 7.24783 9.66022 7.23929 9.79181C7.23074 9.92511 7.27517 10.0601 7.37088 10.1678L7.37429 10.1712C7.47 10.2772 7.59988 10.3336 7.73147 10.3421L7.73318 10.3421C7.86648 10.3489 8.0032 10.3062 8.11087 10.2105L9.97537 8.58356Z"
+                                            fill="var(--static2)"
+                                        />
+                                        <rect
+                                            x="18.3852"
+                                            y="18.0589"
+                                            width="15.6897"
+                                            height="15.6897"
+                                            rx="2.47312"
+                                            transform="rotate(-180 18.3852 18.0589)"
+                                            stroke="var(--static2)"
+                                            stroke-width="0.747126"
+                                        />
+                                    </svg>
+                                </label>
+                                <div class="font-label reset-font-heading">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="33"
+                                        height="31"
+                                        viewBox="0 0 33 31"
+                                        fill="none"
+                                    >
+                                        <rect
+                                            x="4.06797"
+                                            y="2.90574"
+                                            width="24.4083"
+                                            height="24.4083"
+                                            rx="3.84742"
+                                            stroke="var(--static2)"
+                                            stroke-width="1.1623"
+                                        />
+                                        <path
+                                            d="M21.3885 11.5047C20.196 10.1536 18.4514 9.30151 16.5077 9.30151C12.9136 9.30151 10 12.2151 10 15.8092C10 19.4033 12.9136 22.3169 16.5077 22.3169C18.4514 22.3169 20.196 21.4648 21.3885 20.1138C22.308 19.072 22.8991 17.7335 23 16.2603"
+                                            stroke="var(--static2)"
+                                        />
+                                        <path
+                                            d="M17.5 13L21.3883 11.5792L20.5 7"
+                                            stroke="var(--static2)"
+                                        />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="option fonts-option text-fonts-buttn rollout-fonts" id="text-fonts-buttn">
-                        <div class="text-fonts-label" id="texts-fonts-label">Texts</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                            <path d="M1 1L6 6L11 1" stroke="var(--static2)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <div
+                        class="option fonts-option text-fonts-buttn rollout-fonts"
+                        id="text-fonts-buttn"
+                    >
+                        <div class="text-fonts-label" id="texts-fonts-label">
+                            Texts
+                        </div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="7"
+                            viewBox="0 0 12 7"
+                            fill="none"
+                        >
+                            <path
+                                d="M1 1L6 6L11 1"
+                                stroke="var(--static2)"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
                         </svg>
-
 
                         <div class="text-fonts-box">
                             <div class="fonts-row">
-                                    <label for="font-upload-texts" class="font-label">
-                                        <span id="text-label-span">Upload</span>
-                                        <input type="file" id="font-upload-texts" accept=".ttf, .otf, .woff2, .eot, .woff" />
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                            <path d="M9.97537 8.58356L9.97537 13.4251C9.97537 13.5704 10.0335 13.702 10.1292 13.796C10.2249 13.8917 10.3565 13.9498 10.5 13.9498C10.6453 13.9498 10.7769 13.8917 10.8709 13.796C10.9666 13.7003 11.0247 13.5704 11.0247 13.4251L11.0247 8.58356L12.8909 10.2122C12.9986 10.3062 13.1353 10.3489 13.2686 10.3421C13.4036 10.3336 13.5335 10.2755 13.6309 10.1678C13.7266 10.0601 13.7693 9.9234 13.7625 9.7901C13.7539 9.6568 13.6958 9.52692 13.5882 9.43121L10.847 7.03863C10.7461 6.94977 10.6197 6.90704 10.4949 6.90704C10.3701 6.90704 10.2454 6.95489 10.1497 7.04376L7.41018 9.43634C7.30594 9.53204 7.24783 9.66022 7.23929 9.79181C7.23074 9.92511 7.27517 10.0601 7.37088 10.1678L7.37429 10.1712C7.47 10.2772 7.59988 10.3336 7.73147 10.3421L7.73318 10.3421C7.86648 10.3489 8.0032 10.3062 8.11087 10.2105L9.97537 8.58356Z" fill="var(--static2)"/>
-                                            <rect x="18.3852" y="18.0589" width="15.6897" height="15.6897" rx="2.47312" transform="rotate(-180 18.3852 18.0589)" stroke="var(--static2)" stroke-width="0.747126"/>
-                                        </svg>
-                                    </label>
-                                    <div class="font-label reset-font-text">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
-                                            <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
-                                            <path d="M21.3885 11.5047C20.196 10.1536 18.4514 9.30151 16.5077 9.30151C12.9136 9.30151 10 12.2151 10 15.8092C10 19.4033 12.9136 22.3169 16.5077 22.3169C18.4514 22.3169 20.196 21.4648 21.3885 20.1138C22.308 19.072 22.8991 17.7335 23 16.2603" stroke="var(--static2)"/>
-                                            <path d="M17.5 13L21.3883 11.5792L20.5 7" stroke="var(--static2)"/>
-                                        </svg>
-                                    </div>
-                                
+                                <label
+                                    for="font-upload-texts"
+                                    class="font-label"
+                                >
+                                    <span id="text-label-span">Upload</span>
+                                    <input
+                                        type="file"
+                                        id="font-upload-texts"
+                                        accept=".ttf, .otf, .woff2, .eot, .woff"
+                                    />
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="21"
+                                        height="20"
+                                        viewBox="0 0 21 20"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M9.97537 8.58356L9.97537 13.4251C9.97537 13.5704 10.0335 13.702 10.1292 13.796C10.2249 13.8917 10.3565 13.9498 10.5 13.9498C10.6453 13.9498 10.7769 13.8917 10.8709 13.796C10.9666 13.7003 11.0247 13.5704 11.0247 13.4251L11.0247 8.58356L12.8909 10.2122C12.9986 10.3062 13.1353 10.3489 13.2686 10.3421C13.4036 10.3336 13.5335 10.2755 13.6309 10.1678C13.7266 10.0601 13.7693 9.9234 13.7625 9.7901C13.7539 9.6568 13.6958 9.52692 13.5882 9.43121L10.847 7.03863C10.7461 6.94977 10.6197 6.90704 10.4949 6.90704C10.3701 6.90704 10.2454 6.95489 10.1497 7.04376L7.41018 9.43634C7.30594 9.53204 7.24783 9.66022 7.23929 9.79181C7.23074 9.92511 7.27517 10.0601 7.37088 10.1678L7.37429 10.1712C7.47 10.2772 7.59988 10.3336 7.73147 10.3421L7.73318 10.3421C7.86648 10.3489 8.0032 10.3062 8.11087 10.2105L9.97537 8.58356Z"
+                                            fill="var(--static2)"
+                                        />
+                                        <rect
+                                            x="18.3852"
+                                            y="18.0589"
+                                            width="15.6897"
+                                            height="15.6897"
+                                            rx="2.47312"
+                                            transform="rotate(-180 18.3852 18.0589)"
+                                            stroke="var(--static2)"
+                                            stroke-width="0.747126"
+                                        />
+                                    </svg>
+                                </label>
+                                <div class="font-label reset-font-text">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="33"
+                                        height="31"
+                                        viewBox="0 0 33 31"
+                                        fill="none"
+                                    >
+                                        <rect
+                                            x="4.06797"
+                                            y="2.90574"
+                                            width="24.4083"
+                                            height="24.4083"
+                                            rx="3.84742"
+                                            stroke="var(--static2)"
+                                            stroke-width="1.1623"
+                                        />
+                                        <path
+                                            d="M21.3885 11.5047C20.196 10.1536 18.4514 9.30151 16.5077 9.30151C12.9136 9.30151 10 12.2151 10 15.8092C10 19.4033 12.9136 22.3169 16.5077 22.3169C18.4514 22.3169 20.196 21.4648 21.3885 20.1138C22.308 19.072 22.8991 17.7335 23 16.2603"
+                                            stroke="var(--static2)"
+                                        />
+                                        <path
+                                            d="M17.5 13L21.3883 11.5792L20.5 7"
+                                            stroke="var(--static2)"
+                                        />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-        
-
-                
             </div>
 
             <div id="tip-bar">
                 <button id="close-btn">&times;</button>
                 <p><b>Tip:</b> Press the Spacebar to randomize faster!</p>
             </div>
-
         </main>
 
-
-
-
+        <!-- ################################ -->
+        <noscript>
+            <div class="no-script">
+                <p>Please enable JavaScript to view this website.</p>
+            </div>
+        </noscript>
+        <script nomodule="">
+            var div = document.createElement("div");
+            var p = document.createElement("P");
+            div.classList.add("old-script");
+            p.textContent =
+                "Please update your browser to modern version to view this website.";
+            div.appendChild(p);
+            document.body.appendChild(div);
+        </script>
+        <!-- ################################ -->
 
         <script src="script.js" type="module"></script>
         <script src="random-sets.js"></script>
@@ -609,13 +1712,14 @@
 
         <script>
             // info about hero of homepage
-            const mondrianInfoIcon = document.getElementById('mondrian-info-icon');
-            const mondrianAnswer = document.querySelector('.mondrian-answer');
-            const mondrianFAQIcon = document.querySelector('.mondrian-icon');
+            const mondrianInfoIcon =
+                document.getElementById("mondrian-info-icon");
+            const mondrianAnswer = document.querySelector(".mondrian-answer");
+            const mondrianFAQIcon = document.querySelector(".mondrian-icon");
 
             mondrianInfoIcon.addEventListener("click", () => {
-            mondrianAnswer.classList.add("expand");
-            mondrianFAQIcon.classList.add("expand");
+                mondrianAnswer.classList.add("expand");
+                mondrianFAQIcon.classList.add("expand");
             });
         </script>
     </body>
