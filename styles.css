@@ -127,7 +127,7 @@ p {
 .toolbar {
     position: fixed;
     bottom: 3em;
-
+    backdrop-filter: blur(50px);
     display: flex;
     flex-direction: row;
     background-color: var(--static);
@@ -211,19 +211,19 @@ label {
 .export {
     color: var(--static2);
     background-color: var(--static3);
-    padding: 1.1em 1.5em;
+    padding: 1.1em 1.1em;
 }
 
 .randomize {
     color: var(--static2);
     background-color: var(--static3);
-    padding: 1.1em 1.5em;
+    padding: 1.1em 1.1em;
 }
 
 .share-link {
     color: var(--static2);
     background-color: var(--static3);
-    padding: 1.1em 1.5em;
+    padding: 1.1em 1.1em;
     gap: 1em;
 }
 
@@ -235,6 +235,8 @@ label {
     color: var(--static5);
     transition: all 0.2s ease;
 }
+
+
 
 
 .heading-fonts-buttn {
@@ -257,7 +259,6 @@ label {
     width: max-content;
     padding: 1em;
     background-color: var(--static);
-    backdrop-filter: blur(50px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -288,7 +289,6 @@ label {
     width: max-content;
     padding: 1em;
     background-color: var(--static);
-    backdrop-filter: blur(50px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -1124,6 +1124,84 @@ nav {
 
 
 
+/* undo / redo */
+
+#undo, #redo {
+    padding: 1.1em 1.5em;
+    background-color: var(--static3);
+    color: var(--static2);
+}
+
+.option-label {
+    display: none;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 50%;
+    background-color: var(--static);
+}
+
+
+
+/* tooltip */
+
+.option .tooltip {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  color: var(--static3);
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.option:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.option .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+  backdrop-filter: blur(20px);
+}
+
+.tooltip-share.copied {
+    background-color: var(--static5);
+    transition: all 0.2s ease;
+}
+
+.tooltip-share.copied::after {
+    border-color: rgb(24, 172, 122) transparent transparent transparent;
+}
+
+.tooltip {
+    font-size: 14px;
+}
+
+.controls-tooltip {
+    font-size: 12px;
+    opacity: 50%;
+}
+
+.tooltip-share.copied.hover {
+    opacity: 1 !important;
+    visibility: visible;
+}
 
 
 /* responsiveness */
@@ -1310,8 +1388,13 @@ nav {
         display: none;
     }
 
-    
+    .option-label {
+        display: flex;
+    }
 
+    .tooltip {
+        display: none;
+    }
 
 
     .rolloutbutton {
@@ -1331,6 +1414,7 @@ nav {
         width: 90%;
         z-index: 9998;
     }
+
 
     .colors-rollout.hide {
         display: flex !important;
@@ -1361,9 +1445,11 @@ nav {
         bottom: 80px;
         width: 100%;
         background-color: var(--static);
-        backdrop-filter: blur(50px);
         padding: 6px;
         border-radius: 6px;
+        height: 70vh;
+        overflow: scroll;
+
     }
     
     .color-tools-span.hide {
@@ -1376,7 +1462,6 @@ nav {
         bottom: 80px;
         width: 100%;
         background-color: var(--static);
-        backdrop-filter: blur(50px);
         padding: 6px;
         border-radius: 6px;
     }
@@ -1501,6 +1586,15 @@ nav {
         transform: translateY(-4px) rotate(-45deg);
     }
 
+    .disabled {
+        background: #c2c2c2 !important;
+        opacity: 1;
+        color: #aaaaaa !important;
+    }
+
+    .disabled > svg {
+        opacity: 20%;
+    }
     
 }
 
@@ -1519,9 +1613,6 @@ nav {
     .color-code {
         font-size: 10px;
     }
-
-
-
 
 }
 

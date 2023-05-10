@@ -24,7 +24,7 @@
     </head>
 
     <body>
-
+        
         <nav>
             <div class="logo">
                 <img src="https://juxtopposed.github.io/realtimecolors/images/favicon.png" alt="logoface" class="logoface">
@@ -446,6 +446,7 @@
                         <path d="M0 6.5H13" stroke="var(--static2)" stroke-width="1.2"/>
                         <path d="M6.5 0L6.5 13" stroke="var(--static2)" stroke-width="1.2"/>
                     </svg>
+                    <span class="tooltip">Color Setup</span>
                 </div>
 
                 <div class="color-tools-span">
@@ -476,7 +477,7 @@
                     </div>
                     
                     <div class="option colors-option randomize" id="randomize">
-                        <div>Randomize</div>
+                        <div class="option-label">Randomize</div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
                             <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
                             <circle cx="10.0138" cy="8.85138" r="1.87757" fill="var(--static2)"/>
@@ -485,24 +486,49 @@
                             <circle cx="22.5304" cy="21.3685" r="1.87757" fill="var(--static2)"/>
                             <circle cx="10.014" cy="21.3685" r="1.87757" transform="rotate(90 10.014 21.3685)" fill="var(--static2)"/>
                         </svg>
+                        <span class="tooltip">Randomize<br><span class="controls-tooltip">(Spacebar)</span></span>
+                    </div>
+
+                    <div class="option colors-option undo" id="undo">
+                        <div class="option-label">Undo</div>
+                        <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.265 10.9368C16.0693 6.4747 11.4329 3.84005 6.90913 5.05219C4.4627 5.7077 2.55025 7.35401 1.49881 9.4335" stroke="black" stroke-width="1.28532"/>
+                            <path d="M6.89052 9.97853L1.52381 9.52598L1.11855 3.54119" stroke="black" stroke-width="1.28532"/>
+                        </svg>     
+                        <span class="tooltip">Undo<br><span class="controls-tooltip">(CTRL + Z)</span></span>  
+                    </div>
+
+                    <div class="option colors-option redo" id="redo">
+                        <div class="option-label">Redo</div>
+                        <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.876628 11.2114C2.07226 6.74924 6.65879 4.10121 11.1209 5.29683C13.534 5.94342 15.4166 7.58172 16.4476 9.65573" stroke="black" stroke-width="1.28532"/>
+                            <path d="M11.1222 10.2189L16.4222 9.74848L16.8427 3.76777" stroke="black" stroke-width="1.28532"/>
+                        </svg>
+                        <span class="tooltip">Redo<br><span class="controls-tooltip">(CTRL + SHIFT + Z)</span></span> 
                     </div>
 
                     <div class="option colors-option export" id="export">
-                        <div>Export</div>
+                        <div class="option-label">Export</div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                             <path d="M17.3248 17.8251V10.2169C17.3248 9.98865 17.2335 9.78186 17.0831 9.63415C16.9328 9.48376 16.726 9.39246 16.5004 9.39246C16.2721 9.39246 16.0653 9.48376 15.9176 9.63415C15.7672 9.78455 15.6759 9.98865 15.6759 10.2169V17.8251L12.7433 15.2657C12.5741 15.118 12.3593 15.0509 12.1498 15.0616C11.9376 15.0751 11.7335 15.1664 11.5805 15.3356C11.4301 15.5048 11.3629 15.7196 11.3737 15.9291C11.3871 16.1386 11.4784 16.3427 11.6476 16.493L15.9552 20.2528C16.1137 20.3925 16.3124 20.4596 16.5084 20.4596C16.7045 20.4596 16.9005 20.3844 17.0509 20.2448L21.3558 16.485C21.5197 16.3346 21.611 16.1332 21.6244 15.9264C21.6378 15.7169 21.568 15.5048 21.4176 15.3356L21.4122 15.3302C21.2619 15.1637 21.0578 15.0751 20.851 15.0616H20.8483C20.6388 15.0509 20.424 15.118 20.2548 15.2684L17.3248 17.8251Z" fill="#0F0F0F"/>
                             <rect x="4.109" y="2.93511" width="24.6552" height="24.6552" rx="3.88633" stroke="var(--static2)" stroke-width="1.17406"/>
                         </svg>
+                        <span class="tooltip">Export<br><span class="controls-tooltip">(CTRL + E)</span></span>
                     </div>
 
                     <div class="option colors-option share-link" id="share-link" onclick="copyPageUrl()">
-                        <div class="share-link-buttn">Share</div>
+                        <span class="tooltip tooltip-share">Share Link<br><span class="controls-tooltip">(CTRL + S)</span></span>
+                        <div class="share-link-buttn option-label">Share Link</div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
                             <rect x="4.06797" y="2.90574" width="24.4083" height="24.4083" rx="3.84742" stroke="var(--static2)" stroke-width="1.1623"/>
                             <path d="M12 18.5968H11.6229C10.3391 18.5968 9.29834 17.5561 9.29834 16.2722V9.29842C9.29834 8.01458 10.3391 6.97382 11.6229 6.97382H16.2722C17.556 6.97382 18.5968 8.01458 18.5968 9.29842V16.2722C18.5968 17.5561 17.556 18.5968 16.2722 18.5968H16" stroke="var(--static2)" stroke-width="1.1623"/>
                             <path d="M20.5 11.623H20.9216C22.2054 11.623 23.2462 12.6638 23.2462 13.9477V20.9215C23.2462 22.2053 22.2054 23.2461 20.9216 23.2461H16.2724C14.9885 23.2461 13.9478 22.2053 13.9478 20.9215V19.7592V13.9477C13.9478 12.6638 14.9885 11.623 16.2724 11.623H16.5" stroke="var(--static2)" stroke-width="1.1623"/>
                         </svg>
+                        
+                        
                     </div>
+
+
                 </div>
 
 
@@ -522,6 +548,7 @@
                         <path d="M6.5 0L6.5 13" stroke="var(--static2)" stroke-width="1.2"/>
                     </svg>
                     <span style="background-color: var(--static2); padding: 0.4em 0.4em 0.4em 0.2em; border-radius: 5px; font-size: 12px; color: var(--static3);"> New!</span>
+                    <span class="tooltip">Font Setup</span>
                 </div>
 
                 <div class="font-tools-span hide">
@@ -618,5 +645,15 @@
             mondrianFAQIcon.classList.add("expand");
             });
         </script>
+
+
+
+
+
+
+
+
+
+
     </body>
 </html>

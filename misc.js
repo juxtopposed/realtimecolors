@@ -70,6 +70,7 @@ if (window.innerWidth < 1100) {
 
 
 // SHARE
+const shareButtonTooltip = document.querySelector('.tooltip-share');
 
 function copyPageUrl() {
     const pageUrl = window.location.href;
@@ -77,12 +78,33 @@ function copyPageUrl() {
     navigator.clipboard.writeText(pageUrl);
   
     const shareButton = document.querySelector('.share-link-buttn');
+    const shareButtonTooltip = document.querySelector('.tooltip-share');
     shareButton.textContent = 'Copied!';
     shareButton.classList.add('copied');
+
+    shareButtonTooltip.textContent = 'Copied!';
+    shareButtonTooltip.classList.add('copied');
   
     setTimeout(function() {
-      shareButton.textContent = 'Share';
+      shareButton.textContent = 'Share Link';
       shareButton.classList.remove('copied');
+
+      shareButtonTooltip.innerHTML = 'Share Link<br><span class="controls-tooltip">(CTRL + S)</span>';
+      shareButtonTooltip.classList.remove('copied');
     }, 2000);
   }
+  
+
+  document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 's') {
+      event.preventDefault();
+      copyPageUrl();
+      shareButtonTooltip.classList.add('hover');
+
+      setTimeout(function() {
+        shareButtonTooltip.classList.remove('hover');
+      }, 2000);
+    }
+  });
+ 
   

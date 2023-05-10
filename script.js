@@ -371,6 +371,13 @@ function dataURItoBlob(dataURI) {
 }
 
 
+document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.key === 'e') {
+    event.preventDefault();
+    document.getElementById('export').click();
+  }
+});
+
 
 // 
 // 
@@ -461,8 +468,6 @@ function checkContrast() {
           primbuttnColorClass.style.color = 'var(--primary)';
         }
       }
-
-      console.log(`${contrastRatio}`);
 
     });
   }));
@@ -937,6 +942,107 @@ secondaryColor.addEventListener('change', updateColors);
 primbuttnColor.addEventListener('change', updateColors);
 secbuttnColor.addEventListener('change', updateColors);
 accentColor.addEventListener('change', updateColors);
+
+
+
+// redo and undo 
+
+let urlSlugs = [];
+let currentSlugIndex = -1;
+
+function addSlugToArray() {
+  let url = window.location.href;
+  let slug = url.substring(url.indexOf("?"));
+  if (urlSlugs.length === 0 || slug !== urlSlugs[currentSlugIndex]) {
+    urlSlugs.splice(currentSlugIndex + 1, urlSlugs.length - currentSlugIndex - 1, slug);
+    currentSlugIndex++;
+  }
+
+  applyColorsFromSlug(slug);
+  updateUndoRedoButtons();
+}
+
+window.addEventListener("load", addSlugToArray);
+
+window.addEventListener("popstate", function() {
+  let urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("colors")) {
+    addSlugToArray();
+  }
+});
+
+window.addEventListener("hashchange", function() {
+  let urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("colors")) {
+    addSlugToArray();
+  }
+});
+
+let oldColors = "";
+setInterval(function() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let newColors = urlParams.get("colors");
+  if (newColors !== null && newColors !== oldColors) {
+    addSlugToArray();
+    oldColors = newColors;
+  }
+});
+
+document.getElementById("undo").addEventListener("click", function() {
+  if (currentSlugIndex > 0) {
+    currentSlugIndex--;
+    let slug = urlSlugs[currentSlugIndex];
+    let url = window.location.origin + window.location.pathname + slug;
+    window.history.pushState({}, "", url);
+    
+    applyColorsFromSlug(slug);
+    removeColorSource();
+  }
+});
+
+
+
+document.getElementById("redo").addEventListener("click", function() {
+  if (currentSlugIndex < urlSlugs.length - 1) {
+    currentSlugIndex++;
+    let slug = urlSlugs[currentSlugIndex];
+    let url = window.location.origin + window.location.pathname + slug;
+    window.history.pushState({}, "", url);
+    
+    applyColorsFromSlug(slug);
+    removeColorSource();
+  }
+});
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.key === 'z') {
+    document.getElementById('undo').click();
+  } else if (event.ctrlKey && event.shiftKey && (event.key === 'Z' || event.key === 'z')) {
+    document.getElementById('redo').click();
+  }
+});
+
+
+
+function updateUndoRedoButtons() {
+  let undoButton = document.getElementById("undo");
+  let redoButton = document.getElementById("redo");
+  
+  if (currentSlugIndex === 0) {
+    undoButton.classList.add("disabled");
+  } else {
+    undoButton.classList.remove("disabled");
+  }
+  
+  if (currentSlugIndex === urlSlugs.length - 1) {
+    redoButton.classList.add("disabled");
+  } else {
+    redoButton.classList.remove("disabled");
+  }
+}
+
+
 
 
 
