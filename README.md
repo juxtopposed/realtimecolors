@@ -1,9 +1,13 @@
+----------------------------------------------------------------------
+
+**Note**: Currently not accepting pull requests, as I need to refactor the code first. Please open an issue if you'd like any features added. <3
+
+----------------------------------------------------------------------
+
 # Real-time Colors
 See your favorite colors of choice for a website in real time.
 
 Check the live site: [realtimecolors.com](https://realtimecolors.com/)
-
-**Note**: Currently not accepting pull requests, as I need to refactor the code myself. Please open an issue if you'd like any features added. <3
 
 ## The Problem
 Color palettes are too generic and often make it harder for designers or clients to make a decision. The composition of colors is not clear in a color palette. Therefore, designers need to spend some time implementing the colors on a lofi UI to make decision-making easier. There are lots of Lofi UI kits on the internet, but they often do not target clients or normal people. So, once again, both designers, clients, and developers need to spend time to come up with their colors of choice.
