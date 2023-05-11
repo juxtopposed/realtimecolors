@@ -1,3 +1,57 @@
+// showing hex value
+
+const colorPickers = document.querySelectorAll('.colorpicker');
+const hexInputs = document.querySelectorAll('.hex-input');
+
+function attachColorPickerListeners(colorPickers, hexInputs) {
+  for (let i = 0; i < colorPickers.length; i++) {
+    colorPickers[i].addEventListener('change', function() {
+      const colorValue = this.value;
+      const index = Array.prototype.indexOf.call(colorPickers, this);
+      hexInputs[index].value = colorValue;
+
+      updateUrlParams();
+    });
+
+    hexInputs[i].addEventListener('change', function() {
+      const hexValue = this.value;
+      const index = Array.prototype.indexOf.call(hexInputs, this);
+      colorPickers[index].value = hexValue;
+
+      updateUrlParams();
+    });
+  }
+}
+
+function updateUrlParams() {
+  const primaryColorValue = primaryColor.value.replace('#', '');
+  const secondaryColorValue = secondaryColor.value.replace('#', '');
+  const primbuttnColorValue = primbuttnColor.value.replace('#', '');
+  const secbuttnColorValue = secbuttnColor.value.replace('#', '');
+  const accentColorValue = accentColor.value.replace('#', '');
+
+  const defaultSlug = `${primaryColorValue}-${secondaryColorValue}-${primbuttnColorValue}-${secbuttnColorValue}-${accentColorValue}`;
+
+  window.history.replaceState({}, document.title, `?colors=${defaultSlug}`);
+}
+
+attachColorPickerListeners(colorPickers, hexInputs);
+
+
+for (let i = 0; i < hexInputs.length; i++) {
+  hexInputs[i].addEventListener('paste', function() {
+    const inputEl = this;
+    setTimeout(function() {
+      const hexValue = inputEl.value;
+      const index = Array.prototype.indexOf.call(hexInputs, inputEl);
+      colorPickers[index].value = hexValue;
+
+      updateUrlParams();
+    }, 0);
+  });
+}
+
+
 
 
 // Inputs
@@ -11,6 +65,7 @@ const randomizeButton = document.getElementById('randomize');
 
 
 
+
 // Randomization
 import "/random-sets.js"
 let lastSelectedColorSet = null;
@@ -21,6 +76,7 @@ randomizeButton.addEventListener('click', () => {
   removeColorSource();
   randomizeColors();
   updateSlug();
+  attachColorPickerListeners(colorPickers, hexInputs);
 
 });
 
@@ -30,6 +86,8 @@ document.addEventListener('keydown', event => {
     randomizeColors();
     updateSlug();
     event.preventDefault();
+    attachColorPickerListeners(colorPickers, hexInputs);
+
   }
 });
 
@@ -50,7 +108,6 @@ function randomizeColors() {
     let randomColorSet;
   
   if (colorSetIndex >= shuffledColors.length) {
-    // If all color sets have been used, shuffle the array again
     shuffledColors = shuffleArray(colorSets);
     colorSetIndex = 0;
   }
@@ -78,10 +135,16 @@ function randomizeColors() {
     sourceDiv.classList.add('color-source');
     document.body.appendChild(sourceDiv);
   }
-
   
+  function setHexInputValues(hexInputs, colors) {
+    for (let i = 0; i < hexInputs.length; i++) {
+      hexInputs[i].value = colors[i];
+    }
+  }
 
+  setHexInputValues(hexInputs, randomColorSet.colors);
 
+  attachColorPickerListeners(colorPickers, hexInputs);
 
 
 
@@ -266,6 +329,10 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+
+
+
 
 
 
@@ -721,6 +788,12 @@ function applyColorsFromSlug() {
     document.documentElement.style.setProperty('--primbuttn', primbuttnColor.value);
     document.documentElement.style.setProperty('--secbuttn', secbuttnColor.value);
     document.documentElement.style.setProperty('--accent', accentColor.value);
+
+    hexInputs[0].value = primaryColor.value;
+    hexInputs[1].value = secondaryColor.value;
+    hexInputs[2].value = primbuttnColor.value;
+    hexInputs[3].value = secbuttnColor.value;
+    hexInputs[4].value = accentColor.value;
   } 
   else {
     const primaryColorValue = primaryColor.value;
@@ -735,7 +808,7 @@ function applyColorsFromSlug() {
   }
 
   
-
+  attachColorPickerListeners(colorPickers, hexInputs);
 
 
     // contrast checker
@@ -1170,6 +1243,9 @@ const checkForUpdates = () => {
 };
 checkForUpdates();
       
+
+
+
 
 
 
