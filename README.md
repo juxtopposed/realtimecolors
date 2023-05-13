@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------
 
-**Note**: Currently not accepting pull requests, as I need to refactor the code first. Please open an issue if you'd like any features added. <3
+**Note**: This repository won't be updated since it's been moved to a hosting service, but you can continue to send suggestions and feature requests here. Thank you! <3
 
 ----------------------------------------------------------------------
 
