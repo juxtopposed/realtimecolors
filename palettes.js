@@ -4,7 +4,7 @@
 function highlightToolbar() {
   var toolbar = document.getElementById("toolbar");
   toolbar.classList.add("highlighted");
-  setTimeout(function() {
+  setTimeout(function () {
     toolbar.classList.remove("highlighted");
   }, 1000);
 }
@@ -23,47 +23,47 @@ function updateColorSchemes() {
   const colorSchemes = generateColorSchemes(color);
 
   const analogousBlocks = document.querySelectorAll(".analogous");
-  analogousBlocks.forEach(function(block, index) {
+  analogousBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[0][index];
   });
 
   const monochromaticBlocks = document.querySelectorAll(".monochromatic");
-  monochromaticBlocks.forEach(function(block, index) {
+  monochromaticBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[1][index];
   });
 
   const triadicBlocks = document.querySelectorAll(".triadic");
-  triadicBlocks.forEach(function(block, index) {
+  triadicBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[2][index];
   });
 
   const complementaryBlocks = document.querySelectorAll(".complementary");
-  complementaryBlocks.forEach(function(block, index) {
+  complementaryBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[3][index];
   });
 
   const splitComplementaryBlocks = document.querySelectorAll(".split-complementary");
-  splitComplementaryBlocks.forEach(function(block, index) {
+  splitComplementaryBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[4][index];
   });
 
   const doubleComplementaryBlocks = document.querySelectorAll(".double-complementary");
-  doubleComplementaryBlocks.forEach(function(block, index) {
+  doubleComplementaryBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[5][index];
   });
 
   const squareBlocks = document.querySelectorAll(".square-colors");
-  squareBlocks.forEach(function(block, index) {
+  squareBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[6][index];
   });
 
   const compoundBlocks = document.querySelectorAll(".compound-colors");
-  compoundBlocks.forEach(function(block, index) {
+  compoundBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[7][index];
   });
 
   const shadesBlocks = document.querySelectorAll(".shades-colors");
-  shadesBlocks.forEach(function(block, index) {
+  shadesBlocks.forEach(function (block, index) {
     block.style.backgroundColor = colorSchemes.allSchemes[8][index];
   });
 
@@ -95,7 +95,7 @@ function generateColorSchemes(color) {
   const compound = generateCompoundColors(h, s, l);
   const shades = generateShadesColors(h, s, l);
   const allSchemes = [analogous, monochromatic, triadic, complementary, splitComplementary, doubleSplitComplementary, square, compound, shades];
-  
+
   return { allSchemes };
 
 }
@@ -115,9 +115,9 @@ function generateMonochromaticColors(h, s, l) {
   const main = `hsl(${h}, ${s}%, ${l}%)`;
   const monochromatic1 = `hsl(${h}, ${s}%, ${Math.floor(Math.random() * 40)}%)`;
   const monochromatic2 = `hsl(${h}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
-  const monochromatic3 = `hsl(${h}, ${Math.floor(s * 0.5)}%, ${Math.floor(Math.random() * 20 + 30)}%)`; 
+  const monochromatic3 = `hsl(${h}, ${Math.floor(s * 0.5)}%, ${Math.floor(Math.random() * 20 + 30)}%)`;
   const monochromatic4 = `hsl(${h}, ${Math.floor(s * 0.25)}%, ${Math.floor(Math.random() * 20 + 10)}%)`;
-  return [  main, monochromatic2, monochromatic3, monochromatic1, monochromatic4];
+  return [main, monochromatic2, monochromatic3, monochromatic1, monochromatic4];
 }
 
 function generateTriadicColors(h, s, l) {
@@ -128,7 +128,7 @@ function generateTriadicColors(h, s, l) {
   const triadic4 = `hsl(${(h + 240) % 360}, ${Math.floor(s * 0.25)}%, ${Math.floor(Math.random() * 20 + 10)}%)`;
   return [main, triadic1, triadic2, triadic3, triadic4];
 }
-  
+
 function generateComplementaryColors(h, s, l) {
   const main = `hsl(${h}, ${s}%, ${l}%)`;
   const complementary1 = `hsl(${(h + 180) % 360}, ${s}%, ${Math.floor(Math.random() * 50 + 50)}%)`;
@@ -164,27 +164,27 @@ function generateSquareColors(h, s, l) {
   const square3 = `hsl(${(h + 270) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
   const square4 = `hsl(${(h + 45) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
   return [main, square1, square2, square3, square4];
-  }
-  
-  
-  function generateCompoundColors(h, s, l) {
+}
+
+
+function generateCompoundColors(h, s, l) {
   const main = `hsl(${h}, ${s}%, ${l}%)`;
   const compound1 = `hsl(${(h + 30) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
   const compound2 = `hsl(${(h + 150) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
   const compound3 = `hsl(${(h + 210) % 360}, ${s}%, ${Math.floor(Math.random() * 30 + 70)}%)`;
   const compound4 = `hsl(${(h + 330) % 360}, ${Math.floor(s * 0.75)}%, ${Math.floor(Math.random() * 20 + 50)}%)`;
   return [main, compound1, compound2, compound3, compound4];
-  }
-  
-  
-  function generateShadesColors(h, s, l) {
+}
+
+
+function generateShadesColors(h, s, l) {
   const shades1 = `hsl(${h}, ${Math.floor(s * 0.25)}%, ${Math.floor(l * 0.25)}%)`;
   const shades2 = `hsl(${h}, ${Math.floor(s * 0.5)}%, ${Math.floor(l * 0.5)}%)`;
   const shades3 = `hsl(${h}, ${Math.floor(s * 0.75)}%, ${Math.floor(l * 0.75)}%)`;
   const shades4 = `hsl(${h}, ${Math.floor(s * 0.9)}%, ${Math.floor(l * 0.9)}%)`;
   const main = `hsl(${h}, ${s}%, ${l}%)`;
-  return [main, shades4, shades3, shades2, shades1 ];
-  }
+  return [main, shades4, shades3, shades2, shades1];
+}
 
 
 
@@ -243,7 +243,7 @@ function hexToHsl(hex) {
 
 // Randomize
 const randomizeBtn = document.getElementById('randomize');
-randomizeBtn.addEventListener("click", function() {
+randomizeBtn.addEventListener("click", function () {
   const hexChars = "0123456789abcdef";
   let randomHex = "#";
   for (let i = 0; i < 6; i++) {
@@ -254,7 +254,7 @@ randomizeBtn.addEventListener("click", function() {
   document.getElementById("main-color").dispatchEvent(event);
 });
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function (event) {
   if (event.code === 'Space') {
     randomizeBtn.click();
     event.preventDefault();
@@ -270,16 +270,16 @@ document.addEventListener("keydown", function(event) {
 const colorBlocks = document.querySelectorAll('.color-block, .main-block');
 const option = document.querySelector('.option');
 
-mainColor.addEventListener('change', function() {
+mainColor.addEventListener('change', function () {
   const backgroundColor = mainColor.value;
   option.style.backgroundColor = backgroundColor;
-  
+
   const r = parseInt(backgroundColor.slice(1, 3), 16);
   const g = parseInt(backgroundColor.slice(3, 5), 16);
   const b = parseInt(backgroundColor.slice(5, 7), 16);
-  
+
   const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-  
+
   if (luminance > 0.5) {
     option.querySelector('label').style.color = 'black';
   } else {
@@ -480,7 +480,7 @@ faqQuestions.forEach((faqQuestion, index) => {
 function highlightToolbar() {
   var toolbar = document.getElementById("toolbar");
   toolbar.classList.add("highlighted");
-  setTimeout(function() {
+  setTimeout(function () {
     toolbar.classList.remove("highlighted");
   }, 1000);
 }
@@ -503,7 +503,7 @@ function hideTipBar() {
 
 closeBtn.addEventListener('click', hideTipBar);
 
-randomizeBtn.addEventListener('click', function(event) {
+randomizeBtn.addEventListener('click', function (event) {
   if (!localStorage.getItem('tipShown')) {
     setTimeout(showTipBar, 2000);
     localStorage.setItem('tipShown', true);
@@ -521,11 +521,11 @@ if (localStorage.getItem('tipShown')) {
 // hamburger menu 
 
 if (window.innerWidth < 1100) {
-    const hamburger = document.querySelector('#hamburger');
-    const mobileMenu = document.querySelector('.menu');
-  
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('active');
-      mobileMenu.classList.toggle('hide')
-    });
-  }
+  const hamburger = document.querySelector('#hamburger');
+  const mobileMenu = document.querySelector('.menu');
+
+  hamburger.addEventListener('click', function () {
+    this.classList.toggle('active');
+    mobileMenu.classList.toggle('hide')
+  });
+}

@@ -1,3 +1,9 @@
+// Locked state
+let textIsLocked = false;
+let backgroundIsLocked = false;
+let primaryIsLocked = false;
+let secondaryIsLocked = false;
+let accentIsLocked = false;
 // showing hex value
 
 const colorPickers = document.querySelectorAll('.colorpicker');
@@ -5,7 +11,7 @@ const hexInputs = document.querySelectorAll('.hex-input');
 
 function attachColorPickerListeners(colorPickers, hexInputs) {
   for (let i = 0; i < colorPickers.length; i++) {
-    colorPickers[i].addEventListener('change', function() {
+    colorPickers[i].addEventListener('change', function () {
       const colorValue = this.value;
       const index = Array.prototype.indexOf.call(colorPickers, this);
       hexInputs[index].value = colorValue;
@@ -13,7 +19,7 @@ function attachColorPickerListeners(colorPickers, hexInputs) {
       updateUrlParams();
     });
 
-    hexInputs[i].addEventListener('change', function() {
+    hexInputs[i].addEventListener('change', function () {
       const hexValue = this.value;
       const index = Array.prototype.indexOf.call(hexInputs, this);
       colorPickers[index].value = hexValue;
@@ -39,9 +45,9 @@ attachColorPickerListeners(colorPickers, hexInputs);
 
 
 for (let i = 0; i < hexInputs.length; i++) {
-  hexInputs[i].addEventListener('paste', function() {
+  hexInputs[i].addEventListener('paste', function () {
     const inputEl = this;
-    setTimeout(function() {
+    setTimeout(function () {
       const hexValue = inputEl.value;
       const index = Array.prototype.indexOf.call(hexInputs, inputEl);
       colorPickers[index].value = hexValue;
@@ -105,29 +111,29 @@ function removeColorSource() {
 }
 
 function randomizeColors() {
-    let randomColorSet;
-  
+  let randomColorSet;
+
   if (colorSetIndex >= shuffledColors.length) {
     shuffledColors = shuffleArray(colorSets);
     colorSetIndex = 0;
   }
-  
+
   randomColorSet = shuffledColors[colorSetIndex];
   colorSetIndex++;
-  
+
   lastSelectedColorSet = randomColorSet;
 
-  primaryColor.value = randomColorSet.colors[0];
-  secondaryColor.value = randomColorSet.colors[1];
-  primbuttnColor.value = randomColorSet.colors[2];
-  secbuttnColor.value = randomColorSet.colors[3];
-  accentColor.value = randomColorSet.colors[4];
+  primaryColor.value = textIsLocked ? primaryColor.value : randomColorSet.colors[0];
+  secondaryColor.value = backgroundIsLocked ? secondaryColor.value : randomColorSet.colors[1];
+  primbuttnColor.value = primaryIsLocked ? primbuttnColor.value : randomColorSet.colors[2];
+  secbuttnColor.value = secondaryIsLocked ? secbuttnColor.value : randomColorSet.colors[3];
+  accentColor.value = accentIsLocked ? accentColor.value : randomColorSet.colors[4];
 
-  document.documentElement.style.setProperty('--primary', randomColorSet.colors[0]);
-  document.documentElement.style.setProperty('--secondary', randomColorSet.colors[1]);
-  document.documentElement.style.setProperty('--primbuttn', randomColorSet.colors[2]);
-  document.documentElement.style.setProperty('--secbuttn', randomColorSet.colors[3]);
-  document.documentElement.style.setProperty('--accent', randomColorSet.colors[4]);
+  textIsLocked ? null : document.documentElement.style.setProperty('--primary', randomColorSet.colors[0]);
+  backgroundIsLocked ? null : document.documentElement.style.setProperty('--secondary', randomColorSet.colors[1]);
+  primaryIsLocked ? null : document.documentElement.style.setProperty('--primbuttn', randomColorSet.colors[2]);
+  secondaryIsLocked ? null : document.documentElement.style.setProperty('--secbuttn', randomColorSet.colors[3]);
+  accentIsLocked ? null : document.documentElement.style.setProperty('--accent', randomColorSet.colors[4]);
 
   if (randomColorSet.source) {
     const sourceDiv = document.createElement('div');
@@ -135,7 +141,7 @@ function randomizeColors() {
     sourceDiv.classList.add('color-source');
     document.body.appendChild(sourceDiv);
   }
-  
+
   function setHexInputValues(hexInputs, colors) {
     for (let i = 0; i < hexInputs.length; i++) {
       hexInputs[i].value = colors[i];
@@ -151,7 +157,7 @@ function randomizeColors() {
   // contrast checker
 
   const primbuttnColorValue = primbuttnColor.value;
-  
+
   primaryButtons.forEach(primaryButton => {
     const primaryColorValue = primaryColor.value;
     const secondaryColorValue = secondaryColor.value;
@@ -186,7 +192,7 @@ function randomizeColors() {
   });
 
   const secbuttnColorValue = secbuttnColor.value;
-  
+
   faqQuestions.forEach(faqQuestion => {
     const primaryColorValue = primaryColor.value;
     const secondaryColorValue = secondaryColor.value;
@@ -219,7 +225,7 @@ function randomizeColors() {
     }
 
   });
-  
+
   secondaryButtons.forEach(secondaryButton => {
     const primaryColorValue = primaryColor.value;
     const secondaryColorValue = secondaryColor.value;
@@ -290,7 +296,7 @@ function randomizeColors() {
 
 
   const accentColorValue = accentColor.value;
-      
+
   const primaryColorValue = primaryColor.value;
   const secondaryColorValue = secondaryColor.value;
 
@@ -346,23 +352,23 @@ primaryColor.addEventListener('input', () => {
 });
 
 secondaryColor.addEventListener('input', () => {
-    const secondaryColorValue = secondaryColor.value;
-    document.documentElement.style.setProperty('--secondary', secondaryColorValue);
+  const secondaryColorValue = secondaryColor.value;
+  document.documentElement.style.setProperty('--secondary', secondaryColorValue);
 });
 
 primbuttnColor.addEventListener('input', () => {
-    const primbuttnColorValue = primbuttnColor.value;
-    document.documentElement.style.setProperty('--primbuttn', primbuttnColorValue);
+  const primbuttnColorValue = primbuttnColor.value;
+  document.documentElement.style.setProperty('--primbuttn', primbuttnColorValue);
 });
 
 secbuttnColor.addEventListener('input', () => {
-    const secbuttnColorValue = secbuttnColor.value;
-    document.documentElement.style.setProperty('--secbuttn', secbuttnColorValue);
+  const secbuttnColorValue = secbuttnColor.value;
+  document.documentElement.style.setProperty('--secbuttn', secbuttnColorValue);
 });
 
 accentColor.addEventListener('input', () => {
-    const accentColorValue = accentColor.value;
-    document.documentElement.style.setProperty('--accent', accentColorValue);
+  const accentColorValue = accentColor.value;
+  document.documentElement.style.setProperty('--accent', accentColorValue);
 });
 
 primaryColor.addEventListener('input', checkContrast);
@@ -420,9 +426,9 @@ Thanks for using RealtimeColors.com!`;
 });
 
 function hexToRgb(hex) {
-  const r = parseInt(hex.substring(1,3), 16);
-  const g = parseInt(hex.substring(3,5), 16);
-  const b = parseInt(hex.substring(5,7), 16);
+  const r = parseInt(hex.substring(1, 3), 16);
+  const g = parseInt(hex.substring(3, 5), 16);
+  const b = parseInt(hex.substring(5, 7), 16);
   return `${r}, ${g}, ${b}`;
 }
 
@@ -438,7 +444,7 @@ function dataURItoBlob(dataURI) {
 }
 
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
   if (event.ctrlKey && event.key === 'e') {
     event.preventDefault();
     document.getElementById('export').click();
@@ -477,7 +483,7 @@ function getBrightness(color) {
 
 function debounce(func, wait) {
   let timeout;
-  return function(...args) {
+  return function (...args) {
     const context = this;
     clearTimeout(timeout);
     timeout = setTimeout(() => {
@@ -504,7 +510,7 @@ const accentColorClass = document.querySelector('.accent');
 function checkContrast() {
   primbuttnColor.addEventListener('input', debounce(() => {
     const primbuttnColorValue = primbuttnColor.value;
-    
+
     primaryButtons.forEach(primaryButton => {
       const primaryColorValue = primaryColor.value;
       const secondaryColorValue = secondaryColor.value;
@@ -542,7 +548,7 @@ function checkContrast() {
 
   secbuttnColor.addEventListener('input', debounce(() => {
     const secbuttnColorValue = secbuttnColor.value;
-    
+
     faqQuestions.forEach(faqQuestion => {
       const primaryColorValue = primaryColor.value;
       const secondaryColorValue = secondaryColor.value;
@@ -580,7 +586,7 @@ function checkContrast() {
 
   secbuttnColor.addEventListener('input', debounce(() => {
     const secbuttnColorValue = secbuttnColor.value;
-    
+
     secondaryButtons.forEach(secondaryButton => {
       const primaryColorValue = primaryColor.value;
       const secondaryColorValue = secondaryColor.value;
@@ -619,7 +625,7 @@ function checkContrast() {
 
   secbuttnColor.addEventListener('input', debounce(() => {
     const secbuttnColorValue = secbuttnColor.value;
-    
+
     partTwo.forEach(partTwo => {
       const primaryColorValue = primaryColor.value;
       const secondaryColorValue = secondaryColor.value;
@@ -657,35 +663,35 @@ function checkContrast() {
 
   accentColor.addEventListener('input', debounce(() => {
     const accentColorValue = accentColor.value;
-    
-      const primaryColorValue = primaryColor.value;
-      const secondaryColorValue = secondaryColor.value;
 
-      const primaryBrightness = getBrightness(primaryColorValue);
-      const secondaryBrightness = getBrightness(secondaryColorValue);
+    const primaryColorValue = primaryColor.value;
+    const secondaryColorValue = secondaryColor.value;
 
-      const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+    const primaryBrightness = getBrightness(primaryColorValue);
+    const secondaryBrightness = getBrightness(secondaryColorValue);
 
-      if (primaryBrightness < secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          accentColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          accentColorClass.style.color = 'var(--primary)';
-        }
+    const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+
+    if (primaryBrightness < secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        accentColorClass.style.color = 'var(--secondary)';
       }
-
-      if (primaryBrightness > secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          accentColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          accentColorClass.style.color = 'var(--primary)';
-        }
+      else if (contrastRatio > 4.5) {
+        accentColorClass.style.color = 'var(--primary)';
       }
+    }
+
+    if (primaryBrightness > secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        accentColorClass.style.color = 'var(--secondary)';
+      }
+      else if (contrastRatio > 4.5) {
+        accentColorClass.style.color = 'var(--primary)';
+      }
+    }
 
   }));
-  
+
 }
 
 
@@ -794,7 +800,7 @@ function applyColorsFromSlug() {
     hexInputs[2].value = primbuttnColor.value;
     hexInputs[3].value = secbuttnColor.value;
     hexInputs[4].value = accentColor.value;
-  } 
+  }
   else {
     const primaryColorValue = primaryColor.value;
     const secondaryColorValue = secondaryColor.value;
@@ -807,180 +813,180 @@ function applyColorsFromSlug() {
     window.history.replaceState({}, document.title, `?colors=${defaultSlug}`);
   }
 
-  
+
   attachColorPickerListeners(colorPickers, hexInputs);
 
 
-    // contrast checker
+  // contrast checker
 
-    const primbuttnColorValue = primbuttnColor.value;
-  
-    primaryButtons.forEach(primaryButton => {
-      const primaryColorValue = primaryColor.value;
-      const secondaryColorValue = secondaryColor.value;
-  
-      const primaryBrightness = getBrightness(primaryColorValue);
-      const secondaryBrightness = getBrightness(secondaryColorValue);
-  
-      const contrastRatio = getContrastRatio(primbuttnColorValue, primaryColorValue);
-  
-      if (primaryBrightness < secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          primaryButton.style.color = 'var(--secondary)';
-          primbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          primaryButton.style.color = 'var(--primary)';
-          primbuttnColorClass.style.color = 'var(--primary)';
-        }
+  const primbuttnColorValue = primbuttnColor.value;
+
+  primaryButtons.forEach(primaryButton => {
+    const primaryColorValue = primaryColor.value;
+    const secondaryColorValue = secondaryColor.value;
+
+    const primaryBrightness = getBrightness(primaryColorValue);
+    const secondaryBrightness = getBrightness(secondaryColorValue);
+
+    const contrastRatio = getContrastRatio(primbuttnColorValue, primaryColorValue);
+
+    if (primaryBrightness < secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        primaryButton.style.color = 'var(--secondary)';
+        primbuttnColorClass.style.color = 'var(--secondary)';
       }
-  
-      if (primaryBrightness > secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          primaryButton.style.color = 'var(--secondary)';
-          primbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          primaryButton.style.color = 'var(--primary)';
-          primbuttnColorClass.style.color = 'var(--primary)';
-        }
+      else if (contrastRatio > 4.5) {
+        primaryButton.style.color = 'var(--primary)';
+        primbuttnColorClass.style.color = 'var(--primary)';
       }
-  
-    });
-  
-    const secbuttnColorValue = secbuttnColor.value;
-    
-    faqQuestions.forEach(faqQuestion => {
-      const primaryColorValue = primaryColor.value;
-      const secondaryColorValue = secondaryColor.value;
-  
-      const primaryBrightness = getBrightness(primaryColorValue);
-      const secondaryBrightness = getBrightness(secondaryColorValue);
-  
-      const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
-  
-      if (primaryBrightness < secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          faqQuestion.style.color = 'var(--secondary)';
-          secbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          faqQuestion.style.color = 'var(--primary)';
-          secbuttnColorClass.style.color = 'var(--primary)';
-        }
+    }
+
+    if (primaryBrightness > secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        primaryButton.style.color = 'var(--secondary)';
+        primbuttnColorClass.style.color = 'var(--secondary)';
       }
-  
-      if (primaryBrightness > secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          faqQuestion.style.color = 'var(--secondary)';
-          secbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          faqQuestion.style.color = 'var(--primary)';
-          secbuttnColorClass.style.color = 'var(--primary)';
-        }
+      else if (contrastRatio > 4.5) {
+        primaryButton.style.color = 'var(--primary)';
+        primbuttnColorClass.style.color = 'var(--primary)';
       }
-  
-    });
-    
-    secondaryButtons.forEach(secondaryButton => {
-      const primaryColorValue = primaryColor.value;
-      const secondaryColorValue = secondaryColor.value;
-  
-      const primaryBrightness = getBrightness(primaryColorValue);
-      const secondaryBrightness = getBrightness(secondaryColorValue);
-  
-      const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
-  
-      if (primaryBrightness < secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          secondaryButton.style.color = 'var(--secondary)';
-          secbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          secondaryButton.style.color = 'var(--primary)';
-          secbuttnColorClass.style.color = 'var(--primary)';
-        }
+    }
+
+  });
+
+  const secbuttnColorValue = secbuttnColor.value;
+
+  faqQuestions.forEach(faqQuestion => {
+    const primaryColorValue = primaryColor.value;
+    const secondaryColorValue = secondaryColor.value;
+
+    const primaryBrightness = getBrightness(primaryColorValue);
+    const secondaryBrightness = getBrightness(secondaryColorValue);
+
+    const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
+
+    if (primaryBrightness < secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        faqQuestion.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
       }
-  
-      if (primaryBrightness > secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          secondaryButton.style.color = 'var(--secondary)';
-          secbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          secondaryButton.style.color = 'var(--primary)';
-          secbuttnColorClass.style.color = 'var(--primary)';
-        }
+      else if (contrastRatio > 4.5) {
+        faqQuestion.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
       }
-  
-    });
-  
-  
-    partTwo.forEach(partTwo => {
-      const primaryColorValue = primaryColor.value;
-      const secondaryColorValue = secondaryColor.value;
-  
-      const primaryBrightness = getBrightness(primaryColorValue);
-      const secondaryBrightness = getBrightness(secondaryColorValue);
-  
-      const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
-  
-      if (primaryBrightness < secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          partTwo.style.color = 'var(--secondary)';
-          secbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          partTwo.style.color = 'var(--primary)';
-          secbuttnColorClass.style.color = 'var(--primary)';
-        }
+    }
+
+    if (primaryBrightness > secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        faqQuestion.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
       }
-  
-      if (primaryBrightness > secondaryBrightness) {
-        if (contrastRatio < 4.5) {
-          partTwo.style.color = 'var(--secondary)';
-          secbuttnColorClass.style.color = 'var(--secondary)';
-        }
-        else if (contrastRatio > 4.5) {
-          partTwo.style.color = 'var(--primary)';
-          secbuttnColorClass.style.color = 'var(--primary)';
-        }
+      else if (contrastRatio > 4.5) {
+        faqQuestion.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
       }
-  
-    });
+    }
+
+  });
+
+  secondaryButtons.forEach(secondaryButton => {
+    const primaryColorValue = primaryColor.value;
+    const secondaryColorValue = secondaryColor.value;
+
+    const primaryBrightness = getBrightness(primaryColorValue);
+    const secondaryBrightness = getBrightness(secondaryColorValue);
+
+    const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
+
+    if (primaryBrightness < secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        secondaryButton.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
+      }
+      else if (contrastRatio > 4.5) {
+        secondaryButton.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
+      }
+    }
+
+    if (primaryBrightness > secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        secondaryButton.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
+      }
+      else if (contrastRatio > 4.5) {
+        secondaryButton.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
+      }
+    }
+
+  });
 
 
-      const accentColorValue = accentColor.value;
-      
-        const primaryColorValue = primaryColor.value;
-        const secondaryColorValue = secondaryColor.value;
-  
-        const primaryBrightness = getBrightness(primaryColorValue);
-        const secondaryBrightness = getBrightness(secondaryColorValue);
-  
-        const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
-  
-        if (primaryBrightness < secondaryBrightness) {
-          if (contrastRatio < 4.5) {
-            accentColorClass.style.color = 'var(--secondary)';
-          }
-          else if (contrastRatio > 4.5) {
-            accentColorClass.style.color = 'var(--primary)';
-          }
-        }
-  
-        if (primaryBrightness > secondaryBrightness) {
-          if (contrastRatio < 4.5) {
-            accentColorClass.style.color = 'var(--secondary)';
-          }
-          else if (contrastRatio > 4.5) {
-            accentColorClass.style.color = 'var(--primary)';
-          }
-        }
-  
+  partTwo.forEach(partTwo => {
+    const primaryColorValue = primaryColor.value;
+    const secondaryColorValue = secondaryColor.value;
 
-    updateColors();
+    const primaryBrightness = getBrightness(primaryColorValue);
+    const secondaryBrightness = getBrightness(secondaryColorValue);
+
+    const contrastRatio = getContrastRatio(secbuttnColorValue, primaryColorValue);
+
+    if (primaryBrightness < secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        partTwo.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
+      }
+      else if (contrastRatio > 4.5) {
+        partTwo.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
+      }
+    }
+
+    if (primaryBrightness > secondaryBrightness) {
+      if (contrastRatio < 4.5) {
+        partTwo.style.color = 'var(--secondary)';
+        secbuttnColorClass.style.color = 'var(--secondary)';
+      }
+      else if (contrastRatio > 4.5) {
+        partTwo.style.color = 'var(--primary)';
+        secbuttnColorClass.style.color = 'var(--primary)';
+      }
+    }
+
+  });
+
+
+  const accentColorValue = accentColor.value;
+
+  const primaryColorValue = primaryColor.value;
+  const secondaryColorValue = secondaryColor.value;
+
+  const primaryBrightness = getBrightness(primaryColorValue);
+  const secondaryBrightness = getBrightness(secondaryColorValue);
+
+  const contrastRatio = getContrastRatio(accentColorValue, primaryColorValue);
+
+  if (primaryBrightness < secondaryBrightness) {
+    if (contrastRatio < 4.5) {
+      accentColorClass.style.color = 'var(--secondary)';
+    }
+    else if (contrastRatio > 4.5) {
+      accentColorClass.style.color = 'var(--primary)';
+    }
+  }
+
+  if (primaryBrightness > secondaryBrightness) {
+    if (contrastRatio < 4.5) {
+      accentColorClass.style.color = 'var(--secondary)';
+    }
+    else if (contrastRatio > 4.5) {
+      accentColorClass.style.color = 'var(--primary)';
+    }
+  }
+
+
+  updateColors();
 
 }
 
@@ -1002,14 +1008,14 @@ function updateColors() {
   const slug = `${primaryColorValue}-${secondaryColorValue}-${primbuttnColorValue}-${secbuttnColorValue}-${accentColorValue}`;
 
   window.history.replaceState({}, document.title, `?colors=${slug}`);
-  
+
   document.documentElement.style.setProperty('--primary', `#${primaryColorValue}`);
   document.documentElement.style.setProperty('--secondary', `#${secondaryColorValue}`);
   document.documentElement.style.setProperty('--primbuttn', `#${primbuttnColorValue}`);
   document.documentElement.style.setProperty('--secbuttn', `#${secbuttnColorValue}`);
-  document.documentElement.style.setProperty('--accent', `#${accentColorValue}`);  
+  document.documentElement.style.setProperty('--accent', `#${accentColorValue}`);
 }
-  
+
 primaryColor.addEventListener('change', updateColors);
 secondaryColor.addEventListener('change', updateColors);
 primbuttnColor.addEventListener('change', updateColors);
@@ -1037,14 +1043,14 @@ function addSlugToArray() {
 
 window.addEventListener("load", addSlugToArray);
 
-window.addEventListener("popstate", function() {
+window.addEventListener("popstate", function () {
   let urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has("colors")) {
     addSlugToArray();
   }
 });
 
-window.addEventListener("hashchange", function() {
+window.addEventListener("hashchange", function () {
   let urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has("colors")) {
     addSlugToArray();
@@ -1052,7 +1058,7 @@ window.addEventListener("hashchange", function() {
 });
 
 let oldColors = "";
-setInterval(function() {
+setInterval(function () {
   let urlParams = new URLSearchParams(window.location.search);
   let newColors = urlParams.get("colors");
   if (newColors !== null && newColors !== oldColors) {
@@ -1061,13 +1067,13 @@ setInterval(function() {
   }
 });
 
-document.getElementById("undo").addEventListener("click", function() {
+document.getElementById("undo").addEventListener("click", function () {
   if (currentSlugIndex > 0) {
     currentSlugIndex--;
     let slug = urlSlugs[currentSlugIndex];
     let url = window.location.origin + window.location.pathname + slug;
     window.history.pushState({}, "", url);
-    
+
     applyColorsFromSlug(slug);
     removeColorSource();
   }
@@ -1075,20 +1081,20 @@ document.getElementById("undo").addEventListener("click", function() {
 
 
 
-document.getElementById("redo").addEventListener("click", function() {
+document.getElementById("redo").addEventListener("click", function () {
   if (currentSlugIndex < urlSlugs.length - 1) {
     currentSlugIndex++;
     let slug = urlSlugs[currentSlugIndex];
     let url = window.location.origin + window.location.pathname + slug;
     window.history.pushState({}, "", url);
-    
+
     applyColorsFromSlug(slug);
     removeColorSource();
   }
 });
 
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
   if (event.ctrlKey && event.key === 'z') {
     document.getElementById('undo').click();
   } else if (event.ctrlKey && event.shiftKey && (event.key === 'Z' || event.key === 'z')) {
@@ -1101,13 +1107,13 @@ document.addEventListener('keydown', function(event) {
 function updateUndoRedoButtons() {
   let undoButton = document.getElementById("undo");
   let redoButton = document.getElementById("redo");
-  
+
   if (currentSlugIndex === 0) {
     undoButton.classList.add("disabled");
   } else {
     undoButton.classList.remove("disabled");
   }
-  
+
   if (currentSlugIndex === urlSlugs.length - 1) {
     redoButton.classList.add("disabled");
   } else {
@@ -1242,7 +1248,74 @@ const checkForUpdates = () => {
   setTimeout(checkForUpdates, 100);
 };
 checkForUpdates();
-      
+
+
+// Lock checking checking
+const textColorButton = document.querySelector('.prim');
+const backgroundColorButton = document.querySelector('.sec');
+const primaryColorButton = document.querySelector('.primbuttn');
+const secondaryColorButton = document.querySelector('.secbuttn');
+const accentColorButton = document.querySelector('.accent');
+
+const toggleLock = (button) => {
+  const lock = button.querySelector('.lock');
+  const colorPicker = button.querySelector('.colorpicker');
+  const hexInput = button.querySelector('.hex-input');
+  if (lock.classList.contains('fa-lock')) {
+    lock.classList.remove('fa-lock');
+    lock.classList.add('fa-unlock');
+    colorPicker.disabled = true;
+    hexInput.disabled = true;
+  } else if (lock.classList.contains('fa-unlock')) {
+    lock.classList.remove('fa-unlock');
+    lock.classList.add('fa-lock');
+    colorPicker.disabled = false;
+    hexInput.disabled = false;
+  }
+};
+
+const checkLockState = (button) => {
+  const lock = button.querySelector('.lock');
+  if (lock.classList.contains('fa-lock')) {
+    return true;
+  } else if (lock.classList.contains('fa-unlock')) {
+    return false;
+  }
+}
+
+textColorButton.addEventListener('click', () => {
+  toggleLock(textColorButton);
+  const locked = checkLockState(textColorButton);
+  textIsLocked = locked;
+});
+
+backgroundColorButton.addEventListener('click', () => {
+  toggleLock(backgroundColorButton);
+  const locked = checkLockState(backgroundColorButton);
+  backgroundIsLocked = locked;
+});
+
+primaryColorButton.addEventListener('click', () => {
+  toggleLock(primaryColorButton);
+  const locked = checkLockState(primaryColorButton);
+  primaryIsLocked = locked;
+}
+);
+
+secondaryColorButton.addEventListener('click', () => {
+  toggleLock(secondaryColorButton);
+  const locked = checkLockState(secondaryColorButton);
+  secondaryIsLocked = locked;
+}
+
+);
+
+accentColorButton.addEventListener('click', () => {
+  toggleLock(accentColorButton);
+  const locked = checkLockState(accentColorButton);
+  accentIsLocked = locked;
+});
+
 
 
 
