@@ -14,12 +14,61 @@ function attachColorPickerListeners(colorPickers, hexInputs) {
     });
 
     hexInputs[i].addEventListener('change', function() {
-      const hexValue = this.value;
-      const index = Array.prototype.indexOf.call(hexInputs, this);
-      colorPickers[index].value = hexValue;
-
-      updateUrlParams();
+      let hexValue = this.value.trim().substring(0, 7);
+      if (hexValue.length === 3 || hexValue.length === 4 || hexValue.length === 6 || hexValue.length === 7) {
+        if (hexValue[0] !== '#') {
+          hexValue = '#' + hexValue;
+        }
+        if (hexValue.length === 5) {
+          hexValue += 'FF';
+        }
+        const index = Array.prototype.indexOf.call(hexInputs, this);
+        colorPickers[index].value = hexValue;
+        updateUrlParams();
+      } else {
+        this.value = hexValue;
+      }
     });
+    
+    hexInputs[i].addEventListener('paste', function(event) {
+      event.preventDefault();
+      const clipboardData = event.clipboardData || window.clipboardData;
+      let hexValue = clipboardData.getData('text').trim();
+      
+      hexValue = hexValue.substring(0, 6);
+      if (hexValue.length > 0 && !isNaN(parseInt(hexValue, 16))) {
+        if (hexValue.length === 3 || hexValue.length === 4 || hexValue.length === 6 || hexValue.length === 7) {
+          if (hexValue[0] !== '#') {
+            hexValue = '#' + hexValue;
+          }
+          if (hexValue.length === 5) {
+            hexValue += 'FF';
+          }
+          const index = Array.prototype.indexOf.call(hexInputs, this);
+          colorPickers[index].value = hexValue;
+          updateUrlParams();
+        }
+      }
+    });
+    
+    hexInputs[i].addEventListener('textInput', function(event) {
+      const maxLength = 7;
+      const hexValue = this.value;
+      const selectionStart = this.selectionStart;
+      const selectionEnd = this.selectionEnd;
+      let newValue = hexValue.substring(0, selectionStart) + event.data + hexValue.substring(selectionEnd, hexValue.length);
+    
+      if (newValue.length > maxLength) {
+        event.preventDefault();
+        newValue = newValue.substring(0, maxLength);
+      
+        const index = Array.prototype.indexOf.call(hexInputs, this);
+        colorPickers[index].value = newValue;
+        updateUrlParams();
+      }
+    });
+    
+    
   }
 }
 
@@ -38,18 +87,7 @@ function updateUrlParams() {
 attachColorPickerListeners(colorPickers, hexInputs);
 
 
-for (let i = 0; i < hexInputs.length; i++) {
-  hexInputs[i].addEventListener('paste', function() {
-    const inputEl = this;
-    setTimeout(function() {
-      const hexValue = inputEl.value;
-      const index = Array.prototype.indexOf.call(hexInputs, inputEl);
-      colorPickers[index].value = hexValue;
 
-      updateUrlParams();
-    }, 0);
-  });
-}
 
 
 
