@@ -15,17 +15,6 @@ Color palettes are too generic and often make it harder for designers or clients
 ## The Solution
 A tool that uses simple UI elements to visualize color palettes on a real website. The websites works instantaneously and offers users the ability to export their color palettes to use them anywhere. 
 
-# How to Use
-You can enter your favorite colors using the colorpicking tool or use the Randomize button / Spacebar to generate random (pre-selected and curated) trendy colors.
-
-## Contrast Checker
-When the colors for the primary button, secondary button, and accent are being selected, the button text may swap between the existing text color and background color in order to pass the contrast tests (AAA and AA) and make the text readable. This will help make a decision. 
-
-The contrast checker will not choose any other color out of the selected colors, and whether there is harmony or contrast on the page is completely up to your choices.
-
-# Limitations and Future Considerations
-For now, it's not possible to paste a HEX or RGB value, mainly because the tool is using type="color" for the inputs, which shows a colorpicker with limited abilities depending on the browser. For the future, the colorpicker will change into something more compatible.
-
 # License
 This project is under the CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives) license.
 1. You must give appropriate credit, provide a link to the license, and indicate if changes were made.
