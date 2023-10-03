@@ -1,0 +1,84 @@
+name: 🐞 Bug
+description: Create a report to help us improve
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: checkboxes
+    id: has-searched-issues
+    attributes:
+      label: Is there an existing issue for this?
+      description: Have you searched the existing issues for this feature request?
+      options:
+        - label: I have searched the existing issues
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: What went wrong?
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction Steps
+      description: Steps to reproduce the behavior
+      placeholder: Describe the actions that led up to the bug
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+      placeholder: Drag and drop images here
+    validations:
+      required: false
+  - type: textarea
+    id: device-info
+    attributes:
+      label: Device Info
+      description: |
+        **Desktop (please complete the following information):**
+        - OS: [e.g. iOS]
+        - Browser: [e.g. chrome, safari]
+        - Version: [e.g. 22]
+
+        **Smartphone (please complete the following information):**
+        - Device: [e.g. iPhone6]
+        - OS: [e.g. iOS8.1]
+        - Browser: [e.g. stock browser, safari]
+        - Version: [e.g. 22]
+      placeholder: |
+        - OS: Windows 11
+        - Browser: Chrome
+        - Version: Version 117.0.5938.132 (Official Build) (64-bit)
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
+      placeholder: Anything else we should know?
+    validations:
+      required: false
